@@ -1,0 +1,6 @@
+id_ruta,nombre,zona_geografica,id_empleado_responsable,dia_semana
+1,Ruta Centro,Centro Histórico,1,Lunes
+2,Ruta Norte,Zona Norte de la Ciudad,2,Martes
+3,Ruta Sur,Zona Sur de la Ciudad,4,Miércoles
+4,Ruta Este,Zona Este de la Ciudad,6,Jueves
+5,Ruta Oeste,Zona Oeste de la Ciudad,1,Viernes

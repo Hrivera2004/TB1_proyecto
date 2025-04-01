@@ -1,0 +1,9 @@
+id_cliente,nombre_tienda,tipo_tienda,propietario,email,telefono,direccion,ciudad,codigo_postal,fecha_registro,limite_credito,condiciones_pago
+1,Belleza Total,Mediana,María González,maria@bellezatotal.com,555-1234,Calle Principal 123,Ciudad de México,01000,2022-01-15,5000.00,Crédito 30 días
+2,Glamour & Estilo,Pequeña,Luis Ramírez,luis@glamourestilo.com,555-5678,Av. Reforma 456,Guadalajara,44100,2022-03-20,2500.00,Crédito 15 días
+3,Beauty Corner,Pequeña,Ana López,ana@beautycorner.com,555-9012,Calle Hidalgo 789,Monterrey,64000,2022-02-10,1800.00,Pago inmediato
+4,Cosméticos Express,Mediana,Carlos Martínez,carlos@cosmeticosexpress.com,555-3456,Blvd. Independencia 234,Puebla,72000,2022-05-05,4200.00,Crédito 30 días
+5,La Casa del Maquillaje,Mediana,Sofía Torres,sofia@casadelmaquillaje.com,555-7890,Av. Universidad 567,Querétaro,76000,2022-04-12,3800.00,Crédito 21 días
+6,Belleza Natural,Pequeña,Roberto Díaz,roberto@bellezanatural.com,555-2345,Calle Juárez 890,Mérida,97000,2022-06-18,2000.00,Pago inmediato
+7,Esencia & Belleza,Pequeña,Patricia Sánchez,patricia@esenciabelleza.com,555-6789,Av. Morelos 123,Toluca,50000,2022-07-25,1500.00,Crédito 15 días
+8,Face & Body,Mediana,Eduardo Flores,eduardo@facebody.com,555-0123,Calle 5 de Mayo 456,León,37000,2022-03-03,4500.00,Crédito 30 días
