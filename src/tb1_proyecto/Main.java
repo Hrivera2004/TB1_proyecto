@@ -41,8 +41,15 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDialog1 = new javax.swing.JDialog();
+        jDialog_CRUD = new javax.swing.JDialog();
         jPanel1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jButton_CRUD_Create = new javax.swing.JButton();
+        jButton_CRUD_Read = new javax.swing.JButton();
+        jButton_CRUD_Update = new javax.swing.JButton();
+        jButton_CRUD_Delete = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jPanel_Principal = new javax.swing.JPanel();
         jButton_Principal_SubirArchivo = new javax.swing.JButton();
         jLabel_Principal_Route = new javax.swing.JLabel();
@@ -53,28 +60,118 @@ public class Main extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jList_loaded_files = new javax.swing.JList<>();
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("Operaciones CRUD");
+
+        jButton_CRUD_Create.setForeground(new java.awt.Color(0, 0, 0));
+        jButton_CRUD_Create.setText("Create");
+        jButton_CRUD_Create.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_CRUD_CreateActionPerformed(evt);
+            }
+        });
+
+        jButton_CRUD_Read.setForeground(new java.awt.Color(0, 0, 0));
+        jButton_CRUD_Read.setText("Read");
+        jButton_CRUD_Read.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_CRUD_ReadActionPerformed(evt);
+            }
+        });
+
+        jButton_CRUD_Update.setForeground(new java.awt.Color(0, 0, 0));
+        jButton_CRUD_Update.setText("Update");
+        jButton_CRUD_Update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_CRUD_UpdateActionPerformed(evt);
+            }
+        });
+
+        jButton_CRUD_Delete.setForeground(new java.awt.Color(0, 0, 0));
+        jButton_CRUD_Delete.setText("Delete");
+        jButton_CRUD_Delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_CRUD_DeleteActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("Que operación desea realizar?");
+
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setText("Regresar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 739, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton_CRUD_Create, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_CRUD_Update, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton_CRUD_Read, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_CRUD_Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(89, 89, 89))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(196, 196, 196)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(187, 187, 187)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(227, 227, 227)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 414, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(69, 69, 69)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton_CRUD_Create, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_CRUD_Read, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(54, 54, 54)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton_CRUD_Update, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_CRUD_Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
 
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        javax.swing.GroupLayout jDialog_CRUDLayout = new javax.swing.GroupLayout(jDialog_CRUD.getContentPane());
+        jDialog_CRUD.getContentPane().setLayout(jDialog_CRUDLayout);
+        jDialog_CRUDLayout.setHorizontalGroup(
+            jDialog_CRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog_CRUDLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        jDialog_CRUDLayout.setVerticalGroup(
+            jDialog_CRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog_CRUDLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -105,11 +202,17 @@ public class Main extends javax.swing.JFrame {
                 jButton_Principal_AbrirOptionsMouseClicked(evt);
             }
         });
+        jButton_Principal_AbrirOptions.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_Principal_AbrirOptionsActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Desea realizar operaciones CRUD?");
 
+        jList_loaded_files.setModel(new DefaultListModel<>());
         jList_loaded_files.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(jList_loaded_files);
 
@@ -185,22 +288,64 @@ public class Main extends javax.swing.JFrame {
         
         FileNameExtensionFilter filter = new FileNameExtensionFilter("CSV", "csv", "CSV");
         fc.setFileFilter(filter);
-        
+      
         int res = fc.showOpenDialog(this);
         if (res != JFileChooser.CANCEL_OPTION) {
             File name = fc.getSelectedFile();
-         
+
             if ((name == null) || name.getName().equals("")) {
                 JOptionPane.showMessageDialog(this, "Error al abrir el archivo");
             } else {
-                new FileManager(name).ReadFile(); 
+                DefaultListModel<String> model = (DefaultListModel) jList_loaded_files.getModel();
+                boolean notfound = true;
+                for (Object object : model.toArray()) {
+                    if (object.toString().equals(name.getName())) {
+                        notfound = false;
+                    }
+                }
+                if (notfound) {
+                    model.addElement(name.getName());
+                    jList_loaded_files.setModel(model);
+                    new FileManager(name).ReadFile();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error, no puede subir el mismo archivo 2 veces");
+                }
             }
         }
     }//GEN-LAST:event_jButton_Principal_SubirArchivoActionPerformed
 
     private void jButton_Principal_AbrirOptionsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_Principal_AbrirOptionsMouseClicked
-        // TODO add your handling code here:
+        //CRUD options
     }//GEN-LAST:event_jButton_Principal_AbrirOptionsMouseClicked
+
+    private void jButton_CRUD_ReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CRUD_ReadActionPerformed
+        //read buttom
+    }//GEN-LAST:event_jButton_CRUD_ReadActionPerformed
+
+    private void jButton_CRUD_CreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CRUD_CreateActionPerformed
+        //create buttom
+    }//GEN-LAST:event_jButton_CRUD_CreateActionPerformed
+
+    private void jButton_CRUD_UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CRUD_UpdateActionPerformed
+        //update buttom
+    }//GEN-LAST:event_jButton_CRUD_UpdateActionPerformed
+
+    private void jButton_CRUD_DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CRUD_DeleteActionPerformed
+        //delete buttom
+    }//GEN-LAST:event_jButton_CRUD_DeleteActionPerformed
+
+    private void jButton_Principal_AbrirOptionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Principal_AbrirOptionsActionPerformed
+        //abrir jdialog crud options
+        jDialog_CRUD.pack();
+        jDialog_CRUD.setLocationRelativeTo(this);
+        jDialog_CRUD.setModal(true);
+        jDialog_CRUD.setVisible(true);
+    }//GEN-LAST:event_jButton_Principal_AbrirOptionsActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //al menu de subir csv
+        jDialog_CRUD.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -238,12 +383,19 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton_CRUD_Create;
+    private javax.swing.JButton jButton_CRUD_Delete;
+    private javax.swing.JButton jButton_CRUD_Read;
+    private javax.swing.JButton jButton_CRUD_Update;
     private javax.swing.JButton jButton_Principal_AbrirOptions;
     private javax.swing.JButton jButton_Principal_SubirArchivo;
-    private javax.swing.JDialog jDialog1;
+    private javax.swing.JDialog jDialog_CRUD;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel_Principal_Route;
     private javax.swing.JList<String> jList_loaded_files;
     private javax.swing.JPanel jPanel1;

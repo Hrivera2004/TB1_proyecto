@@ -32,14 +32,17 @@ public class FileManager {
         csv = file;
     }
 
-    public void ReadFile(){
+    public void ReadFile() {
         try (CSVReader reader = new CSVReader(new FileReader(csv))) {
-            
-            List<String[]> rows = reader.readAll(); 
+            List<String[]> rows = reader.readAll();
+            String table_name = (csv.getName()).substring(csv.getName().indexOf("-") + 1, csv.getName().indexOf("."));
+            System.out.println(table_name);
             for (String[] row : rows) {
+                Object[] list = row;
                 for (String string : row) {
-                    System.out.println(string);
+                    System.out.print(string + ", ");
                 }
+                System.out.println("");
             }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
