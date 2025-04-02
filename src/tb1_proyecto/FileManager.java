@@ -32,14 +32,21 @@ public class FileManager {
         csv = file;
     }
 
-    public void ReadFile() throws FileNotFoundException, IOException, CsvException {
+    public void ReadFile(){
         try (CSVReader reader = new CSVReader(new FileReader(csv))) {
+            
             List<String[]> rows = reader.readAll(); 
             for (String[] row : rows) {
                 for (String string : row) {
                     System.out.println(string);
                 }
             }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (CsvException ex) {
+            Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

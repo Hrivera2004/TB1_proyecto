@@ -189,18 +189,11 @@ public class Main extends javax.swing.JFrame {
         int res = fc.showOpenDialog(this);
         if (res != JFileChooser.CANCEL_OPTION) {
             File name = fc.getSelectedFile();
-            
+         
             if ((name == null) || name.getName().equals("")) {
                 JOptionPane.showMessageDialog(this, "Error al abrir el archivo");
             } else {
-                
-                try {
-                    new FileManager(name).ReadFile();
-                } catch (IOException ex) {
-                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (CsvException ex) {
-                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                new FileManager(name).ReadFile(); 
             }
         }
     }//GEN-LAST:event_jButton_Principal_SubirArchivoActionPerformed
