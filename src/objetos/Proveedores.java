@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package tb1_proyecto;
+package objetos;
 
 /**
  *
  * @author micha
  */
-public class Detalles_Pedidos {
-    private int id_proveedor;
-    private String nombre,pais_origen,contacto_nombre,contacto_email,contacto_telefono,direccion;
-    private int tiempo_entrega_promedio;
+public class Proveedores {
+   private  int id_proveedor;
+   private String nombre,pais_origen,contacto_nombre,contacto_email,contacto_telefono,direccion;
+   private float tiempo_entrega_promedio;
 
-    public Detalles_Pedidos(int id_proveedor, String nombre, String pais_origen, String contacto_nombre, String contacto_email, String contacto_telefono, String direccion, int tiempo_entrega_promedio) {
+    public Proveedores(int id_proveedor, String nombre, String pais_origen, String contacto_nombre, String contacto_email, String contacto_telefono, String direccion, float tiempo_entrega_promedio) {
         this.id_proveedor = id_proveedor;
         this.nombre = nombre;
         this.pais_origen = pais_origen;
@@ -80,16 +80,16 @@ public class Detalles_Pedidos {
         this.direccion = direccion;
     }
 
-    public int getTiempo_entrega_promedio() {
+    public float getTiempo_entrega_promedio() {
         return tiempo_entrega_promedio;
     }
 
-    public void setTiempo_entrega_promedio(int tiempo_entrega_promedio) {
+    public void setTiempo_entrega_promedio(float tiempo_entrega_promedio) {
         this.tiempo_entrega_promedio = tiempo_entrega_promedio;
     }
 
     @Override
     public String toString() {
-        return "Detalles_Pedidos{" + "id_proveedor=" + id_proveedor + ", nombre=" + nombre + ", pais_origen=" + pais_origen + ", contacto_nombre=" + contacto_nombre + ", contacto_email=" + contacto_email + ", contacto_telefono=" + contacto_telefono + ", direccion=" + direccion + ", tiempo_entrega_promedio=" + tiempo_entrega_promedio + '}';
+        return "Proveedores{" + "id_proveedor=" + id_proveedor + ", nombre=" + nombre + ", pais_origen=" + pais_origen + ", contacto_nombre=" + contacto_nombre + ", contacto_email=" + contacto_email + ", contacto_telefono=" + contacto_telefono + ", direccion=" + direccion + ", tiempo_entrega_promedio=" + tiempo_entrega_promedio + '}';
     }
 }
