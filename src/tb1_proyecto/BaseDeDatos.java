@@ -27,15 +27,6 @@ public class BaseDeDatos {
     public void conexion() throws SQLException {
         // Intentamos conectar
         con = conector(driver, usuario, contraseña, url);
-
-        // Verificamos si la conexión se estableció
-        if (con != null) {
-            System.out.println("Conexión establecida correctamente.");
-        } else {
-            System.out.println("No se pudo establecer la conexión.");
-        }
-        // Crear y ejecutar consulta
-        mostrar_tabla(con, "producto");
     }
 
     public static Connection conector(String driver, String user, String pass, String url) {
@@ -82,6 +73,20 @@ public class BaseDeDatos {
             }
             pstmt.executeUpdate();
             System.out.println("Registro insertado correctamente en " + tabla);
+        }
+    }
+    
+    public static void deleteTabla(Connection con, String tabla,int id_fila) throws SQLException {
+         String consulta = "SELECT * FROM " + tabla;
+          ResultSetMetaData metaData=null;
+        try (Statement stmt = con.createStatement(); ResultSet rs = stmt.executeQuery(consulta)) {
+
+            metaData = (ResultSetMetaData) rs.getMetaData();
+        }
+         String eliminar = "Delete from " + tabla + " where "+metaData.getColumnName(1)+"="+id_fila;
+        try (PreparedStatement pstmt = con.prepareStatement(eliminar)) {
+            pstmt.executeUpdate();
+            System.out.println("Registro Eliminado correctamente en " + tabla);
         }
     }
 }
