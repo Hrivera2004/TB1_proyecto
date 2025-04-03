@@ -43,8 +43,8 @@ public class BaseDeDatos {
         return con; // Retornamos la conexión
     }
 
-    public static void mostrar_tabla(Connection con, String tabla) throws SQLException {
-        String consulta = "SELECT * FROM " + tabla;
+  public static void mostrar_tabla(Connection con, String tabla) throws SQLException {
+        String consulta = "select * from " + tabla;
         try (Statement stmt = con.createStatement(); ResultSet rs = stmt.executeQuery(consulta)) {
 
             ResultSetMetaData metaData = (ResultSetMetaData) rs.getMetaData();
@@ -66,7 +66,7 @@ public class BaseDeDatos {
 
     public static void insertarTabla(Connection con, String tabla, Object[] valores) throws SQLException {
         String temp = String.join(", ", new String[valores.length]).replaceAll("[^,]+", "?");
-        String insercion = "INSERT INTO " + tabla + " VALUES(" + temp + ")";
+        String insercion = "insert into " + tabla + " values(" + temp + ")";
         try (PreparedStatement pstmt = con.prepareStatement(insercion)) {
             for (int i = 0; i < valores.length; i++) {
                 pstmt.setObject(i + 1, valores[i]);
@@ -77,16 +77,51 @@ public class BaseDeDatos {
     }
     
     public static void deleteTabla(Connection con, String tabla,int id_fila) throws SQLException {
-         String consulta = "SELECT * FROM " + tabla;
+         String consulta = "select * from " + tabla;
           ResultSetMetaData metaData=null;
         try (Statement stmt = con.createStatement(); ResultSet rs = stmt.executeQuery(consulta)) {
 
             metaData = (ResultSetMetaData) rs.getMetaData();
         }
-         String eliminar = "Delete from " + tabla + " where "+metaData.getColumnName(1)+"="+id_fila;
+         String eliminar = "delete from " + tabla + " where "+metaData.getColumnName(1)+"="+id_fila;
         try (PreparedStatement pstmt = con.prepareStatement(eliminar)) {
             pstmt.executeUpdate();
             System.out.println("Registro Eliminado correctamente en " + tabla);
+        }
+    }
+    public static void updateTabla(Connection con, String tabla, int id_fila, Object[] valores) throws SQLException {
+        String consulta = "select * from " + tabla;
+        ResultSetMetaData metaData = null;
+
+        try (Statement stmt = con.createStatement(); ResultSet rs = stmt.executeQuery(consulta)) {
+
+            metaData = (ResultSetMetaData) rs.getMetaData();
+        }
+        String busqueda = "select * from " + tabla + " where " + metaData.getColumnName(1) + "=" + id_fila;
+        Boolean existe = false;
+        try (Statement stmt = con.createStatement(); ResultSet rs = stmt.executeQuery(busqueda)) {
+            if (rs.next()) {
+                existe = true;
+            } else {
+                existe = false;
+            }
+        }
+        if (existe) {
+            String[] columnas = new String[metaData.getColumnCount()];
+            for (int i = 0; i < metaData.getColumnCount(); i++) {
+                columnas[i] = metaData.getColumnName(i + 1);
+            }
+            String temp = String.join("=?, ", columnas) + "=?";
+            String update = "update " + tabla + " set " + temp + " where " + metaData.getColumnName(1) + "=" + id_fila;
+            try (PreparedStatement pstmt = con.prepareStatement(update)) {
+                for (int i = 0; i < valores.length; i++) {
+                    pstmt.setObject(i + 1, valores[i]);
+                }
+                pstmt.executeUpdate();
+                System.out.println("Registro actualizado correctamente en " + tabla);
+            }
+        }else{
+            System.out.println("No existe el registros");
         }
     }
 }
