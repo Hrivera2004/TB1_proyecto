@@ -1,0 +1,7 @@
+id_pedido,id_cliente,fecha_pedido,fecha_entrega_programada,fecha_entrega_real,id_empleado_vendedor,id_ruta,estado,notas,total
+1,1,8/1/2023 10:30,8/8/2023,8/8/2023,1,1,Entregado,Cliente solicitó horario matutino,1250.75
+2,3,8/2/2023 14:15,8/9/2023,,2,2,En preparación,Confirmar por teléfono antes de enviar,780.5
+3,5,8/3/2023 11:45,8/10/2023,,4,3,Pendiente,,1645.25
+4,2,8/4/2023 9:20,8/11/2023,,6,4,En preparación,Incluir muestras de nuevos productos,920.3
+5,4,7/25/2023 15:30,8/1/2023,8/2/2023,1,5,Entregado,Entrega con retraso por lluvia,2340.8
+6,6,8/4/2023 13:10,8/11/2023,,2,1,Pendiente,,550.45

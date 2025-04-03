@@ -1,7 +1,7 @@
 id_pago,id_pedido,fecha_pago,monto,metodo_pago,referencia,estado
-1,1,2023-08-08,1250.75,Efectivo,PAG-001-2023,Completado
-2,5,2023-08-02,1200.00,Transferencia,TRANS-0853-2023,Completado
-3,5,2023-08-15,1140.80,Transferencia,TRANS-0925-2023,Completado
-4,2,2023-08-05,400.00,Tarjeta,CARD-2023-123,Completado
-5,2,2023-08-12,380.50,CrÃ©dito,CR-2023-086,Pendiente
-6,4,2023-08-04,920.30,Tarjeta,CARD-2023-145,Completado
+1,1/1/1900,8/8/2023,1250.75,Efectivo,PAG-001-2023,Completado
+2,1/5/1900,8/2/2023,1200,Transferencia,TRANS-0853-2023,Completado
+3,1/5/1900,8/15/2023,1140.8,Transferencia,TRANS-0925-2023,Completado
+4,1/2/1900,8/5/2023,400,Tarjeta,CARD-2023-123,Completado
+5,1/2/1900,8/12/2023,380.5,Crédito,CR-2023-086,Pendiente
+6,1/4/1900,8/4/2023,920.3,Tarjeta,CARD-2023-145,Completado
