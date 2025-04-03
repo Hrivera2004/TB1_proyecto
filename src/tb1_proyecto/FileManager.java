@@ -8,9 +8,11 @@ import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -33,7 +35,7 @@ public class FileManager {
     }
 
     public void ReadFile() {
-        try (CSVReader reader = new CSVReader(new FileReader(csv))) {
+        try (CSVReader reader = new CSVReader(new InputStreamReader(new FileInputStream(csv), "UTF-8"))) {
             List<String[]> rows = reader.readAll();
             String table_name = (csv.getName()).substring(csv.getName().indexOf("-") + 1, csv.getName().indexOf("."));
             System.out.println(table_name);
