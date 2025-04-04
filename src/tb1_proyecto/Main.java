@@ -117,11 +117,6 @@ public class Main extends javax.swing.JFrame {
         jButton_CRUD_Create.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton_CRUD_Create.setText("Create");
         jButton_CRUD_Create.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton_CRUD_Create.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton_CRUD_CreateMouseClicked(evt);
-            }
-        });
         jButton_CRUD_Create.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_CRUD_CreateActionPerformed(evt);
@@ -145,11 +140,6 @@ public class Main extends javax.swing.JFrame {
         jButton_CRUD_Update.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton_CRUD_Update.setText("Update");
         jButton_CRUD_Update.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton_CRUD_Update.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton_CRUD_UpdateMouseClicked(evt);
-            }
-        });
         jButton_CRUD_Update.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_CRUD_UpdateActionPerformed(evt);
@@ -827,7 +817,6 @@ public class Main extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
                 .addComponent(jButton_Principal_SubirArchivo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -925,15 +914,20 @@ public class Main extends javax.swing.JFrame {
         }
 
         String tabla = jlListaTablas.getSelectedValue();
-        DefaultTableModel model = new DefaultTableModel();
+        DefaultTableModel model = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return column != 0;
+            }
+        };
         model.setColumnIdentifiers(attributos(tabla));
         jtUpdateTable.setModel(model);
-        
+
         jdUpdate.pack();
         jdUpdate.setLocationRelativeTo(this);
         jdUpdate.setModal(true);
         jdUpdate.setVisible(true);
-        
+
     }//GEN-LAST:event_jButton_CRUD_UpdateActionPerformed
 
     private void jButton_CRUD_DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CRUD_DeleteActionPerformed
@@ -976,25 +970,6 @@ public class Main extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jbBuscarActionPerformed
-
-    private void jButton_CRUD_CreateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_CRUD_CreateMouseClicked
-        // TODO add your handling code here:
-
-        if (jlListaTablas.isSelectionEmpty()) {
-            JOptionPane.showMessageDialog(jDialog_CRUD, "Primero seleccione una tabla");
-            return;
-        }
-        String tabla = jlListaTablas.getSelectedValue();
-        DefaultTableModel model = new DefaultTableModel();
-        model.setColumnIdentifiers(attributos(tabla));
-        model.addRow(new Object[]{});
-        jTable_Create.setModel(model);
-
-        jdCreate.pack();
-        jdCreate.setLocationRelativeTo(this);
-        jdCreate.setModal(true);
-        jdCreate.setVisible(true);
-    }//GEN-LAST:event_jButton_CRUD_CreateMouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
@@ -1073,17 +1048,17 @@ public class Main extends javax.swing.JFrame {
     private void jdGuardarUpdate1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jdGuardarUpdate1MouseClicked
         // TODO add your handling code here:
         try {
-            DefaultTableModel model = (DefaultTableModel)jdReadTable.getModel();
+            DefaultTableModel model = (DefaultTableModel) jdReadTable.getModel();
             model.setRowCount(0);
             if (jTextField_read.getText().trim().equals("*")) {
                 Object[][] tuplas = BD.tuplas_select_cinco(jlListaTablas.getSelectedValue());
                 for (Object[] tupla : tuplas) {
-                    model.addRow(tupla); 
+                    model.addRow(tupla);
                 }
             }
             if (jTextField_read.getText().trim().matches("^[+-]?\\d+$")) {
                 Object[] tupla = BD.conseguir_tupla(jlListaTablas.getSelectedValue(), jTextField_read.getText().trim());
-                model.addRow(tupla);           
+                model.addRow(tupla);
             }
             jdReadTable.setModel(model);
         } catch (SQLException ex) {
@@ -1109,8 +1084,8 @@ public class Main extends javax.swing.JFrame {
             rowData[col] = jtUpdateTable.getValueAt(0, col);
         }
 
-        int pk = Integer.parseInt(claveElemento);
         try {
+            int pk = Integer.parseInt(jTextField_Update_BuscarPk.getText());
             BD.updateTabla(jlListaTablas.getSelectedValue(), pk, rowData);
             JOptionPane.showMessageDialog(jdUpdate, "Registro actualizado correctamente");
             jdUpdate.setVisible(false);
@@ -1120,24 +1095,6 @@ public class Main extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_jdGuardarUpdateActionPerformed
-
-    private void jButton_CRUD_UpdateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_CRUD_UpdateMouseClicked
-        // TODO add your handling code here:
-        if (jlListaTablas.isSelectionEmpty()) {
-            JOptionPane.showMessageDialog(jDialog_CRUD, "Primero seleccione una tabla");
-            return;
-        }
-        
-        String tabla = jlListaTablas.getSelectedValue();
-        DefaultTableModel model = new DefaultTableModel();
-        model.setColumnIdentifiers(attributos(tabla));
-        jtUpdateTable.setModel(model);
-
-        jdUpdate.pack();
-        jdUpdate.setLocationRelativeTo(this);
-        jdUpdate.setModal(true);
-        jdUpdate.setVisible(true);
-    }//GEN-LAST:event_jButton_CRUD_UpdateMouseClicked
 
     private void jButton_Update_RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Update_RegresarActionPerformed
         //return update
