@@ -124,4 +124,46 @@ public class BaseDeDatos {
             System.out.println("No existe el registros");
         }
     }
+    public boolean mostrarTupla(String tabla, String valorPK) throws SQLException {
+    String columnaPK = null;
+    boolean bandera = false; 
+    DatabaseMetaData dbMeta = con.getMetaData();
+    try (ResultSet pkRs = dbMeta.getPrimaryKeys(null, null, tabla)) {
+        if (pkRs.next()) {
+            columnaPK = pkRs.getString("COLUMN_NAME");
+        } else {
+            System.out.println("No se encontró clave primaria para la tabla: " + tabla);
+            return false;  // No hay clave primaria
+        }
+    }
+
+    String consulta = "SELECT * FROM " + tabla + " WHERE " + columnaPK + " = ?";
+
+    try (PreparedStatement pstmt = con.prepareStatement(consulta)) {
+        pstmt.setString(1, valorPK);
+        ResultSet rs = pstmt.executeQuery();
+        if (rs.next()) {
+            bandera = true;  
+            ResultSetMetaData metaData = (ResultSetMetaData)rs.getMetaData();
+            int columnCount = metaData.getColumnCount();
+
+            System.out.println("Registro en " + tabla + " con " + columnaPK + " = " + valorPK + ":");
+
+            do {
+                StringBuilder row = new StringBuilder();
+                for (int i = 1; i <= columnCount; i++) {
+                    String columnName = metaData.getColumnLabel(i);
+                    Object value = rs.getObject(i);
+                    row.append(columnName).append(": ").append(value).append(", ");
+                }
+                System.out.println(row.substring(0, row.length() - 2)); 
+            } while (rs.next());
+        } else {
+            System.out.println("No se encontró un registro con " + columnaPK + " = " + valorPK);
+        }
+    }
+
+    return bandera;  
+    }
 }
+
