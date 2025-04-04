@@ -15,8 +15,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import com.mysql.cj.jdbc.result.ResultSetMetaData;
 import java.sql.*;
-        
+import java.util.ArrayList;
+import java.util.List;
+
 public class BaseDeDatos {
+
     ///BASE DE DATOS
     String url = "jdbc:mysql://localhost:3306/maquillaje"; //[maquillaje = nombre de su base de datos]
     String usuario = "root";  // Usuario de MySQL [USUARIO PROPIO]
@@ -43,7 +46,7 @@ public class BaseDeDatos {
         return con; // Retornamos la conexión
     }
 
-  public void mostrar_tabla(String tabla) throws SQLException {
+    public void mostrar_tabla(String tabla) throws SQLException {
         String consulta = "select * from " + tabla;
         try (Statement stmt = con.createStatement(); ResultSet rs = stmt.executeQuery(consulta)) {
 
@@ -64,7 +67,7 @@ public class BaseDeDatos {
         }
     }
 
-    public void insertarTabla( String tabla, Object[] valores) throws SQLException {
+    public void insertarTabla(String tabla, Object[] valores) throws SQLException {
         String temp = String.join(", ", new String[valores.length]).replaceAll("[^,]+", "?");
         String insercion = "insert into " + tabla + " values(" + temp + ")";
         try (PreparedStatement pstmt = con.prepareStatement(insercion)) {
@@ -75,21 +78,22 @@ public class BaseDeDatos {
             System.out.println("Registro insertado correctamente en " + tabla);
         }
     }
-    
-    public void deleteTabla( String tabla,int id_fila) throws SQLException {
-         String consulta = "select * from " + tabla;
-          ResultSetMetaData metaData=null;
+
+    public void deleteTabla(String tabla, int id_fila) throws SQLException {
+        String consulta = "select * from " + tabla;
+        ResultSetMetaData metaData = null;
         try (Statement stmt = con.createStatement(); ResultSet rs = stmt.executeQuery(consulta)) {
 
             metaData = (ResultSetMetaData) rs.getMetaData();
         }
-         String eliminar = "delete from " + tabla + " where "+metaData.getColumnName(1)+"="+id_fila;
+        String eliminar = "delete from " + tabla + " where " + metaData.getColumnName(1) + "=" + id_fila;
         try (PreparedStatement pstmt = con.prepareStatement(eliminar)) {
             pstmt.executeUpdate();
             System.out.println("Registro Eliminado correctamente en " + tabla);
         }
     }
-    public void updateTabla( String tabla, int id_fila, Object[] valores) throws SQLException {
+
+    public void updateTabla(String tabla, int id_fila, Object[] valores) throws SQLException {
         String consulta = "select * from " + tabla;
         ResultSetMetaData metaData = null;
 
@@ -120,50 +124,104 @@ public class BaseDeDatos {
                 pstmt.executeUpdate();
                 System.out.println("Registro actualizado correctamente en " + tabla);
             }
-        }else{
+        } else {
             System.out.println("No existe el registros");
         }
     }
+
     public boolean mostrarTupla(String tabla, String valorPK) throws SQLException {
-    String columnaPK = null;
-    boolean bandera = false; 
-    DatabaseMetaData dbMeta = con.getMetaData();
-    try (ResultSet pkRs = dbMeta.getPrimaryKeys(null, null, tabla)) {
-        if (pkRs.next()) {
-            columnaPK = pkRs.getString("COLUMN_NAME");
-        } else {
-            System.out.println("No se encontró clave primaria para la tabla: " + tabla);
-            return false;  // No hay clave primaria
+        String columnaPK = null;
+        boolean bandera = false;
+        DatabaseMetaData dbMeta = con.getMetaData();
+        try (ResultSet pkRs = dbMeta.getPrimaryKeys(null, null, tabla)) {
+            if (pkRs.next()) {
+                columnaPK = pkRs.getString("COLUMN_NAME");
+            } else {
+                System.out.println("No se encontró clave primaria para la tabla: " + tabla);
+                return false;  // No hay clave primaria
+            }
         }
+
+        String consulta = "SELECT * FROM " + tabla + " WHERE " + columnaPK + " = ?";
+
+        try (PreparedStatement pstmt = con.prepareStatement(consulta)) {
+            pstmt.setString(1, valorPK);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                bandera = true;
+                ResultSetMetaData metaData = (ResultSetMetaData) rs.getMetaData();
+                int columnCount = metaData.getColumnCount();
+
+                System.out.println("Registro en " + tabla + " con " + columnaPK + " = " + valorPK + ":");
+
+                do {
+                    StringBuilder row = new StringBuilder();
+                    for (int i = 1; i <= columnCount; i++) {
+                        String columnName = metaData.getColumnLabel(i);
+                        Object value = rs.getObject(i);
+                        row.append(columnName).append(": ").append(value).append(", ");
+                    }
+                    System.out.println(row.substring(0, row.length() - 2));
+                } while (rs.next());
+            } else {
+                System.out.println("No se encontró un registro con " + columnaPK + " = " + valorPK);
+            }
+        }
+
+        return bandera;
     }
 
-    String consulta = "SELECT * FROM " + tabla + " WHERE " + columnaPK + " = ?";
+    public Object[] conseguir_tupla(String tabla, String valorPK) throws SQLException {
+        String columnaPK = null;
+        DatabaseMetaData dbMeta = con.getMetaData();
+        try (ResultSet pkRs = dbMeta.getPrimaryKeys(null, null, tabla)) {
+            if (pkRs.next()) {
+                columnaPK = pkRs.getString("COLUMN_NAME");
+            } else {
+                return null;
+            }
+        }
+        String consulta = "SELECT * FROM " + tabla + " WHERE " + columnaPK + " = ?";
+        try (PreparedStatement pstmt = con.prepareStatement(consulta)) {
+            pstmt.setString(1, valorPK);
+            ResultSet rs = pstmt.executeQuery();
 
-    try (PreparedStatement pstmt = con.prepareStatement(consulta)) {
-        pstmt.setString(1, valorPK);
-        ResultSet rs = pstmt.executeQuery();
-        if (rs.next()) {
-            bandera = true;  
-            ResultSetMetaData metaData = (ResultSetMetaData)rs.getMetaData();
-            int columnCount = metaData.getColumnCount();
+            if (rs.next()) {
+                ResultSetMetaData metaData = (ResultSetMetaData)rs.getMetaData();
+                int columnCount = metaData.getColumnCount();
+                Object[] values = new Object[columnCount];
 
-            System.out.println("Registro en " + tabla + " con " + columnaPK + " = " + valorPK + ":");
-
-            do {
-                StringBuilder row = new StringBuilder();
                 for (int i = 1; i <= columnCount; i++) {
-                    String columnName = metaData.getColumnLabel(i);
-                    Object value = rs.getObject(i);
-                    row.append(columnName).append(": ").append(value).append(", ");
+                    values[i - 1] = rs.getObject(i);
                 }
-                System.out.println(row.substring(0, row.length() - 2)); 
-            } while (rs.next());
-        } else {
-            System.out.println("No se encontró un registro con " + columnaPK + " = " + valorPK);
-        }
-    }
 
-    return bandera;  
+                return values;
+            }
+        }
+        return null; 
+    }
+    public Object[][] tuplas_select_cinco (String tabla) throws SQLException {
+    // Query to get first 5 rows (syntax may vary by database)
+    String consulta = "SELECT * FROM " + tabla + " LIMIT 5";
+    
+    try (PreparedStatement pstmt = con.prepareStatement(consulta);
+         ResultSet rs = pstmt.executeQuery()) {
+        
+        ResultSetMetaData metaData = (ResultSetMetaData) rs.getMetaData();
+        int columnCount = metaData.getColumnCount();
+        
+        List<Object[]> rows = new ArrayList<>();
+        
+        // Process up to 5 rows
+        while (rs.next() && rows.size() < 5) {
+            Object[] values = new Object[columnCount];
+            for (int i = 0; i < columnCount; i++) {
+                values[i] = rs.getObject(i + 1);  // JDBC is 1-based
+            }
+            rows.add(values);
+        }
+        
+        return rows.toArray(new Object[0][]);
     }
 }
-
+}
