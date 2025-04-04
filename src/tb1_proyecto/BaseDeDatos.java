@@ -17,10 +17,10 @@ import com.mysql.cj.jdbc.result.ResultSetMetaData;
 import java.sql.*;
         
 public class BaseDeDatos {
-
-    String url = "jdbc:mysql://localhost:3306/maquillaje";
-    String usuario = "root";  // Usuario de MySQL
-    String contraseña = "juanjonoob69";   // Contraseña de MySQL 
+    ///BASE DE DATOS
+    String url = "jdbc:mysql://localhost:3306/maquillaje"; //[maquillaje = nombre de su base de datos]
+    String usuario = "root";  // Usuario de MySQL [USUARIO PROPIO]
+    String contraseña = "Hect@R1213";   // Contraseña de MySQL [CONTRASENA PROPIA]
     String driver = "com.mysql.cj.jdbc.Driver";
     Connection con;
 
@@ -29,7 +29,7 @@ public class BaseDeDatos {
         con = conector(driver, usuario, contraseña, url);
     }
 
-    public static Connection conector(String driver, String user, String pass, String url) {
+    public Connection conector(String driver, String user, String pass, String url) {
         Connection con = null;
         try {
             Class.forName(driver);
@@ -43,7 +43,7 @@ public class BaseDeDatos {
         return con; // Retornamos la conexión
     }
 
-  public static void mostrar_tabla(Connection con, String tabla) throws SQLException {
+  public void mostrar_tabla(String tabla) throws SQLException {
         String consulta = "select * from " + tabla;
         try (Statement stmt = con.createStatement(); ResultSet rs = stmt.executeQuery(consulta)) {
 
@@ -64,7 +64,7 @@ public class BaseDeDatos {
         }
     }
 
-    public static void insertarTabla(Connection con, String tabla, Object[] valores) throws SQLException {
+    public void insertarTabla( String tabla, Object[] valores) throws SQLException {
         String temp = String.join(", ", new String[valores.length]).replaceAll("[^,]+", "?");
         String insercion = "insert into " + tabla + " values(" + temp + ")";
         try (PreparedStatement pstmt = con.prepareStatement(insercion)) {
@@ -76,7 +76,7 @@ public class BaseDeDatos {
         }
     }
     
-    public static void deleteTabla(Connection con, String tabla,int id_fila) throws SQLException {
+    public void deleteTabla( String tabla,int id_fila) throws SQLException {
          String consulta = "select * from " + tabla;
           ResultSetMetaData metaData=null;
         try (Statement stmt = con.createStatement(); ResultSet rs = stmt.executeQuery(consulta)) {
@@ -89,7 +89,7 @@ public class BaseDeDatos {
             System.out.println("Registro Eliminado correctamente en " + tabla);
         }
     }
-    public static void updateTabla(Connection con, String tabla, int id_fila, Object[] valores) throws SQLException {
+    public void updateTabla( String tabla, int id_fila, Object[] valores) throws SQLException {
         String consulta = "select * from " + tabla;
         ResultSetMetaData metaData = null;
 
