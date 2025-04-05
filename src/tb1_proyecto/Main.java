@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -99,6 +100,8 @@ public class Main extends javax.swing.JFrame {
         tfPKbusqueda = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jbEliminar = new javax.swing.JButton();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jtTableDelete = new javax.swing.JTable();
         jPanel_Principal = new javax.swing.JPanel();
         jButton_Principal_SubirArchivo = new javax.swing.JButton();
         jLabel_Principal_Route = new javax.swing.JLabel();
@@ -557,7 +560,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(68, 68, 68)
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 165, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                 .addComponent(jTextField_read, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(66, 66, 66))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
@@ -612,7 +615,7 @@ public class Main extends javax.swing.JFrame {
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                .addContainerGap(139, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(116, 116, 116))
         );
@@ -638,6 +641,7 @@ public class Main extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel13.setText("RESULTADO");
 
+        jbEliminar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jbEliminar.setText("ELIMINAR");
         jbEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -645,32 +649,48 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        jtTableDelete.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane6.setViewportView(jtTableDelete);
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+            .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGap(68, 68, 68)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(52, Short.MAX_VALUE))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jbEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfPKbusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(66, 66, 66))
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tfPKbusqueda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                                        .addComponent(jbBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(85, 85, 85)))))
+                        .addGap(66, 66, 66))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addGap(0, 346, Short.MAX_VALUE)
-                .addComponent(jbBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(151, 151, 151))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jbEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(146, 146, 146))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfPKbusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -678,9 +698,11 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jbBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addComponent(jbEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addGap(57, 57, 57))
         );
 
         javax.swing.GroupLayout jdDeleteLayout = new javax.swing.GroupLayout(jdDelete.getContentPane());
@@ -930,20 +952,21 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton_CRUD_DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CRUD_DeleteActionPerformed
         //delete buttom
+        jbEliminar.setVisible(false);
         if (jlListaTablas.isSelectionEmpty()) {
             JOptionPane.showMessageDialog(jDialog_CRUD, "Primero seleccione una tabla");
             return;
         }
-        String tablaNombre = jlListaTablas.getSelectedValue();
+        String tabla = jlListaTablas.getSelectedValue();
+        DefaultTableModel model = new DefaultTableModel();
+        model.setColumnIdentifiers(attributos(tabla)); 
+        jtTableDelete.setModel(model);
+        //String tablaNombre = jlListaTablas.getSelectedValue();
         jdDelete.pack();
         jdDelete.setLocationRelativeTo(this);
         jdDelete.setModal(true);
         jdDelete.setVisible(true);
     }//GEN-LAST:event_jButton_CRUD_DeleteActionPerformed
-
-    private void jdGuardarUpdate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jdGuardarUpdate1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jdGuardarUpdate1ActionPerformed
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
         // TODO add your handling code here:
@@ -960,10 +983,37 @@ public class Main extends javax.swing.JFrame {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             }
             if (bandera) {
+                jbEliminar.setVisible(true);
                 JOptionPane.showMessageDialog(jdDelete, "Elemento encontrado con exito");
                 banderaEncontrar = true;
+                //colocar el elemtno eliminado en la tabla
+                String tabla = jlListaTablas.getSelectedValue();
+                DefaultTableModel model2 = new DefaultTableModel();
+                model2.setColumnIdentifiers(attributos(tabla));
+                jtTableDelete.setModel(model2);
+                try {
+                    DefaultTableModel model = (DefaultTableModel) jtTableDelete.getModel();
+                    model.setRowCount(0);
+                    if (tfPKbusqueda.getText().trim().matches("^[+-]?\\d+$")) {
+                        Object[] tupla = BD.conseguir_tupla(tablaNombre, tfPKbusqueda.getText().trim());
+                        System.out.println(tupla);
+                        model.addRow(tupla);
+                    }
+//                    System.out.println("hi");
+//                    Object[] tupla = BD.conseguir_tupla(tablaNombre, valorPK);
+//                    System.out.println("Tupla obtenida: " + Arrays.toString(tupla));
+                    jtTableDelete.setModel(model);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                }
             } else {
                 JOptionPane.showMessageDialog(jdDelete, "Elemento no encontrado");
+                tfPKbusqueda.setText("");
+                jbEliminar.setVisible(false);
+                DefaultTableModel modelo = new DefaultTableModel();
+                modelo.setRowCount(0);
+                modelo.setColumnIdentifiers(attributos(jlListaTablas.getSelectedValue()));
+                jtTableDelete.setModel(modelo);
                 banderaEncontrar = false;
             }
         }
@@ -1022,6 +1072,7 @@ public class Main extends javax.swing.JFrame {
         banderaEncontrar = false;
         claveElemento = "";
         tfPKbusqueda.setText("");
+        jbEliminar.setVisible(true);
     }//GEN-LAST:event_jbEliminarActionPerformed
 
     private void jButton_CRUD_ReadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_CRUD_ReadMouseClicked
@@ -1136,6 +1187,10 @@ public class Main extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton_Update_BuscarActionPerformed
 
+    private void jdGuardarUpdate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jdGuardarUpdate1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jdGuardarUpdate1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1218,6 +1273,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTable jTable_Create;
     private javax.swing.JTextField jTextField_Update_BuscarPk;
     private javax.swing.JTextField jTextField_read;
@@ -1233,6 +1289,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTable jdReadTable;
     private javax.swing.JDialog jdUpdate;
     private javax.swing.JList<String> jlListaTablas;
+    private javax.swing.JTable jtTableDelete;
     private javax.swing.JTable jtUpdateTable;
     private javax.swing.JTextField tfPKbusqueda;
     // End of variables declaration//GEN-END:variables
