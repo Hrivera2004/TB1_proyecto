@@ -25,7 +25,7 @@ public class BaseDeDatos {
     ///BASE DE DATOS
     String url = "jdbc:mysql://localhost:3306/maquillaje"; //[maquillaje = nombre de su base de datos]
     String usuario = "root";  // Usuario de MySQL [USUARIO PROPIO]
-    String contraseña = ""; 
+    String contraseña = "Hect@R1213";
     String driver = "com.mysql.cj.jdbc.Driver";
     Connection con;
 
@@ -70,21 +70,33 @@ public class BaseDeDatos {
     }
 
     public void insertarTabla(String tabla, Object[] valores) throws SQLException {
+        String consulta = "SELECT * FROM " + tabla + " LIMIT 1"; // limitar a 1 fila, más eficiente
+        String[] columnas = null;
+        try (Statement stmt = con.createStatement(); ResultSet rs = stmt.executeQuery(consulta)) {
+            ResultSetMetaData metaData = (ResultSetMetaData) rs.getMetaData();
+            int columnCount = metaData.getColumnCount();
+
+            columnas = new String[columnCount - 1];
+            for (int i = 2; i <= columnCount; i++) {
+                columnas[i - 2] = metaData.getColumnLabel(i); // empieza desde 2 (índice 1 es id)
+            }
+        }
         String temp = String.join(", ", new String[valores.length]).replaceAll("[^,]+", "?");
-        String insercion = "insert into " + tabla + " values(" + temp + ")";
+        String columnasStr = String.join(", ", columnas);
+        String insercion = "insert into " + tabla + " (" + columnasStr + ") values(" + temp + ")";
         try (PreparedStatement pstmt = con.prepareStatement(insercion)) {
             for (int i = 0; i < valores.length; i++) {
                 pstmt.setObject(i + 1, valores[i]);
             }
             pstmt.executeUpdate();
-           JOptionPane.showMessageDialog(null, "Registro insertado correctamente en: "+tabla);
-        }catch (SQLIntegrityConstraintViolationException ex){
-            JOptionPane.showMessageDialog(null, "No se pudo insertar en la base de datos.Posibles causas:\n"
-                    + "1. Llave primaria esta repetida\n"
-                    + "2. Una de las llaves foraneas referencia un dato inexistente\n"
+            JOptionPane.showMessageDialog(null, "Registro insertado correctamente en: " + tabla);
+        } catch (SQLIntegrityConstraintViolationException ex) {
+            JOptionPane.showMessageDialog(null, "No se pudo insertar en la base de datos. Posibles causas:\n"
+                    + "1. Llave primaria está repetida\n"
+                    + "2. Una de las llaves foráneas referencia un dato inexistente\n"
                     + "3. Uno de los campos nulos no es permitido");
-        }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null, "Valor incorrecto en alguno de los campos");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Valor incorrecto en alguno de los campos: " + ex.getMessage());
         }
     }
 
@@ -98,7 +110,7 @@ public class BaseDeDatos {
         String eliminar = "delete from " + tabla + " where " + metaData.getColumnName(1) + "=" + id_fila;
         try (PreparedStatement pstmt = con.prepareStatement(eliminar)) {
             pstmt.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Registro Eliminado correctamente en " + tabla);
+            JOptionPane.showMessageDialog(null, "Registro Eliminado correctamente en " + tabla);
         } catch (SQLIntegrityConstraintViolationException ex) {
             String[] partes = ex.getMessage().split("fails \\(");
             String tabla_r = null;
@@ -109,11 +121,9 @@ public class BaseDeDatos {
                 String[] partes1 = tabla_r.split("\\.");
                 tabla_r = partes1[1];
             }
-            JOptionPane.showMessageDialog(null,"No se puede eliminar porque hay registros que usan la llave primaria en : " + tabla_r);
+            JOptionPane.showMessageDialog(null, "No se puede eliminar porque hay registros que usan la llave primaria en : " + tabla_r);
         }
     }
-
-    
 
     public void updateTabla(String tabla, int id_fila, Object[] valores) throws SQLException {
         String consulta = "select * from " + tabla;
@@ -144,12 +154,12 @@ public class BaseDeDatos {
                     pstmt.setObject(i + 1, valores[i]);
                 }
                 pstmt.executeUpdate();
-                JOptionPane.showMessageDialog(null, "Registro actualizado correctamente en " + tabla);
+
             } catch (SQLIntegrityConstraintViolationException ex) {
                 JOptionPane.showMessageDialog(null, "No se puede eliminar porque referencia a un registro no existente");
-            }catch(MysqlDataTruncation ex){
-                 JOptionPane.showMessageDialog(null, "Valor incorrecto en alguno de los campos");
-            }catch(SQLException ex){
+            } catch (MysqlDataTruncation ex) {
+                JOptionPane.showMessageDialog(null, "Valor incorrecto en alguno de los campos");
+            } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, "Valor incorrecto en alguno de los campos");
             }
         } else {
