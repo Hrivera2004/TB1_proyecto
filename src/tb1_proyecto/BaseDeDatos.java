@@ -187,7 +187,7 @@ public class BaseDeDatos {
             ResultSet rs = pstmt.executeQuery();
 
             if (rs.next()) {
-                ResultSetMetaData metaData = (ResultSetMetaData)rs.getMetaData();
+                ResultSetMetaData metaData = (ResultSetMetaData) rs.getMetaData();
                 int columnCount = metaData.getColumnCount();
                 Object[] values = new Object[columnCount];
 
@@ -198,30 +198,32 @@ public class BaseDeDatos {
                 return values;
             }
         }
-        return null; 
+        return null;
     }
-    public Object[][] tuplas_select_cinco (String tabla) throws SQLException {
-    // Query to get first 5 rows (syntax may vary by database)
-    String consulta = "SELECT * FROM " + tabla + " LIMIT 5";
-    
-    try (PreparedStatement pstmt = con.prepareStatement(consulta);
-         ResultSet rs = pstmt.executeQuery()) {
-        
-        ResultSetMetaData metaData = (ResultSetMetaData) rs.getMetaData();
-        int columnCount = metaData.getColumnCount();
-        
-        List<Object[]> rows = new ArrayList<>();
-        
-        // Process up to 5 rows
-        while (rs.next() && rows.size() < 5) {
-            Object[] values = new Object[columnCount];
-            for (int i = 0; i < columnCount; i++) {
-                values[i] = rs.getObject(i + 1);  // JDBC is 1-based
+
+    public Object[][] tuplas_select_cinco(String tabla) throws SQLException {
+        // Query to get first 5 rows (syntax may vary by database)
+        String consulta = "SELECT * FROM " + tabla + " LIMIT 5";
+
+        try (PreparedStatement pstmt = con.prepareStatement(consulta); ResultSet rs = pstmt.executeQuery()) {
+
+            ResultSetMetaData metaData = (ResultSetMetaData) rs.getMetaData();
+            int columnCount = metaData.getColumnCount();
+            System.out.println(columnCount);
+            List<Object[]> rows = new ArrayList<>();
+
+            while (rs.next() && rows.size() < 5) {
+                Object[] values = new Object[columnCount];
+                for (int i = 0; i < columnCount; i++) {
+                    values[i] = rs.getObject(i + 1);
+                    System.out.println("Column " + (i + 1) + ": " + values[i]); // Debug each value
+
+                }
+                rows.add(values);
+
             }
-            rows.add(values);
+
+            return rows.toArray(new Object[0][]);
         }
-        
-        return rows.toArray(new Object[0][]);
     }
-}
 }

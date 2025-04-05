@@ -1033,21 +1033,21 @@ public class Main extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(jDialog_CRUD, "Primero seleccione una tabla");
             return;
         }
+
         String tabla = jlListaTablas.getSelectedValue();
         DefaultTableModel model = new DefaultTableModel();
-        model.setRowCount(0);
+        model.setColumnIdentifiers(attributos(tabla));
         Object[][] tuplas;
         try {
-            tuplas = BD.tuplas_select_cinco(jlListaTablas.getSelectedValue());
+            tuplas = BD.tuplas_select_cinco(tabla);
             for (Object[] tupla : tuplas) {
                 model.addRow(tupla);
             }
         } catch (SQLException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
-        model.setColumnIdentifiers(attributos(tabla));
-        jdReadTable.setModel(model);
 
+        jdReadTable.setModel(model);
         jdRead.pack();
         jdRead.setLocationRelativeTo(this);
         jdRead.setModal(true);
