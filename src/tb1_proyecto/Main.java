@@ -1035,6 +1035,16 @@ public class Main extends javax.swing.JFrame {
         }
         String tabla = jlListaTablas.getSelectedValue();
         DefaultTableModel model = new DefaultTableModel();
+        model.setRowCount(0);
+        Object[][] tuplas;
+        try {
+            tuplas = BD.tuplas_select_cinco(jlListaTablas.getSelectedValue());
+            for (Object[] tupla : tuplas) {
+                model.addRow(tupla);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
         model.setColumnIdentifiers(attributos(tabla));
         jdReadTable.setModel(model);
 
@@ -1050,12 +1060,6 @@ public class Main extends javax.swing.JFrame {
         try {
             DefaultTableModel model = (DefaultTableModel) jdReadTable.getModel();
             model.setRowCount(0);
-            if (jTextField_read.getText().trim().equals("*")) {
-                Object[][] tuplas = BD.tuplas_select_cinco(jlListaTablas.getSelectedValue());
-                for (Object[] tupla : tuplas) {
-                    model.addRow(tupla);
-                }
-            }
             if (jTextField_read.getText().trim().matches("^[+-]?\\d+$")) {
                 Object[] tupla = BD.conseguir_tupla(jlListaTablas.getSelectedValue(), jTextField_read.getText().trim());
                 model.addRow(tupla);
