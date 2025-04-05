@@ -8,6 +8,7 @@ package tb1_proyecto;
  *
  * @author jjlm1
  */
+import com.mysql.cj.jdbc.exceptions.MysqlDataTruncation;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -17,13 +18,14 @@ import com.mysql.cj.jdbc.result.ResultSetMetaData;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 public class BaseDeDatos {
 
     ///BASE DE DATOS
-    String url = "jdbc:mysql://localhost:3306/maquillaje"; //[maquillaje = nombre de su base de datos]
+    String url = "jdbc:mysql://localhost:3306/proyecto"; //[maquillaje = nombre de su base de datos]
     String usuario = "root";  // Usuario de MySQL [USUARIO PROPIO]
-    String contraseña = "Hect@R1213";   // Contraseña de MySQL [CONTRASENA PROPIA]
+    String contraseña = "Deltarune22";   // Contraseña de MySQL [CONTRASENA PROPIA]
     String driver = "com.mysql.cj.jdbc.Driver";
     Connection con;
 
@@ -75,7 +77,14 @@ public class BaseDeDatos {
                 pstmt.setObject(i + 1, valores[i]);
             }
             pstmt.executeUpdate();
-            System.out.println("Registro insertado correctamente en " + tabla);
+           JOptionPane.showMessageDialog(null, "Registro insertado correctamente en: "+tabla);
+        }catch (SQLIntegrityConstraintViolationException ex){
+            JOptionPane.showMessageDialog(null, "No se pudo insertar en la base de datos.Posibles causas:\n"
+                    + "1. Llave primaria esta repetida\n"
+                    + "2. Una de las llaves foraneas referencia un dato inexistente\n"
+                    + "3. Uno de los campos nulos no es permitido");
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "Valor incorrecto en alguno de los campos");
         }
     }
 
@@ -89,9 +98,22 @@ public class BaseDeDatos {
         String eliminar = "delete from " + tabla + " where " + metaData.getColumnName(1) + "=" + id_fila;
         try (PreparedStatement pstmt = con.prepareStatement(eliminar)) {
             pstmt.executeUpdate();
-            System.out.println("Registro Eliminado correctamente en " + tabla);
+            JOptionPane.showMessageDialog(null,"Registro Eliminado correctamente en " + tabla);
+        } catch (SQLIntegrityConstraintViolationException ex) {
+            String[] partes = ex.getMessage().split("fails \\(");
+            String tabla_r = null;
+            if (partes.length > 1) {
+                // Paso 2: separar por coma y quedarte con la primera parte que tiene el nombre de la tabla
+                String dentroParentesis = partes[1].split(",")[0]; // esto da: "ventas"
+                tabla_r = dentroParentesis.replace("`", ""); // limpia las comillas invertidas
+                String[] partes1 = tabla_r.split("\\.");
+                tabla_r = partes1[1];
+            }
+            JOptionPane.showMessageDialog(null,"No se puede eliminar porque hay registros que usan la llave primaria en : " + tabla_r);
         }
     }
+
+    
 
     public void updateTabla(String tabla, int id_fila, Object[] valores) throws SQLException {
         String consulta = "select * from " + tabla;
@@ -122,7 +144,13 @@ public class BaseDeDatos {
                     pstmt.setObject(i + 1, valores[i]);
                 }
                 pstmt.executeUpdate();
-                System.out.println("Registro actualizado correctamente en " + tabla);
+                JOptionPane.showMessageDialog(null, "Registro actualizado correctamente en " + tabla);
+            } catch (SQLIntegrityConstraintViolationException ex) {
+                JOptionPane.showMessageDialog(null, "No se puede eliminar porque referencia a un registro no existente");
+            }catch(MysqlDataTruncation ex){
+                 JOptionPane.showMessageDialog(null, "Valor incorrecto en alguno de los campos");
+            }catch(SQLException ex){
+                JOptionPane.showMessageDialog(null, "Valor incorrecto en alguno de los campos");
             }
         } else {
             System.out.println("No existe el registros");

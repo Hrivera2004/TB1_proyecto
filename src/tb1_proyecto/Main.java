@@ -998,9 +998,10 @@ public class Main extends javax.swing.JFrame {
         if (validateDataTypes(jlListaTablas.getSelectedValue(), rowData)) {
             try {
                 BD.insertarTabla(jlListaTablas.getSelectedValue(), rowData);
-                JOptionPane.showMessageDialog(this, "Registro insertado correctamente en " + jlListaTablas.getSelectedValue());
             } catch (SQLException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }catch(NullPointerException ex){
+                
             }
         }
     }//GEN-LAST:event_jdGuardarCreateMouseClicked
@@ -1016,9 +1017,7 @@ public class Main extends javax.swing.JFrame {
         if (banderaEncontrar) {
             try {
                 BD.deleteTabla(tablaNombre, pk);
-                JOptionPane.showMessageDialog(jdDelete, "Elemento eliminado");
             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(jdDelete, "Elemento no eliminado");
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -1085,13 +1084,15 @@ public class Main extends javax.swing.JFrame {
         // Obtener datos editados
         Object[] rowData = new Object[jtUpdateTable.getColumnCount()];
         for (int col = 0; col < rowData.length; col++) {
+            if(jtUpdateTable.getValueAt(0, col).toString().isEmpty()){
+                jtUpdateTable.setValueAt(null, 0, col);
+            }
             rowData[col] = jtUpdateTable.getValueAt(0, col);
         }
 
         try {
             int pk = Integer.parseInt(jTextField_Update_BuscarPk.getText());
             BD.updateTabla(jlListaTablas.getSelectedValue(), pk, rowData);
-            JOptionPane.showMessageDialog(jdUpdate, "Registro actualizado correctamente");
             jdUpdate.setVisible(false);
         } catch (SQLException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
