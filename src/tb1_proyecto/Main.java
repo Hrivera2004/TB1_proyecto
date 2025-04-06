@@ -206,7 +206,7 @@ public class Main extends javax.swing.JFrame {
         jlListaTablas.setBorder(null);
         jlListaTablas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jlListaTablas.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "categoria", "proveedor", "producto", "inventario", "clientes", "empleados", "rutas", "pedidos", "detalles_pedidos", "pagos" };
+            String[] strings = { "categorias", "clientes", "detalles-pedido", "empleados", "inventario", "pagos", "pedidos", "productos", "proveedores", "rutas" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
@@ -1554,26 +1554,26 @@ public class Main extends javax.swing.JFrame {
             return new Object[]{};
         }
         return switch (table.toLowerCase()) {
-            case "categoria" ->
+            case "categorias" ->
                 new Object[]{"id_categoria", "nombre", "descripcion"};
-            case "proveedor" ->
-                new Object[]{"id_proveedor", "nombre", "pais_origen", "contacto_nombre", "contacto_email", "contacto_telefono", "direccion", "tiempo_entrega_promedio"};
-            case "producto" ->
-                new Object[]{"id_producto", "codigo_barras", "nombre", "descripcion", "id_categoria", "id_proveedor", "precio_compra", "precio_venta_sugerido", "peso_gramos", "dimensiones", "fecha_introduccion"};
-            case "inventario" ->
-                new Object[]{"id_inventario", "id_producto", "cantidad_disponible", "ubicacion_almacen", "lote", "fecha_ingreso", "fecha_caducidad"};
             case "clientes" ->
                 new Object[]{"id_cliente", "nombre_tienda", "tipo_tienda", "propietario", "email", "telefono", "direccion", "ciudad", "codigo_postal", "fecha_registro", "limite_credito", "condiciones_pago"};
+            case "detalles-pedido" ->
+                new Object[]{"id_detalle", "id_pedido", "id_producto", "cantidad", "precio_unitario", "descuento", "subtotal"};
             case "empleados" ->
                 new Object[]{"id_empleado", "nombre", "apellido", "puesto", "email", "telefono", "fecha_contratacion"};
-            case "rutas" ->
-                new Object[]{"id_ruta", "nombre", "zona_geografica", "id_empleado_responsable", "dia_semana"};
-            case "pedidos" ->
-                new Object[]{"id_pedido", "id_cliente", "fecha_pedido", "fecha_entrega_programada", "fecha_entrega_real", "id_empleado_vendedor", "id_ruta", "estado", "notas", "total"};
-            case "detalles_pedidos" ->
-                new Object[]{"id_detalle", "id_pedido", "id_producto", "cantidad", "precio_unitario", "descuento", "subtotal"};
+            case "inventario" ->
+                new Object[]{"id_inventario", "id_producto", "cantidad_disponible", "ubicacion_almacen", "lote", "fecha_ingreso", "fecha_caducidad"};
             case "pagos" ->
                 new Object[]{"id_pago", "id_pedido", "fecha_pago", "monto", "metodo_pago", "referencia", "estado"};
+            case "pedidos" ->
+                new Object[]{"id_pedido", "id_cliente", "fecha_pedido", "fecha_entrega_programada", "fecha_entrega_real", "id_empleado_vendedor", "id_ruta", "estado", "notas", "total"};
+            case "productos" ->
+                new Object[]{"id_producto", "codigo_barras", "nombre", "descripcion", "id_categoria", "id_proveedor", "precio_compra", "precio_venta_sugerido", "peso_gramos", "dimensiones", "fecha_introduccion"};
+            case "proveedores" ->
+                new Object[]{"id_proveedor", "nombre", "pais_origen", "contacto_nombre", "contacto_email", "contacto_telefono", "direccion", "tiempo_entrega_promedio"};
+            case "rutas" ->
+                new Object[]{"id_ruta", "nombre", "zona_geografica", "id_empleado_responsable", "dia_semana"};
             default ->
                 new Object[0];
         };
