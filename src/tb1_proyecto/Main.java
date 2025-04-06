@@ -1022,7 +1022,7 @@ public class Main extends javax.swing.JFrame {
 
         FileNameExtensionFilter filter = new FileNameExtensionFilter("CSV", "csv", "CSV");
         fc.setFileFilter(filter);
-
+           
         int res = fc.showOpenDialog(this);
         if (res != JFileChooser.CANCEL_OPTION) {
             File name = fc.getSelectedFile();
@@ -1214,7 +1214,7 @@ public class Main extends javax.swing.JFrame {
         Object[] rowData = new Object[jTable_Create.getColumnCount()];
 
         for (int col = 0; col < rowData.length; col++) {
-            rowData[col] = jTable_Create.getValueAt(0, col);  // Store the value of each column in the array
+            rowData[col] = jTable_Create.getValueAt(0, col);  
         }
         if (validateDataTypes(jlListaTablas.getSelectedValue(), rowData, 0)) {
             try {

@@ -264,4 +264,169 @@ public class BaseDeDatos {
             return rows.toArray(new Object[0][]);
         }
     }
+
+    //VISTAS PARA Reporte de Ventas por Periodo
+    public void obtenerVentasMes(String condicion, String orden) {
+        if (condicion.isEmpty()) {
+            MostrarReporteVista("select * from reporte_ventas_mes_semana group by mes " + orden);
+        } else {
+            MostrarReporteVista(
+                    "select mes, sum(total_ventas) as Total_Mes "
+                    + "from reporte_ventas_mes_semana "
+                    + "where mes=" + condicion
+                    + " group by mes "
+                    + "order by mes " + orden);
+        }
+    }
+
+    public void obtenerVentasSemana(String condicion, String orden) {
+        if (condicion.isEmpty()) {
+            MostrarReporteVista("select * from reporte_ventas_mes_semana order by semana " + orden);
+        } else {
+            MostrarReporteVista("select * from reporte_ventas_mes_semana where semana=" + condicion + " group by mes " + "order by mes " + orden);
+        }
+    }
+
+    public void obtenerComparativaPeriodos(String mes_1, String mes_2, String orden) {
+        if (mes_1.isEmpty() || mes_2.isEmpty()) {
+            System.out.println("Uno o ambos meses ingresados no son válidos");
+        } else {
+            MostrarReporteVista("select * from Comparativa_Periodos_Meses where Mes1=" + mes_1 + " and Mes2=" + mes_2 + " order by Diferencia " + orden);
+        }
+    }
+
+    public void obtenerProductosMasVendidos(String orden) {
+        MostrarReporteVista("select * from Productos_Mas_Vendidos order by No_Veces_Vendido " + orden);
+    }
+
+    public void obtenerVentasPorCategoria(String categoria, String orden) {
+        if (categoria.isEmpty()) {
+            MostrarReporteVista("select * from Ventas_Categoría order by Ventas_Categoría " + orden);
+        } else {
+            MostrarReporteVista("select * from Ventas_Categoría where categoria=\'" + categoria + "\' order by Ventas_Categoría " + orden);
+        }
+    }
+
+    //VISTAS PARA Inventario y Stock Crítico
+    public void obtenerProductosStockBajo(String orden) {
+        MostrarReporteVista("select * from Cantidad_Producto_Disponible order by cantidad_disponible " + orden);
+    }
+
+    public void obtenerRotacionInventario(String producto, String orden) {
+        if (producto.isEmpty()) {
+            MostrarReporteVista("select * from Rotacion_Inventario order by Rotación " + orden);
+        } else {
+            MostrarReporteVista("select * from Rotacion_Inventario where nombre=\'" + producto + "\'" + " order by Rotación " + orden);
+        }
+    }
+
+    public void obtenerProductosProximosACaducar(String orden) {
+        MostrarReporteVista("select * from Caducacion_Cerca order by fecha_caducidad " + orden);
+    }
+
+    public void obtenerValorTotalInventario() {
+        MostrarReporteVista("select * from Total_Inventario");
+    }
+
+    //VISTAS PARA Análisis de Rendimiento de Vendedores
+    public void obtenerVentasPorVendedor(String vendedor, String orden) {
+        if (vendedor.isEmpty()) {
+            MostrarReporteVista("select * from Ventas_Vendedor order by Ventas_Vendedor " + orden);
+        } else {
+            MostrarReporteVista("select * from Ventas_Vendedor where nombre=\'" + vendedor + "\'" + " order by Ventas_Vendedor " + orden);
+        }
+    }
+
+    public void obtenerTasaConversionVentas(String vendedor, String orden) {
+        if (vendedor.isEmpty()) {
+            MostrarReporteVista("select * from Tasa_Conversion order by Radio_Ventas " + orden);
+        } else {
+            MostrarReporteVista("select * from Tasa_Conversion where nombre=\'" + vendedor + "\'");
+        }
+    }
+
+    public void obtenerPedidosProcesados(String vendedor, String orden) {
+        if (vendedor.isEmpty()) {
+            MostrarReporteVista("select * from Pedidos_Procesados order by Pedidos_Procesados " + orden);
+        } else {
+            MostrarReporteVista("select * from Pedidos_Procesados where nombre=\'" + vendedor + "\'");
+        }
+    }
+
+    public void obtenerValorPromedioPedido(String vendedor, String orden) {
+        if (vendedor.isEmpty()) {
+            MostrarReporteVista("select * from Ventas_Promedio order by Ventas_Promedio " + orden);
+        } else {
+            MostrarReporteVista("select * from Ventas_Promedio where nombre=\'" + vendedor + "\'");
+        }
+    }
+
+    //VISTAS PARA Estado de Pedidos y Tiempos de Entrega
+    public void obtenerPedidosPorEstado(String estado, String orden) {
+        if (estado.isEmpty()) {
+            MostrarReporteVista("select * from Pedidos_Estado order by Pedidos " + orden);
+        } else {
+            MostrarReporteVista("select * from Pedidos_Estado where estado=\'" + estado + "\'");
+        }
+    }
+
+    public void obtenerTiempoPromedioEntrega(String orden) {
+        MostrarReporteVista("select * from Tiempo_Promedio_Entrega order by Promedio_Dias" + orden);
+    }
+
+    public void obtenerRutasMayorVolumen(String orden) {
+        MostrarReporteVista("select * from Rutas_Mayor_Volumen order by Tránsito_Ruta " + orden);
+    }
+
+    public void obtenerPedidosRetrasados(String orden) {
+        MostrarReporteVista("select * from Pedidos_Retrasados order by Días_Retraso " + orden);
+    }
+
+    //VISTAS PARA Rentabilidad por Productos y Categorías
+    public void obtenerGananciaPorProducto(String producto, String orden) {
+        if (producto.isEmpty()) {
+            MostrarReporteVista("select * from Ganancia_Producto order by Ganancia " + orden);
+        } else {
+            MostrarReporteVista("select * from Ganancia_Producto where nombre=\'" + producto + "\'");
+        }
+    }
+
+    public void obtenerCategoriasMasRentables(String categoria, String orden) {
+        MostrarReporteVista("select * from Categorias_Rentables order by Ganancia_Total " + orden);
+    }
+
+    public void obtenerAnalisisDescuentos(String producto, String orden) {
+        if (producto.isEmpty()) {
+            MostrarReporteVista("select * from Analisis_Descuentos order by Ganancia_Teórica " + orden);
+        } else {
+            MostrarReporteVista("select * from Analisis_Descuentos where producto=\'" + producto + "\' order by Ganancia_Teórica" + orden);
+        }
+    }
+
+    public void obtenerRelacionVentasRentabilidad(String producto, String orden) {
+        if (producto.isEmpty()) {
+            MostrarReporteVista("select * from Relacion_Ventas_Rentabilidad order by ganancia_total " + orden);
+        } else {
+            MostrarReporteVista("select * from Relacion_Ventas_Rentabilidad where producto=\'" + producto + "\'");
+        }
+    }
+
+    public void MostrarReporteVista(String sql) {
+        try (
+                Statement stmt = con.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
+
+            ResultSetMetaData meta = (ResultSetMetaData) rs.getMetaData();
+            int columnas = meta.getColumnCount();
+
+            while (rs.next()) {
+                for (int i = 1; i <= columnas; i++) {
+                    System.out.print(meta.getColumnLabel(i) + ": " + rs.getObject(i) + "  ");
+                }
+                System.out.println();
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error al ejecutar consulta: " + e.getMessage());
+        }
+    }
 }
