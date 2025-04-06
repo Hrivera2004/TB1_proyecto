@@ -49,13 +49,15 @@ public class FileManager {
             boolean first = false;
             for (String[] row : rows) {
                 if (first) {
-                    Object[] list = row;
-                    for (String string : row) {
-                        System.out.print(string + ", ");
+                    
+                    Object[] list = new Object[row.length-1];
+                    for (int i = 1; i < row.length; i++) {
+                        list[i-1] = row[i];
+                        System.out.print(row[i].toString() + " ");
                     }
+                    System.out.println("");
                     BD.insertarTabla(table_name, list);
 
-                    System.out.println("");
                 } else {
                     first = true;
                 }
