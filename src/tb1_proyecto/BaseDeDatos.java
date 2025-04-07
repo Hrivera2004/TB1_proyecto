@@ -324,56 +324,56 @@ public class BaseDeDatos {
     }
 
     //VISTAS PARA Inventario y Stock Crítico
-    public void obtenerProductosStockBajo(String orden) {
-        MostrarReporteVista("select * from Cantidad_Producto_Disponible order by cantidad_disponible " + orden);
+    public Object[][] obtenerProductosStockBajo(String orden) {
+        return MostrarReporteVista("select * from cantidad_producto_disponible order by cantidad_disponible " + orden);
     }
 
-    public void obtenerRotacionInventario(String producto, String orden) {
+    public Object[][] obtenerRotacionInventario(String producto, String orden) {
         if (producto.isEmpty()) {
-            MostrarReporteVista("select * from Rotacion_Inventario order by Rotación " + orden);
+            return MostrarReporteVista("select * from rotacion_inventario order by rotación " + orden);
         } else {
-            MostrarReporteVista("select * from Rotacion_Inventario where nombre=\'" + producto + "\'" + " order by Rotación " + orden);
+            return MostrarReporteVista("select * from rotacion_inventario where nombre='" + producto + "' order by rotación " + orden);
         }
     }
 
-    public void obtenerProductosProximosACaducar(String orden) {
-        MostrarReporteVista("select * from Caducacion_Cerca order by fecha_caducidad " + orden);
+    public Object[][] obtenerProductosProximosACaducar(String orden) {
+        return MostrarReporteVista("select * from caducacion_cerca order by fecha_caducidad " + orden);
     }
 
-    public void obtenerValorTotalInventario() {
-        MostrarReporteVista("select * from Total_Inventario");
+    public Object[][] obtenerValorTotalInventario() {
+        return MostrarReporteVista("select * from total_inventario");
     }
 
     //VISTAS PARA Análisis de Rendimiento de Vendedores
-    public void obtenerVentasPorVendedor(String vendedor, String orden) {
+    public Object[][] obtenerVentasPorVendedor(String vendedor, String orden) {
         if (vendedor.isEmpty()) {
-            MostrarReporteVista("select * from Ventas_Vendedor order by Ventas_Vendedor " + orden);
+            return MostrarReporteVista("select * from ventas_vendedor order by ventas_vendedor " + orden);
         } else {
-            MostrarReporteVista("select * from Ventas_Vendedor where nombre=\'" + vendedor + "\'" + " order by Ventas_Vendedor " + orden);
+            return MostrarReporteVista("select * from ventas_vendedor where nombre = '" + vendedor + "' order by ventas_vendedor " + orden);
         }
     }
 
-    public void obtenerTasaConversionVentas(String vendedor, String orden) {
+    public Object[][] obtenerTasaConversionVentas(String vendedor, String orden) {
         if (vendedor.isEmpty()) {
-            MostrarReporteVista("select * from Tasa_Conversion order by Radio_Ventas " + orden);
+            return MostrarReporteVista("select * from tasa_conversion order by radio_ventas " + orden);
         } else {
-            MostrarReporteVista("select * from Tasa_Conversion where nombre=\'" + vendedor + "\'");
+            return MostrarReporteVista("select * from tasa_conversion where nombre = '" + vendedor + "'");
         }
     }
 
-    public void obtenerPedidosProcesados(String vendedor, String orden) {
+    public Object[][] obtenerPedidosProcesados(String vendedor, String orden) {
         if (vendedor.isEmpty()) {
-            MostrarReporteVista("select * from Pedidos_Procesados order by Pedidos_Procesados " + orden);
+            return MostrarReporteVista("select * from pedidos_procesados order by pedidos_procesados " + orden);
         } else {
-            MostrarReporteVista("select * from Pedidos_Procesados where nombre=\'" + vendedor + "\'");
+            return MostrarReporteVista("select * from pedidos_procesados where nombre = '" + vendedor + "'");
         }
     }
 
-    public void obtenerValorPromedioPedido(String vendedor, String orden) {
+    public Object[][] obtenerValorPromedioPedido(String vendedor, String orden) {
         if (vendedor.isEmpty()) {
-            MostrarReporteVista("select * from Ventas_Promedio order by Ventas_Promedio " + orden);
+            return MostrarReporteVista("select * from ventas_promedio order by ventas_promedio " + orden);
         } else {
-            MostrarReporteVista("select * from Ventas_Promedio where nombre=\'" + vendedor + "\'");
+            return MostrarReporteVista("select * from ventas_promedio where nombre = '" + vendedor + "'");
         }
     }
 
