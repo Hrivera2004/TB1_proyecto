@@ -271,7 +271,7 @@ public class BaseDeDatos {
     //VISTAS PARA Reporte de Ventas por Periodo
     public Object[][] obtenerVentasMes(String condicion, String orden) {
         if (condicion.isEmpty()) {
-            return MostrarReporteVista("select * from reporte_ventas_mes_semana group by mes " + orden);
+            return MostrarReporteVista("select * from reporte_ventas_mes_semana order by mes " + orden);
         } else {
             return MostrarReporteVista(
                     "select mes, sum(total_ventas) as Total_Mes "

@@ -2980,6 +2980,11 @@ public class Main extends javax.swing.JFrame {
                 jButton_Principal_AbrirReportesMouseClicked(evt);
             }
         });
+        jButton_Principal_AbrirReportes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_Principal_AbrirReportesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel_PrincipalLayout = new javax.swing.GroupLayout(jPanel_Principal);
         jPanel_Principal.setLayout(jPanel_PrincipalLayout);
@@ -3262,7 +3267,7 @@ public class Main extends javax.swing.JFrame {
             rowData[col] = jTable_Create.getValueAt(0, col);
             System.out.println(rowData[col].toString());
         }
-        if (validateDataTypes(jlListaTablas.getSelectedValue(), rowData, 0)) {
+        if (validateDataTypes(jlListaTablas.getSelectedValue(), rowData)) {
             try {
                 System.out.println("------------------");
                 BD.insertarTabla(jlListaTablas.getSelectedValue(), rowData);
@@ -3488,7 +3493,7 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton_CRUD_Create1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_CRUD_Create1MouseClicked
         // TODO add your handling code here:
-
+        cargarTablasVentas("asc");
         jdReporteVenta.pack();
         jdReporteVenta.setLocationRelativeTo(this);
         jdReporteVenta.setModal(true);
@@ -3921,6 +3926,10 @@ public class Main extends javax.swing.JFrame {
         cargarTablasVentas("desc");
     }//GEN-LAST:event_jButton_RfiltrosMouseClicked
 
+    private void jButton_Principal_AbrirReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Principal_AbrirReportesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_Principal_AbrirReportesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -4295,349 +4304,6 @@ public class Main extends javax.swing.JFrame {
         try {
             switch (tableName.toLowerCase()) {
                 case "categorias":
-                    if (data.length != 3) {
-                        return false;
-                    }
-                    if (data[0].toString().matches("^[+]?\\d+$")) {
-                        count++;
-                        if (data[1].toString().trim().matches("^[a-zA-Z]+$") && data[1].toString().length() < 26) {
-                            count++;
-                            if (data[2] instanceof String && data[2].toString().length() < 101) {
-                                return true;
-                            }
-                        }
-                    }
-                    JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido");
-                    return false;
-
-                case "proveedores":
-                    if (data.length != 8) {
-                        return false;
-                    }
-                    if (data[0].toString().matches("^[+-]?\\d+$")) {
-                        count++;
-                        if (data[1].toString().trim().matches("^[a-zA-Z]+$") && data[1].toString().length() < 26) {
-                            count++;
-                            if (data[2] instanceof String && data[2].toString().length() < 41) {
-                                count++;
-                                if (data[3].toString().trim().matches("^[a-zA-Z]+$") && data[3].toString().length() < 26) {
-                                    count++;
-                                    if (data[4].toString().trim().matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$") && data[4].toString().length() < 71) {
-                                        count++;
-                                        if (data[5] instanceof String && data[5].toString().length() < 26) {
-                                            count++;
-                                            if (data[6] instanceof String && data[6].toString().length() < 71) {
-                                                count++;
-                                                if (data[7].toString().matches("^[+-]?\\d+$")) {
-                                                    return true;
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido");
-                    return false;
-
-                case "productos":
-                    if (data.length != 11) {
-                        return false;
-                    }
-                    if (data[0].toString().matches("^[+-]?\\d+$")) {
-                        count++;
-                        if (data[1] instanceof String && data[1].toString().length() < 11) {
-                            count++;
-                            if (data[2] instanceof String && data[2].toString().length() < 26) {
-                                count++;
-                                if (data[3] instanceof String && data[3].toString().length() < 101) {
-                                    count++;
-                                    if (data[4].toString().matches("^[+-]?\\d+$")) {
-                                        count++;
-                                        if (data[5].toString().matches("^[+-]?\\d+$")) {
-                                            count++;
-                                            if (data[6].toString().matches("^[+-]?\\d+(\\.\\d+)?$")) {
-                                                count++;
-                                                if (data[7].toString().matches("^[+-]?\\d+(\\.\\d+)?$")) {
-                                                    count++;
-                                                    if (data[8].toString().matches("^[+-]?\\d+(\\.\\d+)?$")) {
-                                                        count++;
-                                                        if (data[9] instanceof String && data[9].toString().length() < 31) {
-                                                            count++;
-                                                            if (data[10].toString().matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$")) {
-                                                                return true;
-                                                            } else {
-                                                                JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido\n Formato: YYYY-MM-DD");
-                                                                return false;
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido");
-                    return false;
-
-                case "inventario":
-                    if (data.length != 7) {
-                        return false;
-                    }
-                    if (data[0].toString().matches("^[+-]?\\d+$")) {
-                        count++;
-                        if (data[1].toString().matches("^[+-]?\\d+$")) {
-                            count++;
-                            if (data[2].toString().matches("^[+-]?\\d+$")) {
-                                count++;
-                                if (data[3] instanceof String && data[3].toString().length() < 11) {
-                                    count++;
-                                    if (data[4] instanceof String && data[4].toString().length() < 16) {
-                                        count++;
-                                        if (data[5].toString().matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$")) {
-                                            count++;
-                                            if (data[6].toString().matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$")) {
-                                                return true;
-                                            } else {
-                                                JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido\n Formato: YYYY-MM-DD");
-                                                return false;
-                                            }
-                                        } else {
-                                            JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido\n Formato: YYYY-MM-DD");
-                                            return false;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido");
-                    return false;
-
-                case "clientes":
-                    if (data.length != 12) {
-                        return false;
-                    }
-                    if (data[0].toString().matches("^[+-]?\\d+$")) {
-                        count++;
-                        if (data[1] instanceof String && data[1].toString().length() < 51) {
-                            count++;
-                            if (data[2] instanceof String && data[2].toString().length() < 26) {
-                                count++;
-                                if (data[3].toString().trim().matches("^[a-zA-Z]+$") && data[3].toString().length() < 26) {
-                                    count++;
-                                    if (data[4].toString().trim().matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$") && data[4].toString().length() < 71) {
-                                        count++;
-                                        if (data[5] instanceof String && data[5].toString().length() < 26) {
-                                            count++;
-                                            if (data[6] instanceof String && data[6].toString().length() < 71) {
-                                                count++;
-                                                if (data[7] instanceof String && data[7].toString().length() < 31) {
-                                                    count++;
-                                                    if (data[8] instanceof String && data[8].toString().length() < 11) {
-                                                        count++;
-                                                        if (data[9].toString().matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$")) {
-                                                            count++;
-                                                            if (data[10].toString().matches("^[+-]?\\d+(\\.\\d+)?$")) {
-                                                                count++;
-                                                                if (data[11] instanceof String && data[11].toString().length() < 41) {
-                                                                    return true;
-                                                                }
-                                                            }
-                                                        } else {
-                                                            JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido\n Formato: YYYY-MM-DD");
-                                                            return false;
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido");
-                    return false;
-
-                case "empleados":
-                    if (data.length != 7) {
-                        return false;
-                    }
-                    if (data[0].toString().matches("^[+-]?\\d+$")) {
-                        count++;
-                        if (data[1].toString().trim().matches("^[a-zA-Z]+$") && data[1].toString().length() < 26) {
-                            count++;
-                            if (data[2].toString().trim().matches("^[a-zA-Z]+$") && data[2].toString().length() < 26) {
-                                count++;
-                                if (data[3] instanceof String && data[3].toString().length() < 31) {
-                                    count++;
-                                    if (data[4].toString().trim().matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$") && data[4].toString().length() < 71) {
-                                        count++;
-                                        if (data[5] instanceof String && data[5].toString().length() < 26) {
-                                            count++;
-                                            if (data[6].toString().matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$")) {
-                                                return true;
-                                            } else {
-                                                JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido\n Formato: YYYY-MM-DD");
-                                                return false;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido");
-                    return false;
-
-                case "rutas":
-                    if (data.length != 5) {
-                        return false;
-                    }
-                    if (data[0].toString().matches("^[+-]?\\d+$")) {
-                        count++;
-                        if (data[1] instanceof String && data[1].toString().length() < 26) {
-                            count++;
-                            if (data[2] instanceof String && data[2].toString().length() < 51) {
-                                count++;
-                                if (data[3].toString().matches("^[+-]?\\d+$")) {
-                                    count++;
-                                    if (data[4] instanceof String && data[4].toString().length() < 11) {
-                                        return true;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido");
-                    return false;
-
-                case "pedidos":
-                    if (data.length != 10) {
-                        return false;
-                    }
-                    if (data[0].toString().matches("^[+-]?\\d+$")) {
-                        count++;
-                        if (data[1].toString().matches("^[+-]?\\d+$")) {
-                            count++;
-                            if (data[2].toString().matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])\\s(0\\d|1\\d|2[0-3]):[0-5]\\d:[0-5]\\d$")) {
-                                count++;
-                                if (data[3].toString().matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$")) {
-                                    count++;
-                                    if (data[4] == null || data[4].toString().matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$")) {
-                                        count++;
-                                        if (data[5].toString().matches("^[+-]?\\d+$")) {
-                                            count++;
-                                            if (data[6].toString().matches("^[+-]?\\d+$")) {
-                                                count++;
-                                                if (data[7] instanceof String && data[7].toString().length() < 26) {
-                                                    count++;
-                                                    if (data[8] == null || (data[8] instanceof String && data[8].toString().length() < 26)) {
-                                                        count++;
-                                                        if (data[9].toString().matches("^[+-]?\\d+(\\.\\d+)?$")) {
-                                                            return true;
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        } else {
-                                            JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido\n Formato: YYYY-MM-DD");
-                                            return false;
-                                        }
-                                    } else {
-                                        JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido\n Formato: YYYY-MM-DD");
-                                        return false;
-                                    }
-                                } else {
-                                    JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido\n Formato: YYYY-MM-DD HH:MI:SS");
-                                    return false;
-                                }
-                            }
-                        }
-                    }
-                    JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido");
-                    return false;
-
-                case "detalles_pedido":
-                    if (data.length != 7) {
-                        return false;
-                    }
-                    if (data[0].toString().matches("^[+-]?\\d+$")) {
-                        count++;
-                        if (data[1].toString().matches("^[+-]?\\d+$")) {
-                            count++;
-                            if (data[2].toString().matches("^[+-]?\\d+$")) {
-                                count++;
-                                if (data[3].toString().matches("^[+-]?\\d+$")) {
-                                    count++;
-                                    if (data[4].toString().matches("^[+-]?\\d+(\\.\\d+)?$")) {
-                                        count++;
-                                        if (data[5].toString().matches("^[+-]?\\d+(\\.\\d+)?$")) {
-                                            count++;
-                                            if (data[6].toString().matches("^[+-]?\\d+(\\.\\d+)?$")) {
-                                                return true;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido");
-                    return false;
-
-                case "pagos":
-                    if (data.length != 7) {
-                        return false;
-                    }
-                    if (data[0].toString().matches("^[+-]?\\d+$")) {
-                        count++;
-                        if (data[1].toString().matches("^[+-]?\\d+$")) {
-                            count++;
-                            if (data[2].toString().matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$")) {
-                                count++;
-                                if (data[3].toString().matches("^[+-]?\\d+(\\.\\d+)?$")) {
-                                    count++;
-                                    if (data[4] instanceof String && data[4].toString().length() < 31) {
-                                        count++;
-                                        if (data[5] instanceof String && data[5].toString().length() < 51) {
-                                            count++;
-                                            if (data[6] instanceof String && data[6].toString().length() < 31) {
-                                                return true;
-                                            }
-                                        }
-                                    }
-                                } else {
-                                    JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido\n Formato: YYYY-MM-DD");
-                                    return false;
-                                }
-                            }
-                        }
-                    }
-                    JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido");
-                    return false;
-
-                default:
-                    return false;
-            }
-        } catch (ArrayIndexOutOfBoundsException e) {
-            return false;
-        }
-    }
-
-    public boolean validateDataTypes(String tableName, Object[] data, int x) {
-        if (tableName == null || data == null) {
-            return false;
-        }
-        int count = 0;
-        try {
-            switch (tableName.toLowerCase()) {
-                case "categorias":
                     if (data.length != 2) {
                         return false;
                     }
@@ -4962,24 +4628,26 @@ public class Main extends javax.swing.JFrame {
     }
 
     private void cargarTablasVentas(String selected) {
+        int count = 1;
         Object[][] tabla1 = BD.obtenerVentasMes("", selected);
-        cargarTabla(jTable_venta_1, tabla1);
+        cargarTabla(jTable_venta_1, tabla1, "Ventas mes");
 
         Object[][] tabla2 = BD.obtenerProductosMasVendidos(selected);
-        cargarTabla(jTable_venta_4, tabla2);
+        cargarTabla(jTable_venta_4, tabla2, "Productos mas vendidos");
 
         Object[][] tabla3 = BD.obtenerVentasPorCategoria("", selected);
-        cargarTabla(jTable_venta_3, tabla3);
+        cargarTabla(jTable_venta_3, tabla3, "Ventas por categoria");
         jTextField_venta.setText("deje en blanco para mostrar todo....");
 
         Object[][] tabla4 = BD.obtenerVentasSemana("", selected);
-        cargarTabla(jTable_venta_2, tabla4);
+        cargarTabla(jTable_venta_2, tabla4, "Ventas semana");
 
         Object[][] tabla5 = BD.obtenerComparativaPeriodos("1", "1", selected);
-        cargarTabla(jTable_venta_5, tabla5);
+        cargarTabla(jTable_venta_5, tabla5, "Comparativa periodos");
+
     }
 
-    private void cargarTabla(JTable table, Object[][] data) {
+    private void cargarTabla(JTable table, Object[][] data, String nombre) {
         DefaultTableModel model = new DefaultTableModel();
 
         if (data != null) {
@@ -4988,9 +4656,12 @@ public class Main extends javax.swing.JFrame {
                 for (int i = 1; i < data.length; i++) {
                     model.addRow(data[i]);
                 }
+            } else {
+                //JOptionPane.showMessageDialog(jdReporteVenta, "La tabla " + nombre + " esta vacia");
             }
             table.setModel(model);
-        }else{
+        } else {
+            //JOptionPane.showMessageDialog(jdReporteVenta, "Error la tabla " + nombre + " no existe");
             table.setModel(new DefaultTableModel());
         }
     }
