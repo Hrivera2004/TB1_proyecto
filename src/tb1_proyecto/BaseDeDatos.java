@@ -26,7 +26,7 @@ public class BaseDeDatos {
     ///BASE DE DATOS
     String url = "jdbc:mysql://localhost:3306/maquillaje"; //[maquillaje = nombre de su base de datos]
     String usuario = "root";  // Usuario de MySQL [USUARIO PROPIO]
-    String contraseña = "Hect@R1213";
+    String contraseña = "YES";
     String driver = "com.mysql.cj.jdbc.Driver";
     Connection con;
 
@@ -378,52 +378,52 @@ public class BaseDeDatos {
     }
 
     //VISTAS PARA Estado de Pedidos y Tiempos de Entrega
-    public void obtenerPedidosPorEstado(String estado, String orden) {
+    public Object[][] obtenerPedidosPorEstado(String estado, String orden) {
         if (estado.isEmpty()) {
-            MostrarReporteVista("select * from Pedidos_Estado order by Pedidos " + orden);
+            return MostrarReporteVista("select * from Pedidos_Estado order by Pedidos " + orden);
         } else {
-            MostrarReporteVista("select * from Pedidos_Estado where estado=\'" + estado + "\'");
+            return MostrarReporteVista("select * from Pedidos_Estado where estado=\'" + estado + "\'");
         }
     }
 
-    public void obtenerTiempoPromedioEntrega(String orden) {
-        MostrarReporteVista("select * from Tiempo_Promedio_Entrega order by Promedio_Dias" + orden);
+    public Object[][] obtenerTiempoPromedioEntrega(String orden) {
+        return MostrarReporteVista("select * from Tiempo_Promedio_Entrega order by Promedio_Dias" + orden);
     }
 
-    public void obtenerRutasMayorVolumen(String orden) {
-        MostrarReporteVista("select * from Rutas_Mayor_Volumen order by Tránsito_Ruta " + orden);
+    public Object[][] obtenerRutasMayorVolumen(String orden) {
+        return MostrarReporteVista("select * from Rutas_Mayor_Volumen order by Tránsito_Ruta " + orden);
     }
 
-    public void obtenerPedidosRetrasados(String orden) {
-        MostrarReporteVista("select * from Pedidos_Retrasados order by Días_Retraso " + orden);
+    public Object[][] obtenerPedidosRetrasados(String orden) {
+        return MostrarReporteVista("select * from Pedidos_Retrasados order by Días_Retraso " + orden);
     }
 
     //VISTAS PARA Rentabilidad por Productos y Categorías
-    public void obtenerGananciaPorProducto(String producto, String orden) {
+    public Object[][] obtenerGananciaPorProducto(String producto, String orden) {
         if (producto.isEmpty()) {
-            MostrarReporteVista("select * from Ganancia_Producto order by Ganancia " + orden);
+           return MostrarReporteVista("select * from Ganancia_Producto order by Ganancia " + orden);
         } else {
-            MostrarReporteVista("select * from Ganancia_Producto where nombre=\'" + producto + "\'");
+            return MostrarReporteVista("select * from Ganancia_Producto where nombre=\'" + producto + "\'");
         }
     }
 
-    public void obtenerCategoriasMasRentables(String categoria, String orden) {
-        MostrarReporteVista("select * from Categorias_Rentables order by Ganancia_Total " + orden);
+    public Object[][] obtenerCategoriasMasRentables(String categoria, String orden) {
+       return MostrarReporteVista("select * from Categorias_Rentables order by Ganancia_Total " + orden);
     }
 
-    public void obtenerAnalisisDescuentos(String producto, String orden) {
+    public Object[][] obtenerAnalisisDescuentos(String producto, String orden) {
         if (producto.isEmpty()) {
-            MostrarReporteVista("select * from Analisis_Descuentos order by Ganancia_Teórica " + orden);
+            return MostrarReporteVista("select * from Analisis_Descuentos order by Ganancia_Teórica " + orden);
         } else {
-            MostrarReporteVista("select * from Analisis_Descuentos where producto=\'" + producto + "\' order by Ganancia_Teórica" + orden);
+            return MostrarReporteVista("select * from Analisis_Descuentos where producto=\'" + producto + "\' order by Ganancia_Teórica" + orden);
         }
     }
 
-    public void obtenerRelacionVentasRentabilidad(String producto, String orden) {
+    public Object[][] obtenerRelacionVentasRentabilidad(String producto, String orden) {
         if (producto.isEmpty()) {
-            MostrarReporteVista("select * from Relacion_Ventas_Rentabilidad order by ganancia_total " + orden);
+            return MostrarReporteVista("select * from Relacion_Ventas_Rentabilidad order by ganancia_total " + orden);
         } else {
-            MostrarReporteVista("select * from Relacion_Ventas_Rentabilidad where producto=\'" + producto + "\'");
+            return MostrarReporteVista("select * from Relacion_Ventas_Rentabilidad where producto=\'" + producto + "\'");
         }
     }
 

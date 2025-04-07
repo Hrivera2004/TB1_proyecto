@@ -209,6 +209,84 @@ public class Main extends javax.swing.JFrame {
         buttonGroup6 = new javax.swing.ButtonGroup();
         buttonGroup7 = new javax.swing.ButtonGroup();
         buttonGroup8 = new javax.swing.ButtonGroup();
+        jdEstadoPedidos = new javax.swing.JDialog();
+        jPanel30 = new javax.swing.JPanel();
+        jPanel31 = new javax.swing.JPanel();
+        jLabel34 = new javax.swing.JLabel();
+        tbPedidosEstado = new javax.swing.JTabbedPane();
+        jPanel32 = new javax.swing.JPanel();
+        jLabel35 = new javax.swing.JLabel();
+        tfEstadoPedido = new javax.swing.JTextField();
+        jLabel36 = new javax.swing.JLabel();
+        jRadioButton_ana_asctasa1 = new javax.swing.JRadioButton();
+        jRadioButton_ana_desctasa1 = new javax.swing.JRadioButton();
+        jbVer = new javax.swing.JButton();
+        jScrollPane16 = new javax.swing.JScrollPane();
+        jtEP = new javax.swing.JTable();
+        jPanel33 = new javax.swing.JPanel();
+        jLabel38 = new javax.swing.JLabel();
+        jRadioButton_ana_ascnum1 = new javax.swing.JRadioButton();
+        jRadioButton_ana_descnum1 = new javax.swing.JRadioButton();
+        jbVer2 = new javax.swing.JButton();
+        jScrollPane17 = new javax.swing.JScrollPane();
+        jtTiempo = new javax.swing.JTable();
+        jPanel34 = new javax.swing.JPanel();
+        jLabel40 = new javax.swing.JLabel();
+        jRadioButton_ana_ascprom1 = new javax.swing.JRadioButton();
+        jRadioButton_ana_descprom1 = new javax.swing.JRadioButton();
+        jButton_tabprom1 = new javax.swing.JButton();
+        jScrollPane18 = new javax.swing.JScrollPane();
+        jtRutas = new javax.swing.JTable();
+        jPanel35 = new javax.swing.JPanel();
+        jLabel42 = new javax.swing.JLabel();
+        jRadioButton_ana_ascventas1 = new javax.swing.JRadioButton();
+        jRadioButton_ana_descventas1 = new javax.swing.JRadioButton();
+        jButton_tabventas1 = new javax.swing.JButton();
+        jScrollPane19 = new javax.swing.JScrollPane();
+        jtRetrasados = new javax.swing.JTable();
+        jButton_Analisis_Regresar1 = new javax.swing.JButton();
+        jdRentabilidadXProductos = new javax.swing.JDialog();
+        jPanel36 = new javax.swing.JPanel();
+        jPanel37 = new javax.swing.JPanel();
+        jLabel37 = new javax.swing.JLabel();
+        PannedRentabilidd = new javax.swing.JTabbedPane();
+        jPanel38 = new javax.swing.JPanel();
+        jLabel39 = new javax.swing.JLabel();
+        tfNameProduct = new javax.swing.JTextField();
+        jLabel41 = new javax.swing.JLabel();
+        jRadioButton_ana_asctasa2 = new javax.swing.JRadioButton();
+        jRadioButton_ana_desctasa2 = new javax.swing.JRadioButton();
+        jButton_tabtasa1 = new javax.swing.JButton();
+        jScrollPane20 = new javax.swing.JScrollPane();
+        jtGanancia = new javax.swing.JTable();
+        jPanel39 = new javax.swing.JPanel();
+        jLabel43 = new javax.swing.JLabel();
+        tfNameCategoria = new javax.swing.JTextField();
+        jLabel44 = new javax.swing.JLabel();
+        jRadioButton_ana_ascnum2 = new javax.swing.JRadioButton();
+        jRadioButton_ana_descnum2 = new javax.swing.JRadioButton();
+        jButton_tabnum1 = new javax.swing.JButton();
+        jScrollPane21 = new javax.swing.JScrollPane();
+        jtCategoria = new javax.swing.JTable();
+        jPanel40 = new javax.swing.JPanel();
+        jLabel45 = new javax.swing.JLabel();
+        tfAnalisis = new javax.swing.JTextField();
+        jLabel46 = new javax.swing.JLabel();
+        jRadioButton_ana_ascprom2 = new javax.swing.JRadioButton();
+        jRadioButton_ana_descprom2 = new javax.swing.JRadioButton();
+        jButton_tabprom2 = new javax.swing.JButton();
+        jScrollPane22 = new javax.swing.JScrollPane();
+        jtAnalisis = new javax.swing.JTable();
+        jPanel41 = new javax.swing.JPanel();
+        jLabel47 = new javax.swing.JLabel();
+        tfName2Producto = new javax.swing.JTextField();
+        jLabel48 = new javax.swing.JLabel();
+        jRadioButton_ana_ascventas2 = new javax.swing.JRadioButton();
+        jRadioButton_ana_descventas2 = new javax.swing.JRadioButton();
+        jButton_tabventas2 = new javax.swing.JButton();
+        jScrollPane23 = new javax.swing.JScrollPane();
+        jtProductosMejor = new javax.swing.JTable();
+        jButton_Analisis_Regresar2 = new javax.swing.JButton();
         jPanel_Principal = new javax.swing.JPanel();
         jButton_Principal_SubirArchivo = new javax.swing.JButton();
         jLabel_Principal_Route = new javax.swing.JLabel();
@@ -1781,6 +1859,671 @@ public class Main extends javax.swing.JFrame {
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
+        jPanel30.setBackground(new java.awt.Color(187, 187, 187));
+
+        jPanel31.setBackground(new java.awt.Color(0, 0, 0));
+
+        jLabel34.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
+        jLabel34.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel34.setText("Estado de Pedidos y Tiempos de entrega ");
+
+        javax.swing.GroupLayout jPanel31Layout = new javax.swing.GroupLayout(jPanel31);
+        jPanel31.setLayout(jPanel31Layout);
+        jPanel31Layout.setHorizontalGroup(
+            jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel31Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel31Layout.setVerticalGroup(
+            jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel31Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        jLabel35.setText("Estado del pedido:");
+
+        jLabel36.setText("Seleccione un orden:");
+
+        buttonGroup8.add(jRadioButton_ana_asctasa1);
+        jRadioButton_ana_asctasa1.setText("Ascendente");
+
+        buttonGroup8.add(jRadioButton_ana_desctasa1);
+        jRadioButton_ana_desctasa1.setText("Descendente");
+
+        jbVer.setText("VER");
+        jbVer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbVerActionPerformed(evt);
+            }
+        });
+
+        jtEP.setModel(new DefaultTableModel());
+        jScrollPane16.setViewportView(jtEP);
+
+        javax.swing.GroupLayout jPanel32Layout = new javax.swing.GroupLayout(jPanel32);
+        jPanel32.setLayout(jPanel32Layout);
+        jPanel32Layout.setHorizontalGroup(
+            jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel32Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfEstadoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel32Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jRadioButton_ana_asctasa1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jRadioButton_ana_desctasa1))
+                    .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(74, 74, 74)
+                .addComponent(jbVer, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(7, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel32Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 737, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel32Layout.setVerticalGroup(
+            jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel32Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jbVer, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel32Layout.createSequentialGroup()
+                        .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel35)
+                            .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfEstadoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioButton_ana_asctasa1)
+                            .addComponent(jRadioButton_ana_desctasa1))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(7, Short.MAX_VALUE))
+        );
+
+        tbPedidosEstado.addTab("Pedidos por estado", jPanel32);
+
+        jLabel38.setText("Seleccione un orden:");
+
+        buttonGroup7.add(jRadioButton_ana_ascnum1);
+        jRadioButton_ana_ascnum1.setText("Ascendente");
+
+        buttonGroup7.add(jRadioButton_ana_descnum1);
+        jRadioButton_ana_descnum1.setText("Descendente");
+
+        jbVer2.setText("VER");
+        jbVer2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbVer2ActionPerformed(evt);
+            }
+        });
+
+        jtTiempo.setModel(new DefaultTableModel());
+        jScrollPane17.setViewportView(jtTiempo);
+
+        javax.swing.GroupLayout jPanel33Layout = new javax.swing.GroupLayout(jPanel33);
+        jPanel33.setLayout(jPanel33Layout);
+        jPanel33Layout.setHorizontalGroup(
+            jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel33Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane17)
+                    .addGroup(jPanel33Layout.createSequentialGroup()
+                        .addGap(267, 267, 267)
+                        .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel33Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jRadioButton_ana_ascnum1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jRadioButton_ana_descnum1))
+                            .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(74, 74, 74)
+                        .addComponent(jbVer2, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(7, Short.MAX_VALUE))
+        );
+        jPanel33Layout.setVerticalGroup(
+            jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel33Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jbVer2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel33Layout.createSequentialGroup()
+                        .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jRadioButton_ana_ascnum1)
+                            .addComponent(jRadioButton_ana_descnum1))))
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        tbPedidosEstado.addTab("Tiempo promedio de entrega", jPanel33);
+
+        jLabel40.setText("Seleccione un orden:");
+
+        buttonGroup6.add(jRadioButton_ana_ascprom1);
+        jRadioButton_ana_ascprom1.setText("Ascendente");
+
+        buttonGroup6.add(jRadioButton_ana_descprom1);
+        jRadioButton_ana_descprom1.setText("Descendente");
+
+        jButton_tabprom1.setText("Ver");
+        jButton_tabprom1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_tabprom1ActionPerformed(evt);
+            }
+        });
+
+        jtRutas.setModel(new DefaultTableModel());
+        jScrollPane18.setViewportView(jtRutas);
+
+        javax.swing.GroupLayout jPanel34Layout = new javax.swing.GroupLayout(jPanel34);
+        jPanel34.setLayout(jPanel34Layout);
+        jPanel34Layout.setHorizontalGroup(
+            jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel34Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane18)
+                    .addGroup(jPanel34Layout.createSequentialGroup()
+                        .addGap(267, 267, 267)
+                        .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel34Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jRadioButton_ana_ascprom1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jRadioButton_ana_descprom1))
+                            .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(74, 74, 74)
+                        .addComponent(jButton_tabprom1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(7, Short.MAX_VALUE))
+        );
+        jPanel34Layout.setVerticalGroup(
+            jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel34Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton_tabprom1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel34Layout.createSequentialGroup()
+                        .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jRadioButton_ana_ascprom1)
+                            .addComponent(jRadioButton_ana_descprom1))))
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane18, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        tbPedidosEstado.addTab("Rutas con mayor volumen", jPanel34);
+
+        jLabel42.setText("Seleccione un orden:");
+
+        buttonGroup5.add(jRadioButton_ana_ascventas1);
+        jRadioButton_ana_ascventas1.setText("Ascendente");
+
+        buttonGroup5.add(jRadioButton_ana_descventas1);
+        jRadioButton_ana_descventas1.setText("Descendente");
+
+        jButton_tabventas1.setText("VER");
+        jButton_tabventas1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_tabventas1ActionPerformed(evt);
+            }
+        });
+
+        jtRetrasados.setModel(new DefaultTableModel());
+        jScrollPane19.setViewportView(jtRetrasados);
+
+        javax.swing.GroupLayout jPanel35Layout = new javax.swing.GroupLayout(jPanel35);
+        jPanel35.setLayout(jPanel35Layout);
+        jPanel35Layout.setHorizontalGroup(
+            jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel35Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane19)
+                    .addGroup(jPanel35Layout.createSequentialGroup()
+                        .addGap(267, 267, 267)
+                        .addGroup(jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel35Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jRadioButton_ana_ascventas1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jRadioButton_ana_descventas1))
+                            .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(74, 74, 74)
+                        .addComponent(jButton_tabventas1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(7, Short.MAX_VALUE))
+        );
+        jPanel35Layout.setVerticalGroup(
+            jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel35Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton_tabventas1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel35Layout.createSequentialGroup()
+                        .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jRadioButton_ana_ascventas1)
+                            .addComponent(jRadioButton_ana_descventas1))))
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane19, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+
+        tbPedidosEstado.addTab("Pedidos retrasados", jPanel35);
+
+        jButton_Analisis_Regresar1.setText("Regresar");
+        jButton_Analisis_Regresar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_Analisis_Regresar1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel30Layout = new javax.swing.GroupLayout(jPanel30);
+        jPanel30.setLayout(jPanel30Layout);
+        jPanel30Layout.setHorizontalGroup(
+            jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel30Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton_Analisis_Regresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tbPedidosEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 764, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel30Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel30Layout.setVerticalGroup(
+            jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel30Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(tbPedidosEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton_Analisis_Regresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jdEstadoPedidosLayout = new javax.swing.GroupLayout(jdEstadoPedidos.getContentPane());
+        jdEstadoPedidos.getContentPane().setLayout(jdEstadoPedidosLayout);
+        jdEstadoPedidosLayout.setHorizontalGroup(
+            jdEstadoPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 822, Short.MAX_VALUE)
+            .addGroup(jdEstadoPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jdEstadoPedidosLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        jdEstadoPedidosLayout.setVerticalGroup(
+            jdEstadoPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 524, Short.MAX_VALUE)
+            .addGroup(jdEstadoPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdEstadoPedidosLayout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        jPanel36.setBackground(new java.awt.Color(187, 187, 187));
+
+        jPanel37.setBackground(new java.awt.Color(0, 0, 0));
+
+        jLabel37.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
+        jLabel37.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel37.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel37.setText("Rentabilidad por Productos y Categorías");
+
+        javax.swing.GroupLayout jPanel37Layout = new javax.swing.GroupLayout(jPanel37);
+        jPanel37.setLayout(jPanel37Layout);
+        jPanel37Layout.setHorizontalGroup(
+            jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel37Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel37Layout.setVerticalGroup(
+            jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel37Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        jLabel39.setText("Nombre del Producto:");
+
+        jLabel41.setText("Seleccione un orden:");
+
+        buttonGroup8.add(jRadioButton_ana_asctasa2);
+        jRadioButton_ana_asctasa2.setText("Ascendente");
+
+        buttonGroup8.add(jRadioButton_ana_desctasa2);
+        jRadioButton_ana_desctasa2.setText("Descendente");
+
+        jButton_tabtasa1.setText("VER");
+        jButton_tabtasa1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_tabtasa1ActionPerformed(evt);
+            }
+        });
+
+        jtGanancia.setModel(new DefaultTableModel());
+        jScrollPane20.setViewportView(jtGanancia);
+
+        javax.swing.GroupLayout jPanel38Layout = new javax.swing.GroupLayout(jPanel38);
+        jPanel38.setLayout(jPanel38Layout);
+        jPanel38Layout.setHorizontalGroup(
+            jPanel38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel38Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfNameProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel38Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jRadioButton_ana_asctasa2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jRadioButton_ana_desctasa2))
+                    .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(74, 74, 74)
+                .addComponent(jButton_tabtasa1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(7, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel38Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 737, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel38Layout.setVerticalGroup(
+            jPanel38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel38Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton_tabtasa1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel38Layout.createSequentialGroup()
+                        .addGroup(jPanel38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel39)
+                            .addComponent(jLabel41, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfNameProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioButton_ana_asctasa2)
+                            .addComponent(jRadioButton_ana_desctasa2))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(7, Short.MAX_VALUE))
+        );
+
+        PannedRentabilidd.addTab("Márgenes de ganancia X producto", jPanel38);
+
+        jLabel43.setText("Nombre de categoría:");
+
+        jLabel44.setText("Seleccione un orden:");
+
+        buttonGroup7.add(jRadioButton_ana_ascnum2);
+        jRadioButton_ana_ascnum2.setText("Ascendente");
+
+        buttonGroup7.add(jRadioButton_ana_descnum2);
+        jRadioButton_ana_descnum2.setText("Descendente");
+
+        jButton_tabnum1.setText("VER");
+        jButton_tabnum1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_tabnum1ActionPerformed(evt);
+            }
+        });
+
+        jtCategoria.setModel(new DefaultTableModel());
+        jScrollPane21.setViewportView(jtCategoria);
+
+        javax.swing.GroupLayout jPanel39Layout = new javax.swing.GroupLayout(jPanel39);
+        jPanel39.setLayout(jPanel39Layout);
+        jPanel39Layout.setHorizontalGroup(
+            jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel39Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane21)
+                    .addGroup(jPanel39Layout.createSequentialGroup()
+                        .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfNameCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel39Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jRadioButton_ana_ascnum2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jRadioButton_ana_descnum2))
+                            .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(74, 74, 74)
+                        .addComponent(jButton_tabnum1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(7, Short.MAX_VALUE))
+        );
+        jPanel39Layout.setVerticalGroup(
+            jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel39Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton_tabnum1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel39Layout.createSequentialGroup()
+                        .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel43)
+                            .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfNameCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioButton_ana_ascnum2)
+                            .addComponent(jRadioButton_ana_descnum2))))
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane21, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        PannedRentabilidd.addTab("Categorías más rentables", jPanel39);
+
+        jLabel45.setText("Nombre del Producto:");
+
+        jLabel46.setText("Seleccione un orden:");
+
+        buttonGroup6.add(jRadioButton_ana_ascprom2);
+        jRadioButton_ana_ascprom2.setText("Ascendente");
+
+        buttonGroup6.add(jRadioButton_ana_descprom2);
+        jRadioButton_ana_descprom2.setText("Descendente");
+
+        jButton_tabprom2.setText("VER");
+        jButton_tabprom2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_tabprom2ActionPerformed(evt);
+            }
+        });
+
+        jtAnalisis.setModel(new DefaultTableModel());
+        jScrollPane22.setViewportView(jtAnalisis);
+
+        javax.swing.GroupLayout jPanel40Layout = new javax.swing.GroupLayout(jPanel40);
+        jPanel40.setLayout(jPanel40Layout);
+        jPanel40Layout.setHorizontalGroup(
+            jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel40Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane22)
+                    .addGroup(jPanel40Layout.createSequentialGroup()
+                        .addGroup(jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfAnalisis, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel40Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jRadioButton_ana_ascprom2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jRadioButton_ana_descprom2))
+                            .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(74, 74, 74)
+                        .addComponent(jButton_tabprom2, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(7, Short.MAX_VALUE))
+        );
+        jPanel40Layout.setVerticalGroup(
+            jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel40Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton_tabprom2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel40Layout.createSequentialGroup()
+                        .addGroup(jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel45)
+                            .addComponent(jLabel46, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfAnalisis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioButton_ana_ascprom2)
+                            .addComponent(jRadioButton_ana_descprom2))))
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane22, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        PannedRentabilidd.addTab("Análisis de descuentos aplicados", jPanel40);
+
+        jLabel47.setText("Nombre del Producto:");
+
+        jLabel48.setText("Seleccione un orden:");
+
+        buttonGroup5.add(jRadioButton_ana_ascventas2);
+        jRadioButton_ana_ascventas2.setText("Ascendente");
+
+        buttonGroup5.add(jRadioButton_ana_descventas2);
+        jRadioButton_ana_descventas2.setText("Descendente");
+
+        jButton_tabventas2.setText("VER");
+        jButton_tabventas2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_tabventas2ActionPerformed(evt);
+            }
+        });
+
+        jtProductosMejor.setModel(new DefaultTableModel());
+        jScrollPane23.setViewportView(jtProductosMejor);
+
+        javax.swing.GroupLayout jPanel41Layout = new javax.swing.GroupLayout(jPanel41);
+        jPanel41.setLayout(jPanel41Layout);
+        jPanel41Layout.setHorizontalGroup(
+            jPanel41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel41Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane23)
+                    .addGroup(jPanel41Layout.createSequentialGroup()
+                        .addGroup(jPanel41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfName2Producto, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel41Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jRadioButton_ana_ascventas2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jRadioButton_ana_descventas2))
+                            .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(74, 74, 74)
+                        .addComponent(jButton_tabventas2, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(7, Short.MAX_VALUE))
+        );
+        jPanel41Layout.setVerticalGroup(
+            jPanel41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel41Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton_tabventas2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel41Layout.createSequentialGroup()
+                        .addGroup(jPanel41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel47)
+                            .addComponent(jLabel48, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfName2Producto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioButton_ana_ascventas2)
+                            .addComponent(jRadioButton_ana_descventas2))))
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane23, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+
+        PannedRentabilidd.addTab("Productos con mejor relación V/R", jPanel41);
+
+        jButton_Analisis_Regresar2.setText("Regresar");
+        jButton_Analisis_Regresar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_Analisis_Regresar2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel36Layout = new javax.swing.GroupLayout(jPanel36);
+        jPanel36.setLayout(jPanel36Layout);
+        jPanel36Layout.setHorizontalGroup(
+            jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel36Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton_Analisis_Regresar2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PannedRentabilidd, javax.swing.GroupLayout.PREFERRED_SIZE, 764, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel36Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel36Layout.setVerticalGroup(
+            jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel36Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(PannedRentabilidd, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton_Analisis_Regresar2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jdRentabilidadXProductosLayout = new javax.swing.GroupLayout(jdRentabilidadXProductos.getContentPane());
+        jdRentabilidadXProductos.getContentPane().setLayout(jdRentabilidadXProductosLayout);
+        jdRentabilidadXProductosLayout.setHorizontalGroup(
+            jdRentabilidadXProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 822, Short.MAX_VALUE)
+            .addGroup(jdRentabilidadXProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jdRentabilidadXProductosLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanel36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        jdRentabilidadXProductosLayout.setVerticalGroup(
+            jdRentabilidadXProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 524, Short.MAX_VALUE)
+            .addGroup(jdRentabilidadXProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdRentabilidadXProductosLayout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel_Principal.setBackground(new java.awt.Color(204, 204, 204));
@@ -2331,6 +3074,10 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton_CRUD_Read1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CRUD_Read1ActionPerformed
         // TODO add your handling code here:
+        jdEstadoPedidos.pack();
+        jdEstadoPedidos.setLocationRelativeTo(this);
+        jdEstadoPedidos.setModal(true);
+        jdEstadoPedidos.setVisible(true);
     }//GEN-LAST:event_jButton_CRUD_Read1ActionPerformed
 
     private void jButton_CRUD_Update1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CRUD_Update1ActionPerformed
@@ -2343,6 +3090,10 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton_CRUD_Delete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CRUD_Delete1ActionPerformed
         // TODO add your handling code here:
+        jdRentabilidadXProductos.pack();
+        jdRentabilidadXProductos.setLocationRelativeTo(this);
+        jdRentabilidadXProductos.setModal(true);
+        jdRentabilidadXProductos.setVisible(true);
     }//GEN-LAST:event_jButton_CRUD_Delete1ActionPerformed
 
     private void jButton_CRUD_Create2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CRUD_Create2ActionPerformed
@@ -2624,6 +3375,85 @@ public class Main extends javax.swing.JFrame {
         jdReporteVenta.setVisible(false);
     }//GEN-LAST:event_jButton_Ventas_RegresarActionPerformed
 
+    private void jbVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVerActionPerformed
+        // TODO add your handling code here:
+        String orden = jRadioButton_ana_asctasa1.isSelected() ? "asc" : "desc";
+        String estado = tfEstadoPedido.getText();
+        if (estado.equalsIgnoreCase("Pendiente")|| estado.equalsIgnoreCase("Entregado")||estado.equalsIgnoreCase("En preparacion")||estado.equalsIgnoreCase("")) {
+        Object[][] tabla = BD.obtenerPedidosPorEstado(estado, orden);
+        mostrarDatosEnTabla(tabla, jtEP);
+        }else{
+            JOptionPane.showMessageDialog(jdEstadoPedidos, "Ingrese un estado correcto");
+        }
+        
+    }//GEN-LAST:event_jbVerActionPerformed
+
+    private void jbVer2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVer2ActionPerformed
+        // TODO add your handling code here:
+        String orden = jRadioButton_ana_ascnum1.isSelected() ? "asc" : "desc";
+        Object[][] tabla = BD.obtenerTiempoPromedioEntrega(orden);
+        mostrarDatosEnTabla(tabla, jtTiempo);
+    }//GEN-LAST:event_jbVer2ActionPerformed
+
+    private void jButton_tabprom1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_tabprom1ActionPerformed
+        // TODO add your handling code here:
+        String orden = jRadioButton_ana_ascprom1.isSelected() ? "asc" : "desc";
+        Object[][] tabla = BD.obtenerRutasMayorVolumen(orden);
+        mostrarDatosEnTabla(tabla, jtRutas);
+    }//GEN-LAST:event_jButton_tabprom1ActionPerformed
+
+    private void jButton_tabventas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_tabventas1ActionPerformed
+        // TODO add your handling code here:
+        String orden = jRadioButton_ana_ascventas1.isSelected() ? "asc" : "desc";
+        Object[][] tabla = BD.obtenerPedidosRetrasados(orden);
+        mostrarDatosEnTabla(tabla, jtRetrasados);
+    }//GEN-LAST:event_jButton_tabventas1ActionPerformed
+
+    private void jButton_Analisis_Regresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Analisis_Regresar1ActionPerformed
+        // TODO add your handling code here:
+        tfEstadoPedido.setText("");
+        jdEstadoPedidos.setVisible(false);
+    }//GEN-LAST:event_jButton_Analisis_Regresar1ActionPerformed
+
+    private void jButton_tabtasa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_tabtasa1ActionPerformed
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        String orden = jRadioButton_ana_asctasa2.isSelected() ? "asc" : "desc";
+        String producto = tfNameProduct.getText();
+        Object[][] tabla = BD.obtenerGananciaPorProducto(producto, orden);
+        mostrarDatosEnTabla(tabla, jtGanancia);
+    }//GEN-LAST:event_jButton_tabtasa1ActionPerformed
+
+    private void jButton_tabnum1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_tabnum1ActionPerformed
+        // TODO add your handling code here:
+        String orden = jRadioButton_ana_ascnum2.isSelected() ? "asc" : "desc";
+        String producto = tfNameCategoria.getText();
+        Object[][] tabla = BD.obtenerCategoriasMasRentables(producto, orden);
+        mostrarDatosEnTabla(tabla, jtCategoria);
+    }//GEN-LAST:event_jButton_tabnum1ActionPerformed
+
+    private void jButton_tabprom2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_tabprom2ActionPerformed
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        String orden = jRadioButton_ana_ascprom2.isSelected() ? "asc" : "desc";
+        String producto = tfAnalisis.getText();
+        Object[][] tabla = BD.obtenerAnalisisDescuentos(producto, orden);
+        mostrarDatosEnTabla(tabla, jtAnalisis);
+    }//GEN-LAST:event_jButton_tabprom2ActionPerformed
+
+    private void jButton_tabventas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_tabventas2ActionPerformed
+        // TODO add your handling code here:
+        String orden = jRadioButton_ana_ascventas2.isSelected() ? "asc" : "desc";
+        String producto = tfName2Producto.getText();
+        Object[][] tabla = BD.obtenerRelacionVentasRentabilidad(producto, orden);
+        mostrarDatosEnTabla(tabla, jtProductosMejor);
+    }//GEN-LAST:event_jButton_tabventas2ActionPerformed
+
+    private void jButton_Analisis_Regresar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Analisis_Regresar2ActionPerformed
+        // TODO add your handling code here:
+        jdRentabilidadXProductos.setVisible(false);
+    }//GEN-LAST:event_jButton_Analisis_Regresar2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2661,6 +3491,7 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Jtable_ana_num;
+    private javax.swing.JTabbedPane PannedRentabilidd;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
@@ -2671,6 +3502,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup8;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton_Analisis_Regresar;
+    private javax.swing.JButton jButton_Analisis_Regresar1;
+    private javax.swing.JButton jButton_Analisis_Regresar2;
     private javax.swing.JButton jButton_CRUD_Create;
     private javax.swing.JButton jButton_CRUD_Create1;
     private javax.swing.JButton jButton_CRUD_Create2;
@@ -2692,9 +3525,15 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton_stock3_guardar;
     private javax.swing.JButton jButton_stock4;
     private javax.swing.JButton jButton_tabnum;
+    private javax.swing.JButton jButton_tabnum1;
     private javax.swing.JButton jButton_tabprom;
+    private javax.swing.JButton jButton_tabprom1;
+    private javax.swing.JButton jButton_tabprom2;
     private javax.swing.JButton jButton_tabtasa;
+    private javax.swing.JButton jButton_tabtasa1;
     private javax.swing.JButton jButton_tabventas;
+    private javax.swing.JButton jButton_tabventas1;
+    private javax.swing.JButton jButton_tabventas2;
     private javax.swing.JButton jButton_venta_continuar;
     private javax.swing.JComboBox<String> jComboBox_venta_reportes;
     private javax.swing.JDialog jDialog_CRUD;
@@ -2727,7 +3566,22 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -2761,7 +3615,19 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel28;
     private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel30;
+    private javax.swing.JPanel jPanel31;
+    private javax.swing.JPanel jPanel32;
+    private javax.swing.JPanel jPanel33;
+    private javax.swing.JPanel jPanel34;
+    private javax.swing.JPanel jPanel35;
+    private javax.swing.JPanel jPanel36;
+    private javax.swing.JPanel jPanel37;
+    private javax.swing.JPanel jPanel38;
+    private javax.swing.JPanel jPanel39;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel40;
+    private javax.swing.JPanel jPanel41;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
@@ -2769,13 +3635,29 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JPanel jPanel_Principal;
     private javax.swing.JRadioButton jRadioButton_ana_ascnum;
+    private javax.swing.JRadioButton jRadioButton_ana_ascnum1;
+    private javax.swing.JRadioButton jRadioButton_ana_ascnum2;
     private javax.swing.JRadioButton jRadioButton_ana_ascprom;
+    private javax.swing.JRadioButton jRadioButton_ana_ascprom1;
+    private javax.swing.JRadioButton jRadioButton_ana_ascprom2;
     private javax.swing.JRadioButton jRadioButton_ana_asctasa;
+    private javax.swing.JRadioButton jRadioButton_ana_asctasa1;
+    private javax.swing.JRadioButton jRadioButton_ana_asctasa2;
     private javax.swing.JRadioButton jRadioButton_ana_ascventas;
+    private javax.swing.JRadioButton jRadioButton_ana_ascventas1;
+    private javax.swing.JRadioButton jRadioButton_ana_ascventas2;
     private javax.swing.JRadioButton jRadioButton_ana_descnum;
+    private javax.swing.JRadioButton jRadioButton_ana_descnum1;
+    private javax.swing.JRadioButton jRadioButton_ana_descnum2;
     private javax.swing.JRadioButton jRadioButton_ana_descprom;
+    private javax.swing.JRadioButton jRadioButton_ana_descprom1;
+    private javax.swing.JRadioButton jRadioButton_ana_descprom2;
     private javax.swing.JRadioButton jRadioButton_ana_desctasa;
+    private javax.swing.JRadioButton jRadioButton_ana_desctasa1;
+    private javax.swing.JRadioButton jRadioButton_ana_desctasa2;
     private javax.swing.JRadioButton jRadioButton_ana_descventas;
+    private javax.swing.JRadioButton jRadioButton_ana_descventas1;
+    private javax.swing.JRadioButton jRadioButton_ana_descventas2;
     private javax.swing.JRadioButton jRadioButton_stock1;
     private javax.swing.JRadioButton jRadioButton_stock2;
     private javax.swing.JRadioButton jRadioButton_stock3_asc;
@@ -2791,7 +3673,15 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
+    private javax.swing.JScrollPane jScrollPane16;
+    private javax.swing.JScrollPane jScrollPane17;
+    private javax.swing.JScrollPane jScrollPane18;
+    private javax.swing.JScrollPane jScrollPane19;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane20;
+    private javax.swing.JScrollPane jScrollPane21;
+    private javax.swing.JScrollPane jScrollPane22;
+    private javax.swing.JScrollPane jScrollPane23;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
@@ -2822,20 +3712,38 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField_venta_condicion;
     private javax.swing.JButton jbBuscar;
     private javax.swing.JButton jbEliminar;
+    private javax.swing.JButton jbVer;
+    private javax.swing.JButton jbVer2;
     private javax.swing.JDialog jdCreate;
     private javax.swing.JButton jdCreate_Return;
     private javax.swing.JDialog jdDelete;
+    private javax.swing.JDialog jdEstadoPedidos;
     private javax.swing.JButton jdGuardarCreate;
     private javax.swing.JButton jdGuardarUpdate;
     private javax.swing.JButton jdGuardarUpdate1;
     private javax.swing.JDialog jdRead;
     private javax.swing.JTable jdReadTable;
+    private javax.swing.JDialog jdRentabilidadXProductos;
     private javax.swing.JDialog jdReporteVenta;
     private javax.swing.JDialog jdReportes;
     private javax.swing.JDialog jdUpdate;
     private javax.swing.JList<String> jlListaTablas;
+    private javax.swing.JTable jtAnalisis;
+    private javax.swing.JTable jtCategoria;
+    private javax.swing.JTable jtEP;
+    private javax.swing.JTable jtGanancia;
+    private javax.swing.JTable jtProductosMejor;
+    private javax.swing.JTable jtRetrasados;
+    private javax.swing.JTable jtRutas;
     private javax.swing.JTable jtTableDelete;
+    private javax.swing.JTable jtTiempo;
     private javax.swing.JTable jtUpdateTable;
+    private javax.swing.JTabbedPane tbPedidosEstado;
+    private javax.swing.JTextField tfAnalisis;
+    private javax.swing.JTextField tfEstadoPedido;
+    private javax.swing.JTextField tfName2Producto;
+    private javax.swing.JTextField tfNameCategoria;
+    private javax.swing.JTextField tfNameProduct;
     private javax.swing.JTextField tfPKbusqueda;
     // End of variables declaration//GEN-END:variables
     BaseDeDatos BD = new BaseDeDatos();
