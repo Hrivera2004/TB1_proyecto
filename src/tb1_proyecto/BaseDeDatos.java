@@ -26,7 +26,7 @@ public class BaseDeDatos {
     ///BASE DE DATOS
     String url = "jdbc:mysql://localhost:3306/maquillaje"; //[maquillaje = nombre de su base de datos]
     String usuario = "root";  // Usuario de MySQL [USUARIO PROPIO]
-    String contraseña = "";
+    String contraseña = "Hect@R1213";
     String driver = "com.mysql.cj.jdbc.Driver";
     Connection con;
 
@@ -314,12 +314,12 @@ public class BaseDeDatos {
 
     public Object[][] obtenerVentasPorCategoria(String categoria, String orden) {
         if (categoria.isEmpty()) {
-            return MostrarReporteVista("select * from Ventas_Categoría order by Ventas_Categoría " + orden);
+            return MostrarReporteVista("select * from Ventas_Categoria order by Ventas_Categoria " + orden);
         } else {
             return MostrarReporteVista(
-                    "select * from Ventas_Categoría "
-                    + "where categoria='" + categoria + "' "
-                    + "order by Ventas_Categoría " + orden);
+                    "select * from Ventas_Categoria "
+                    + "where ventas_categoria='" + categoria + "' "
+                    + "order by Ventas_Categoria " + orden);
         }
     }
 
@@ -330,9 +330,9 @@ public class BaseDeDatos {
 
     public Object[][] obtenerRotacionInventario(String producto, String orden) {
         if (producto.isEmpty()) {
-            return MostrarReporteVista("select * from rotacion_inventario order by rotación " + orden);
+            return MostrarReporteVista("select * from rotacion_inventario order by rotacion " + orden);
         } else {
-            return MostrarReporteVista("select * from rotacion_inventario where nombre='" + producto + "' order by rotación " + orden);
+            return MostrarReporteVista("select * from rotacion_inventario where nombre='" + producto + "' order by rotacion " + orden);
         }
     }
 
@@ -387,15 +387,15 @@ public class BaseDeDatos {
     }
 
     public Object[][] obtenerTiempoPromedioEntrega(String orden) {
-        return MostrarReporteVista("select * from Tiempo_Promedio_Entrega order by Promedio_Dias" + orden);
+        return MostrarReporteVista("select * from Tiempo_Promedio_Entrega order by Promedio_Dias " + orden);
     }
 
     public Object[][] obtenerRutasMayorVolumen(String orden) {
-        return MostrarReporteVista("select * from Rutas_Mayor_Volumen order by Tránsito_Ruta " + orden);
+        return MostrarReporteVista("select * from Rutas_Mayor_Volumen order by Transito_Ruta " + orden);
     }
 
     public Object[][] obtenerPedidosRetrasados(String orden) {
-        return MostrarReporteVista("select * from Pedidos_Retrasados order by Días_Retraso " + orden);
+        return MostrarReporteVista("select * from Pedidos_Retrasados order by Dias_Retraso " + orden);
     }
 
     //VISTAS PARA Rentabilidad por Productos y Categorías
@@ -413,9 +413,9 @@ public class BaseDeDatos {
 
     public Object[][] obtenerAnalisisDescuentos(String producto, String orden) {
         if (producto.isEmpty()) {
-            return MostrarReporteVista("select * from Analisis_Descuentos order by Ganancia_Teórica " + orden);
+            return MostrarReporteVista("select * from Analisis_Descuentos order by Ganancia_Teorica " + orden);
         } else {
-            return MostrarReporteVista("select * from Analisis_Descuentos where producto=\'" + producto + "\' order by Ganancia_Teórica" + orden);
+            return MostrarReporteVista("select * from Analisis_Descuentos where producto=\'" + producto + "\' order by Ganancia_Teorica " + orden);
         }
     }
 

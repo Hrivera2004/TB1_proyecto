@@ -4,16 +4,22 @@
  */
 package tb1_proyecto;
 
+import java.awt.Component;
 import java.io.File;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultCellEditor;
 import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.SpinnerListModel;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
@@ -111,22 +117,60 @@ public class Main extends javax.swing.JFrame {
         jButton_Reportes_Regresar = new javax.swing.JButton();
         jdReporteVenta = new javax.swing.JDialog();
         jPanel16 = new javax.swing.JPanel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel42 = new javax.swing.JPanel();
+        jRadioButton_venta_Asc1 = new javax.swing.JRadioButton();
+        jRadioButton_venta_desc1 = new javax.swing.JRadioButton();
+        jLabel_4 = new javax.swing.JLabel();
+        jButton_venta_continuar1 = new javax.swing.JButton();
+        jLabel_3 = new javax.swing.JLabel();
+        jSpinner_venta_3 = new javax.swing.JSpinner();
+        jScrollPane24 = new javax.swing.JScrollPane();
+        jTable_venta_1 = new javax.swing.JTable();
+        jPanel43 = new javax.swing.JPanel();
+        jLabel_7 = new javax.swing.JLabel();
+        jRadioButton_venta_Asc4 = new javax.swing.JRadioButton();
+        jRadioButton_venta_desc4 = new javax.swing.JRadioButton();
+        jButton_venta_continuar4 = new javax.swing.JButton();
+        jSpinner_venta_4 = new javax.swing.JSpinner();
+        jLabel_9 = new javax.swing.JLabel();
+        jScrollPane25 = new javax.swing.JScrollPane();
+        jTable_venta_2 = new javax.swing.JTable();
+        jPanel45 = new javax.swing.JPanel();
+        jLabel_5 = new javax.swing.JLabel();
+        jRadioButton_venta_Asc2 = new javax.swing.JRadioButton();
+        jRadioButton_venta_desc2 = new javax.swing.JRadioButton();
+        jButton_venta_continuar2 = new javax.swing.JButton();
+        jScrollPane27 = new javax.swing.JScrollPane();
+        jTable_venta_4 = new javax.swing.JTable();
+        jPanel44 = new javax.swing.JPanel();
+        jSpinner_venta_1 = new javax.swing.JSpinner();
+        jSpinner_venta_2 = new javax.swing.JSpinner();
+        jLabel_2 = new javax.swing.JLabel();
+        jLabel_8 = new javax.swing.JLabel();
+        jRadioButton_venta_Asc5 = new javax.swing.JRadioButton();
+        jRadioButton_venta_desc5 = new javax.swing.JRadioButton();
+        jButton_venta_continuar5 = new javax.swing.JButton();
+        jScrollPane28 = new javax.swing.JScrollPane();
+        jTable_venta_5 = new javax.swing.JTable();
+        jPanel46 = new javax.swing.JPanel();
+        jLabel_6 = new javax.swing.JLabel();
+        jRadioButton_venta_Asc3 = new javax.swing.JRadioButton();
+        jRadioButton_venta_desc3 = new javax.swing.JRadioButton();
+        jButton_venta_continuar3 = new javax.swing.JButton();
+        jLabel_10 = new javax.swing.JLabel();
+        jScrollPane26 = new javax.swing.JScrollPane();
+        jTable_venta_3 = new javax.swing.JTable();
+        jTextField_venta = new javax.swing.JTextField();
         jPanel17 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
-        jTextField_venta_condicion = new javax.swing.JTextField();
-        jButton_venta_continuar = new javax.swing.JButton();
-        jRadioButton_venta_Asc = new javax.swing.JRadioButton();
-        jRadioButton_venta_desc = new javax.swing.JRadioButton();
-        jComboBox_venta_reportes = new javax.swing.JComboBox<>();
-        jSpinner_venta_2 = new javax.swing.JSpinner();
-        jSpinner_venta_1 = new javax.swing.JSpinner();
-        jLabel_2 = new javax.swing.JLabel();
-        jLabel_1 = new javax.swing.JLabel();
-        jLabel_3 = new javax.swing.JLabel();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        jTable_ventas = new javax.swing.JTable();
-        jButton_Ventas_Regresar = new javax.swing.JButton();
+        jButton_regresar = new javax.swing.JButton();
+        jButton_Rfiltros = new javax.swing.JButton();
+        buttonGroup9 = new javax.swing.ButtonGroup();
         buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup12 = new javax.swing.ButtonGroup();
+        buttonGroup11 = new javax.swing.ButtonGroup();
+        buttonGroup10 = new javax.swing.ButtonGroup();
         jDialog_ReporteStock = new javax.swing.JDialog();
         jPanel18 = new javax.swing.JPanel();
         jPanel19 = new javax.swing.JPanel();
@@ -483,6 +527,7 @@ public class Main extends javax.swing.JFrame {
 
             }
         ));
+        jTable_Create.setRowSelectionAllowed(false);
         jTable_Create.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(jTable_Create);
 
@@ -526,8 +571,8 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jdCreate_Return, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jdGuardarCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -852,15 +897,13 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGap(68, 68, 68)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(526, Short.MAX_VALUE))
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(59, 59, 59)
-                        .addComponent(tfPKbusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(tfPKbusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(129, Short.MAX_VALUE))
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jScrollPane6)
@@ -1062,6 +1105,416 @@ public class Main extends javax.swing.JFrame {
 
         jPanel16.setBackground(new java.awt.Color(204, 204, 204));
 
+        buttonGroup9.add(jRadioButton_venta_Asc1);
+        jRadioButton_venta_Asc1.setSelected(true);
+        jRadioButton_venta_Asc1.setText("Ascendente");
+        jRadioButton_venta_Asc1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton_venta_Asc1ActionPerformed(evt);
+            }
+        });
+
+        buttonGroup9.add(jRadioButton_venta_desc1);
+        jRadioButton_venta_desc1.setText("Descendiente");
+        jRadioButton_venta_desc1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton_venta_desc1ActionPerformed(evt);
+            }
+        });
+
+        jLabel_4.setText("Ordenamiento");
+
+        jButton_venta_continuar1.setText("continuar");
+        jButton_venta_continuar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton_venta_continuar1MouseClicked(evt);
+            }
+        });
+
+        jLabel_3.setText("mes para filtrar");
+
+        jSpinner_venta_3.setModel(new javax.swing.SpinnerListModel(new String[] {"Enero  ", "Febrero  ", "Marzo  ", "Abril  ", "Mayo  ", "Junio  ", "Julio  ", "Agosto  ", "Septiembre  ", "Octubre  ", "Noviembre  ", "Diciembre"}));
+
+        jTable_venta_1.setModel(new DefaultTableModel());
+        jScrollPane24.setViewportView(jTable_venta_1);
+
+        javax.swing.GroupLayout jPanel42Layout = new javax.swing.GroupLayout(jPanel42);
+        jPanel42.setLayout(jPanel42Layout);
+        jPanel42Layout.setHorizontalGroup(
+            jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel42Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane24)
+                    .addGroup(jPanel42Layout.createSequentialGroup()
+                        .addGroup(jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel_3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSpinner_venta_3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(324, 324, 324)
+                        .addGroup(jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel_4, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel42Layout.createSequentialGroup()
+                                .addComponent(jRadioButton_venta_Asc1)
+                                .addGap(16, 16, 16)
+                                .addComponent(jRadioButton_venta_desc1)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                        .addComponent(jButton_venta_continuar1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(24, 24, 24))
+        );
+        jPanel42Layout.setVerticalGroup(
+            jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel42Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel42Layout.createSequentialGroup()
+                        .addComponent(jLabel_3)
+                        .addGap(4, 4, 4)
+                        .addComponent(jSpinner_venta_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jButton_venta_continuar1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel42Layout.createSequentialGroup()
+                            .addComponent(jLabel_4)
+                            .addGap(4, 4, 4)
+                            .addGroup(jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jRadioButton_venta_Asc1)
+                                .addComponent(jRadioButton_venta_desc1)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane24, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Ventas totales por mes", jPanel42);
+
+        jLabel_7.setText("Ordenamiento");
+
+        buttonGroup1.add(jRadioButton_venta_Asc4);
+        jRadioButton_venta_Asc4.setSelected(true);
+        jRadioButton_venta_Asc4.setText("Ascendente");
+        jRadioButton_venta_Asc4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton_venta_Asc4ActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jRadioButton_venta_desc4);
+        jRadioButton_venta_desc4.setText("Descendiente");
+        jRadioButton_venta_desc4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton_venta_desc4ActionPerformed(evt);
+            }
+        });
+
+        jButton_venta_continuar4.setText("continuar");
+        jButton_venta_continuar4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton_venta_continuar4MouseClicked(evt);
+            }
+        });
+
+        jSpinner_venta_4.setModel(new javax.swing.SpinnerNumberModel(1, 1, 53, 1));
+
+        jLabel_9.setText("Numero semana para filtrar");
+
+        jTable_venta_2.setModel(new DefaultTableModel());
+        jScrollPane25.setViewportView(jTable_venta_2);
+
+        javax.swing.GroupLayout jPanel43Layout = new javax.swing.GroupLayout(jPanel43);
+        jPanel43.setLayout(jPanel43Layout);
+        jPanel43Layout.setHorizontalGroup(
+            jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel43Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane25)
+                    .addGroup(jPanel43Layout.createSequentialGroup()
+                        .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel_9, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSpinner_venta_4, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(326, 326, 326)
+                        .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel_7, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel43Layout.createSequentialGroup()
+                                .addComponent(jRadioButton_venta_Asc4)
+                                .addGap(16, 16, 16)
+                                .addComponent(jRadioButton_venta_desc4)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                        .addComponent(jButton_venta_continuar4, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(20, 20, 20))
+        );
+        jPanel43Layout.setVerticalGroup(
+            jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel43Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel43Layout.createSequentialGroup()
+                        .addComponent(jLabel_9)
+                        .addGap(4, 4, 4)
+                        .addComponent(jSpinner_venta_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jButton_venta_continuar4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel43Layout.createSequentialGroup()
+                            .addComponent(jLabel_7)
+                            .addGap(4, 4, 4)
+                            .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jRadioButton_venta_Asc4)
+                                .addComponent(jRadioButton_venta_desc4)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane25, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(31, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Ventas totales por semana", jPanel43);
+
+        jLabel_5.setText("Ordenamiento");
+
+        buttonGroup12.add(jRadioButton_venta_Asc2);
+        jRadioButton_venta_Asc2.setSelected(true);
+        jRadioButton_venta_Asc2.setText("Ascendente");
+        jRadioButton_venta_Asc2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton_venta_Asc2ActionPerformed(evt);
+            }
+        });
+
+        buttonGroup12.add(jRadioButton_venta_desc2);
+        jRadioButton_venta_desc2.setText("Descendiente");
+        jRadioButton_venta_desc2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton_venta_desc2ActionPerformed(evt);
+            }
+        });
+
+        jButton_venta_continuar2.setText("continuar");
+        jButton_venta_continuar2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton_venta_continuar2MouseClicked(evt);
+            }
+        });
+
+        jTable_venta_4.setModel(new DefaultTableModel());
+        jScrollPane27.setViewportView(jTable_venta_4);
+
+        javax.swing.GroupLayout jPanel45Layout = new javax.swing.GroupLayout(jPanel45);
+        jPanel45.setLayout(jPanel45Layout);
+        jPanel45Layout.setHorizontalGroup(
+            jPanel45Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel45Layout.createSequentialGroup()
+                .addGroup(jPanel45Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel45Layout.createSequentialGroup()
+                        .addGap(534, 534, 534)
+                        .addGroup(jPanel45Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel_5, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel45Layout.createSequentialGroup()
+                                .addComponent(jRadioButton_venta_Asc2)
+                                .addGap(16, 16, 16)
+                                .addComponent(jRadioButton_venta_desc2)))
+                        .addGap(32, 32, 32)
+                        .addComponent(jButton_venta_continuar2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel45Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jScrollPane27, javax.swing.GroupLayout.PREFERRED_SIZE, 892, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+        jPanel45Layout.setVerticalGroup(
+            jPanel45Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel45Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(jPanel45Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton_venta_continuar2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel45Layout.createSequentialGroup()
+                        .addComponent(jLabel_5)
+                        .addGap(4, 4, 4)
+                        .addGroup(jPanel45Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButton_venta_Asc2)
+                            .addComponent(jRadioButton_venta_desc2))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane27, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Productos más vendidos", jPanel45);
+
+        jSpinner_venta_1.setModel(new javax.swing.SpinnerListModel(new String[] {"Enero  ", "Febrero  ", "Marzo  ", "Abril  ", "Mayo  ", "Junio  ", "Julio  ", "Agosto  ", "Septiembre  ", "Octubre  ", "Noviembre  ", "Diciembre"}));
+        jSpinner_venta_1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSpinner_venta_1StateChanged(evt);
+            }
+        });
+
+        jSpinner_venta_2.setModel(new javax.swing.SpinnerListModel(new String[] {"Enero  ", "Febrero  ", "Marzo  ", "Abril  ", "Mayo  ", "Junio  ", "Julio  ", "Agosto  ", "Septiembre  ", "Octubre  ", "Noviembre  ", "Diciembre"}));
+        jSpinner_venta_2.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSpinner_venta_2StateChanged(evt);
+            }
+        });
+
+        jLabel_2.setText("Rango de filtrar");
+
+        jLabel_8.setText("Ordenamiento");
+
+        buttonGroup10.add(jRadioButton_venta_Asc5);
+        jRadioButton_venta_Asc5.setSelected(true);
+        jRadioButton_venta_Asc5.setText("Ascendente");
+        jRadioButton_venta_Asc5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton_venta_Asc5ActionPerformed(evt);
+            }
+        });
+
+        buttonGroup10.add(jRadioButton_venta_desc5);
+        jRadioButton_venta_desc5.setText("Descendiente");
+        jRadioButton_venta_desc5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton_venta_desc5ActionPerformed(evt);
+            }
+        });
+
+        jButton_venta_continuar5.setText("continuar");
+        jButton_venta_continuar5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton_venta_continuar5MouseClicked(evt);
+            }
+        });
+
+        jTable_venta_5.setModel(new DefaultTableModel());
+        jScrollPane28.setViewportView(jTable_venta_5);
+
+        javax.swing.GroupLayout jPanel44Layout = new javax.swing.GroupLayout(jPanel44);
+        jPanel44.setLayout(jPanel44Layout);
+        jPanel44Layout.setHorizontalGroup(
+            jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel44Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane28, javax.swing.GroupLayout.PREFERRED_SIZE, 882, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel44Layout.createSequentialGroup()
+                        .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel_2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel44Layout.createSequentialGroup()
+                                .addComponent(jSpinner_venta_1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(19, 19, 19)
+                                .addComponent(jSpinner_venta_2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(321, 321, 321)
+                        .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel_8, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel44Layout.createSequentialGroup()
+                                .addComponent(jRadioButton_venta_Asc5)
+                                .addGap(16, 16, 16)
+                                .addComponent(jRadioButton_venta_desc5)))
+                        .addGap(32, 32, 32)
+                        .addComponent(jButton_venta_continuar5, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+        jPanel44Layout.setVerticalGroup(
+            jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel44Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel44Layout.createSequentialGroup()
+                        .addComponent(jLabel_2)
+                        .addGap(4, 4, 4)
+                        .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSpinner_venta_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSpinner_venta_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jButton_venta_continuar5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel44Layout.createSequentialGroup()
+                            .addComponent(jLabel_8)
+                            .addGap(4, 4, 4)
+                            .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jRadioButton_venta_Asc5)
+                                .addComponent(jRadioButton_venta_desc5)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane28, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(33, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Comparativa con periodos anteriores", jPanel44);
+
+        jLabel_6.setText("Ordenamiento");
+
+        buttonGroup11.add(jRadioButton_venta_Asc3);
+        jRadioButton_venta_Asc3.setSelected(true);
+        jRadioButton_venta_Asc3.setText("Ascendente");
+        jRadioButton_venta_Asc3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton_venta_Asc3ActionPerformed(evt);
+            }
+        });
+
+        buttonGroup11.add(jRadioButton_venta_desc3);
+        jRadioButton_venta_desc3.setText("Descendiente");
+        jRadioButton_venta_desc3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton_venta_desc3ActionPerformed(evt);
+            }
+        });
+
+        jButton_venta_continuar3.setText("continuar");
+        jButton_venta_continuar3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton_venta_continuar3MouseClicked(evt);
+            }
+        });
+
+        jLabel_10.setText("Categoria para filtrar");
+
+        jTable_venta_3.setModel(new DefaultTableModel());
+        jScrollPane26.setViewportView(jTable_venta_3);
+
+        jTextField_venta.setText("deje en blanco para mostrar todo....");
+        jTextField_venta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField_ventaMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel46Layout = new javax.swing.GroupLayout(jPanel46);
+        jPanel46.setLayout(jPanel46Layout);
+        jPanel46Layout.setHorizontalGroup(
+            jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel46Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane26)
+                    .addGroup(jPanel46Layout.createSequentialGroup()
+                        .addGroup(jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel_10, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField_venta, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(227, 227, 227)
+                        .addGroup(jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel_6, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel46Layout.createSequentialGroup()
+                                .addComponent(jRadioButton_venta_Asc3)
+                                .addGap(16, 16, 16)
+                                .addComponent(jRadioButton_venta_desc3)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                        .addComponent(jButton_venta_continuar3, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18))
+        );
+        jPanel46Layout.setVerticalGroup(
+            jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel46Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel_10)
+                    .addGroup(jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jButton_venta_continuar3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel46Layout.createSequentialGroup()
+                            .addComponent(jLabel_6)
+                            .addGap(3, 3, 3)
+                            .addGroup(jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jRadioButton_venta_Asc3)
+                                    .addComponent(jTextField_venta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jRadioButton_venta_desc3)))))
+                .addGap(15, 15, 15)
+                .addComponent(jScrollPane26, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Ventas por categoría", jPanel46);
+
         jPanel17.setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel18.setFont(new java.awt.Font("SansSerif", 1, 65)); // NOI18N
@@ -1075,7 +1528,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanel17Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(jLabel18)
-                .addContainerGap(374, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel17Layout.setVerticalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1085,71 +1538,17 @@ public class Main extends javax.swing.JFrame {
                 .addGap(17, 17, 17))
         );
 
-        jTextField_venta_condicion.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButton_regresar.setText("Regresar");
+        jButton_regresar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField_venta_condicionMouseClicked(evt);
+                jButton_regresarMouseClicked(evt);
             }
         });
 
-        jButton_venta_continuar.setText("continuar");
-        jButton_venta_continuar.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButton_Rfiltros.setText("Remover filtros");
+        jButton_Rfiltros.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton_venta_continuarMouseClicked(evt);
-            }
-        });
-
-        buttonGroup2.add(jRadioButton_venta_Asc);
-        jRadioButton_venta_Asc.setText("Ascendente");
-        jRadioButton_venta_Asc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton_venta_AscActionPerformed(evt);
-            }
-        });
-
-        buttonGroup2.add(jRadioButton_venta_desc);
-        jRadioButton_venta_desc.setText("Descendiente");
-        jRadioButton_venta_desc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton_venta_descActionPerformed(evt);
-            }
-        });
-
-        jComboBox_venta_reportes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ventas totales por mes", "Ventas totales por semana", "Comparativa con periodos anteriores", "Productos más vendidos", "Ventas por categoría", " " }));
-        jComboBox_venta_reportes.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jComboBox_venta_reportesItemStateChanged(evt);
-            }
-        });
-
-        jSpinner_venta_2.setModel(new javax.swing.SpinnerListModel(new String[] {"Enero  ", "Febrero  ", "Marzo  ", "Abril  ", "Mayo  ", "Junio  ", "Julio  ", "Agosto  ", "Septiembre  ", "Octubre  ", "Noviembre  ", "Diciembre"}));
-        jSpinner_venta_2.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jSpinner_venta_2StateChanged(evt);
-            }
-        });
-
-        jSpinner_venta_1.setModel(new javax.swing.SpinnerListModel(new String[] {"Enero  ", "Febrero  ", "Marzo  ", "Abril  ", "Mayo  ", "Junio  ", "Julio  ", "Agosto  ", "Septiembre  ", "Octubre  ", "Noviembre  ", "Diciembre"}));
-        jSpinner_venta_1.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jSpinner_venta_1StateChanged(evt);
-            }
-        });
-
-        jLabel_2.setText("Rango de filtrar");
-
-        jLabel_1.setText("Condicion");
-
-        jLabel_3.setText("Ordenamiento");
-
-        jTable_ventas.setModel(new DefaultTableModel());
-        jTable_ventas.setRowSelectionAllowed(false);
-        jTable_ventas.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jScrollPane8.setViewportView(jTable_ventas);
-
-        jButton_Ventas_Regresar.setText("Regresar");
-        jButton_Ventas_Regresar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_Ventas_RegresarActionPerformed(evt);
+                jButton_RfiltrosMouseClicked(evt);
             }
         });
 
@@ -1159,86 +1558,38 @@ public class Main extends javax.swing.JFrame {
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel16Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addContainerGap()
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel16Layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 808, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel16Layout.createSequentialGroup()
-                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel16Layout.createSequentialGroup()
-                                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel_1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel16Layout.createSequentialGroup()
-                                        .addGap(2, 2, 2)
-                                        .addComponent(jTextField_venta_condicion, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(28, 28, 28)
-                                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel_2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel16Layout.createSequentialGroup()
-                                        .addComponent(jSpinner_venta_1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(19, 19, 19)
-                                        .addComponent(jSpinner_venta_2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(19, 19, 19)
-                                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel_3, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel16Layout.createSequentialGroup()
-                                        .addComponent(jRadioButton_venta_Asc)
-                                        .addGap(16, 16, 16)
-                                        .addComponent(jRadioButton_venta_desc, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(jPanel16Layout.createSequentialGroup()
-                                .addGap(2, 2, 2)
-                                .addComponent(jComboBox_venta_reportes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(16, 16, 16)
-                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton_venta_continuar, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
-                            .addComponent(jButton_Ventas_Regresar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                    .addComponent(jTabbedPane1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton_Rfiltros, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton_regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel16Layout.createSequentialGroup()
                 .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox_venta_reportes, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton_Ventas_Regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel16Layout.createSequentialGroup()
-                        .addComponent(jLabel_1)
-                        .addGap(2, 2, 2)
-                        .addComponent(jTextField_venta_condicion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel16Layout.createSequentialGroup()
-                        .addComponent(jLabel_2)
-                        .addGap(4, 4, 4)
-                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSpinner_venta_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSpinner_venta_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel16Layout.createSequentialGroup()
-                        .addComponent(jLabel_3)
-                        .addGap(4, 4, 4)
-                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton_venta_Asc)
-                            .addComponent(jRadioButton_venta_desc)))
-                    .addGroup(jPanel16Layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(jButton_venta_continuar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
+                    .addComponent(jButton_regresar)
+                    .addComponent(jButton_Rfiltros))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jdReporteVentaLayout = new javax.swing.GroupLayout(jdReporteVenta.getContentPane());
         jdReporteVenta.getContentPane().setLayout(jdReporteVentaLayout);
         jdReporteVentaLayout.setHorizontalGroup(
             jdReporteVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jdReporteVentaLayout.setVerticalGroup(
             jdReporteVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jdReporteVentaLayout.createSequentialGroup()
-                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanel18.setBackground(new java.awt.Color(187, 187, 187));
@@ -2767,18 +3118,25 @@ public class Main extends javax.swing.JFrame {
             }
         }
         model.addRow(new Object[]{});
-        jTable_Create.setModel(model);
-        //maybe fix maybe 
-//        jTable_Create.setDefaultEditor(Object.class, new DefaultCellEditor(new JTextField()) {
-//            @Override
-//            public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column) {
-//                JTextArea textArea = new JTextArea(value != null ? value.toString() : "");
-//                textArea.setLineWrap(true);
-//                textArea.setWrapStyleWord(true);
-//                return new JScrollPane(textArea); // Allows scrolling inside the cell
-//            }
-//        });
 
+        jTable_Create.setDefaultEditor(Object.class, new DefaultCellEditor(new JTextField()) {
+            private JTextArea textArea;
+
+            @Override
+            public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column) {
+                textArea = new JTextArea(value != null ? value.toString() : "");
+                textArea.setLineWrap(true);
+                textArea.setWrapStyleWord(true);
+                return textArea;
+            }
+
+            @Override
+            public Object getCellEditorValue() {
+                return textArea != null ? textArea.getText() : "";
+            }
+        });
+        jTable_Create.setModel(model);
+        jTable_Create.setRowHeight(150);
         jdCreate.pack();
         jdCreate.setLocationRelativeTo(this);
         jdCreate.setModal(true);
@@ -2902,15 +3260,19 @@ public class Main extends javax.swing.JFrame {
 
         for (int col = 0; col < rowData.length; col++) {
             rowData[col] = jTable_Create.getValueAt(0, col);
+            System.out.println(rowData[col].toString());
         }
         if (validateDataTypes(jlListaTablas.getSelectedValue(), rowData, 0)) {
             try {
+                System.out.println("------------------");
                 BD.insertarTabla(jlListaTablas.getSelectedValue(), rowData);
             } catch (SQLException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             } catch (NullPointerException ex) {
 
             }
+        } else {
+            System.out.println("+++++++++++++++++++++");
         }
 
         DefaultTableModel model = (DefaultTableModel) jTable_Create.getModel();
@@ -3124,57 +3486,6 @@ public class Main extends javax.swing.JFrame {
         jdReportes.setVisible(false);
     }//GEN-LAST:event_jButton_Reportes_RegresarActionPerformed
 
-    private void jRadioButton_venta_descActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_venta_descActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton_venta_descActionPerformed
-
-    private void jRadioButton_venta_AscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_venta_AscActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton_venta_AscActionPerformed
-
-    private void jComboBox_venta_reportesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox_venta_reportesItemStateChanged
-        // TODO add your handling code here:
-        jTextField_venta_condicion.setText("");
-        switch (jComboBox_venta_reportes.getSelectedItem().toString()) {
-            case "Ventas totales por mes":
-                jTextField_venta_condicion.setText("Numero Mes...");
-//                jLabel_2.setVisible(false);
-//                jSpinner_venta_1.setVisible(false);//condicion
-//                jSpinner_venta_2.setVisible(false);
-
-                break;
-            case "Ventas totales por semana":
-                jTextField_venta_condicion.setText("Numero semana...");
-//                jLabel_3.setVisible(false);
-//
-//                jSpinner_venta_1.setVisible(false); //condicion
-//                jSpinner_venta_2.setVisible(false);
-
-                break;
-            case "Comparativa con periodos anteriores":
-//                jTextField_venta_condicion.setVisible(false); //condicion
-//                jSpinner_venta_1.setVisible(true); //condicion
-//                jSpinner_venta_2.setVisible(true);
-
-                break;
-            case "Productos más vendidos":
-//                jTextField_venta_condicion.setVisible(false);
-//                jSpinner_venta_1.setVisible(false); //condicion
-//                jSpinner_venta_2.setVisible(false);
-
-                break;
-            case "Ventas por categoría":
-                jTextField_venta_condicion.setText("Categoria...");
-//                jTextField_venta_condicion.setVisible(true);
-//                jSpinner_venta_1.setVisible(false); //condicion
-//                jSpinner_venta_2.setVisible(false);
-
-                break;
-            default:
-                throw new AssertionError();
-        }
-    }//GEN-LAST:event_jComboBox_venta_reportesItemStateChanged
-
     private void jButton_CRUD_Create1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_CRUD_Create1MouseClicked
         // TODO add your handling code here:
 
@@ -3183,80 +3494,6 @@ public class Main extends javax.swing.JFrame {
         jdReporteVenta.setModal(true);
         jdReporteVenta.setVisible(true);
     }//GEN-LAST:event_jButton_CRUD_Create1MouseClicked
-
-    private void jTextField_venta_condicionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField_venta_condicionMouseClicked
-        // TODO add your handling code here:
-        jTextField_venta_condicion.setText("");
-    }//GEN-LAST:event_jTextField_venta_condicionMouseClicked
-
-    private void jButton_venta_continuarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_venta_continuarMouseClicked
-        // TODO add your handling code here:
-        String order = "";
-
-        if (jRadioButton_venta_Asc.isEnabled()) {
-            order = "asc";
-        } else {
-            order = "desc";
-        }
-        Object[][] table = null;
-        switch (jComboBox_venta_reportes.getSelectedItem().toString()) {
-            case "Ventas totales por mes": {
-                if (jTextField_venta_condicion.getText().trim().matches("^(1[0-2]|[1-9])$")) {
-                    table = BD.obtenerVentasMes(jTextField_venta_condicion.getText().trim(), order);
-                } else {
-                    JOptionPane.showMessageDialog(jdReporteVenta, "Error Ingrese un numero de mes valido");
-                }
-
-            }
-            break;
-            case "Ventas totales por semana":
-                if (jTextField_venta_condicion.getText().trim().matches("^([1-9]|[1-4][0-9]|5[0-2])$")) {
-                    table = BD.obtenerVentasSemana(jTextField_venta_condicion.getText().trim(), order);
-                } else {
-                    JOptionPane.showMessageDialog(jdReporteVenta, "Error Ingrese un numero de semana valido");
-                }
-
-                break;
-            case "Comparativa con periodos anteriores": {
-                SpinnerListModel model1 = (SpinnerListModel) jSpinner_venta_1.getModel();
-
-                Object value1 = jSpinner_venta_1.getValue();
-                Object value2 = jSpinner_venta_2.getValue();
-                List<?> list = model1.getList();
-
-                int index1 = list.indexOf(value1);
-                int index2 = list.indexOf(value2);
-
-                table = BD.obtenerComparativaPeriodos(index1 + "", index2 + "", order);
-
-            }
-            break;
-            case "Productos más vendidos":
-                table = BD.obtenerProductosMasVendidos(order);
-
-                break;
-            case "Ventas por categoría":
-                table = BD.obtenerVentasPorCategoria(jTextField_venta_condicion.getText(), order);
-                break;
-            default:
-                throw new AssertionError();
-        }
-        if (table == null) {
-            return;
-        }
-        DefaultTableModel model = new DefaultTableModel();
-        model.setColumnIdentifiers(table[0]);
-        boolean first = true;
-        for (Object[] objects : table) {
-            if (first) {
-                first = false;
-            } else {
-                model.addRow(objects);
-
-            }
-        }
-        jTable_ventas.setModel(model);
-    }//GEN-LAST:event_jButton_venta_continuarMouseClicked
 
     private void jSpinner_venta_1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner_venta_1StateChanged
         // TODO add your handling code here:
@@ -3271,8 +3508,8 @@ public class Main extends javax.swing.JFrame {
         int index1 = list.indexOf(value1);
         int index2 = list.indexOf(value2);
 
-        if (index1 >= index2) {
-            jSpinner_venta_2.setValue(index1 + 1 <= 10 ? index1 + 1 : 12);
+        if (index1 > index2) {
+            jSpinner_venta_2.setValue(index1 + 1 <= 12 ? index1 + 1 : 12);
         }
     }//GEN-LAST:event_jSpinner_venta_1StateChanged
 
@@ -3289,7 +3526,7 @@ public class Main extends javax.swing.JFrame {
         int index1 = list.indexOf(value1);
         int index2 = list.indexOf(value2);
 
-        if (index1 >= index2) {
+        if (index1 > index2) {
             jSpinner_venta_2.setValue(index2 - 1 >= 0 ? index2 - 1 : 0);
         }
 
@@ -3387,21 +3624,17 @@ public class Main extends javax.swing.JFrame {
         jDialog_ReporteStock.setVisible(false);
     }//GEN-LAST:event_jButton_Stock_RegresarActionPerformed
 
-    private void jButton_Ventas_RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Ventas_RegresarActionPerformed
-        jdReporteVenta.setVisible(false);
-    }//GEN-LAST:event_jButton_Ventas_RegresarActionPerformed
-
     private void jbVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVerActionPerformed
         // TODO add your handling code here:
         String orden = jRadioButton_ana_asctasa1.isSelected() ? "asc" : "desc";
         String estado = tfEstadoPedido.getText();
-        if (estado.equalsIgnoreCase("Pendiente")|| estado.equalsIgnoreCase("Entregado")||estado.equalsIgnoreCase("En preparacion")||estado.equalsIgnoreCase("")) {
-        Object[][] tabla = BD.obtenerPedidosPorEstado(estado, orden);
-        mostrarDatosEnTabla(tabla, jtEP);
-        }else{
+        if (estado.equalsIgnoreCase("Pendiente") || estado.equalsIgnoreCase("Entregado") || estado.equalsIgnoreCase("En preparacion") || estado.equalsIgnoreCase("")) {
+            Object[][] tabla = BD.obtenerPedidosPorEstado(estado, orden);
+            mostrarDatosEnTabla(tabla, jtEP);
+        } else {
             JOptionPane.showMessageDialog(jdEstadoPedidos, "Ingrese un estado correcto");
         }
-        
+
     }//GEN-LAST:event_jbVerActionPerformed
 
     private void jbVer2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVer2ActionPerformed
@@ -3470,6 +3703,224 @@ public class Main extends javax.swing.JFrame {
         jdRentabilidadXProductos.setVisible(false);
     }//GEN-LAST:event_jButton_Analisis_Regresar2ActionPerformed
 
+    private void jRadioButton_venta_Asc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_venta_Asc1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton_venta_Asc1ActionPerformed
+
+    private void jRadioButton_venta_desc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_venta_desc1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton_venta_desc1ActionPerformed
+
+    private void jButton_venta_continuar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_venta_continuar1MouseClicked
+        // TODO add your handling code here:
+        String selected = "";
+        if (jRadioButton_venta_Asc1.isSelected()) {
+            selected = "asc";
+        } else {
+            selected = "desc";
+        }
+        SpinnerListModel spin_model = (SpinnerListModel) jSpinner_venta_3.getModel();
+        Object object = spin_model.getValue();
+        int month = spin_model.getList().indexOf(object) + 1;
+
+        Object[][] tabla = BD.obtenerVentasMes(month + "", selected);
+        Object[] columnNames = tabla[0];
+
+        DefaultTableModel model = new DefaultTableModel();
+        model.setColumnIdentifiers(columnNames);
+        if (tabla.length > 1) {
+            boolean first = true;
+            for (Object[] objects : tabla) {
+                if (first) {
+                    first = false;
+                } else {
+                    model.addRow(objects);
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(jdReporteVenta, "No hay valores para seleccionar");
+        }
+        jTable_venta_1.setModel(model);
+
+
+    }//GEN-LAST:event_jButton_venta_continuar1MouseClicked
+
+    private void jRadioButton_venta_Asc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_venta_Asc2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton_venta_Asc2ActionPerformed
+
+    private void jRadioButton_venta_desc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_venta_desc2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton_venta_desc2ActionPerformed
+
+    private void jButton_venta_continuar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_venta_continuar2MouseClicked
+        // TODO add your handling code here:
+        String selected = "";
+        if (jRadioButton_venta_Asc2.isSelected()) {
+            selected = "asc";
+        } else {
+            selected = "desc";
+        }
+        Object[][] tabla = BD.obtenerProductosMasVendidos(selected);
+        Object[] columnNames = tabla[0];
+
+        DefaultTableModel model = new DefaultTableModel();
+        model.setColumnIdentifiers(columnNames);
+        if (tabla.length > 1) {
+            boolean first = true;
+            for (Object[] objects : tabla) {
+                if (first) {
+                    first = false;
+                } else {
+                    model.addRow(objects);
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(jdReporteVenta, "No hay valores para seleccionar");
+        }
+        jTable_venta_4.setModel(model);
+    }//GEN-LAST:event_jButton_venta_continuar2MouseClicked
+
+    private void jRadioButton_venta_Asc3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_venta_Asc3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton_venta_Asc3ActionPerformed
+
+    private void jRadioButton_venta_desc3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_venta_desc3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton_venta_desc3ActionPerformed
+
+    private void jButton_venta_continuar3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_venta_continuar3MouseClicked
+        // TODO add your handling code here:
+        String selected = "";
+        if (jRadioButton_venta_Asc3.isSelected()) {
+            selected = "asc";
+        } else {
+            selected = "desc";
+        }
+        String condicion = jTextField_venta.getText().trim();
+
+        Object[][] tabla = BD.obtenerVentasPorCategoria(condicion, selected);
+        Object[] columnNames = tabla[0];
+
+        DefaultTableModel model = new DefaultTableModel();
+        model.setColumnIdentifiers(columnNames);
+        if (tabla.length > 1) {
+            boolean first = true;
+            for (Object[] objects : tabla) {
+                if (first) {
+                    first = false;
+                } else {
+                    model.addRow(objects);
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(jdReporteVenta, "No hay valores para seleccionar");
+        }
+        jTable_venta_3.setModel(model);
+        jTextField_venta.setText("deje en blanco para mostrar todo....");
+    }//GEN-LAST:event_jButton_venta_continuar3MouseClicked
+
+    private void jRadioButton_venta_Asc4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_venta_Asc4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton_venta_Asc4ActionPerformed
+
+    private void jRadioButton_venta_desc4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_venta_desc4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton_venta_desc4ActionPerformed
+
+    private void jButton_venta_continuar4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_venta_continuar4MouseClicked
+        // TODO add your handling code here:
+        String selected = "";
+        if (jRadioButton_venta_Asc4.isSelected()) {
+            selected = "asc";
+        } else {
+            selected = "desc";
+        }
+        SpinnerNumberModel spin_model = (SpinnerNumberModel) jSpinner_venta_4.getModel();
+        int semana = ((int) spin_model.getValue()) + 1;
+
+        Object[][] tabla = BD.obtenerVentasSemana(semana + "", selected);
+        Object[] columnNames = tabla[0];
+        DefaultTableModel model = new DefaultTableModel();
+        model.setColumnIdentifiers(columnNames);
+
+        if (tabla.length > 1) {
+            boolean first = true;
+            for (Object[] objects : tabla) {
+                if (first) {
+                    first = false;
+                } else {
+                    model.addRow(objects);
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(jdReporteVenta, "No hay valores para seleccionar");
+        }
+
+        jTable_venta_2.setModel(model);
+    }//GEN-LAST:event_jButton_venta_continuar4MouseClicked
+
+    private void jRadioButton_venta_Asc5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_venta_Asc5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton_venta_Asc5ActionPerformed
+
+    private void jRadioButton_venta_desc5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_venta_desc5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton_venta_desc5ActionPerformed
+
+    private void jButton_venta_continuar5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_venta_continuar5MouseClicked
+        // TODO add your handling code here:
+        String selected = "";
+        if (jRadioButton_venta_Asc5.isSelected()) {
+            selected = "asc";
+        } else {
+            selected = "desc";
+        }
+        SpinnerListModel spin_model1 = (SpinnerListModel) jSpinner_venta_1.getModel();
+        Object object1 = spin_model1.getValue();
+        int month1 = spin_model1.getList().indexOf(object1) + 1;
+
+        SpinnerListModel spin_model2 = (SpinnerListModel) jSpinner_venta_2.getModel();
+        Object object2 = spin_model2.getValue();
+        int month2 = spin_model2.getList().indexOf(object2) + 1;
+
+        Object[][] tabla = BD.obtenerComparativaPeriodos(month1 + "", month2 + "", selected);
+        Object[] columnNames = tabla[0];
+
+        DefaultTableModel model = new DefaultTableModel();
+        model.setColumnIdentifiers(columnNames);
+        if (tabla.length > 1) {
+            boolean first = true;
+            for (Object[] objects : tabla) {
+                if (first) {
+                    first = false;
+                } else {
+                    model.addRow(objects);
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(jdReporteVenta, "No hay valores para seleccionar");
+        }
+        jTable_venta_5.setModel(model);
+    }//GEN-LAST:event_jButton_venta_continuar5MouseClicked
+
+    private void jButton_regresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_regresarMouseClicked
+        // TODO add your handling code here:
+        jdReporteVenta.setVisible(false);
+    }//GEN-LAST:event_jButton_regresarMouseClicked
+
+    private void jTextField_ventaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField_ventaMouseClicked
+        // TODO add your handling code here:
+        if (jTextField_venta.getText().trim().equals("deje en blanco para mostrar todo....")) {
+            jTextField_venta.setText("");
+        }
+    }//GEN-LAST:event_jTextField_ventaMouseClicked
+
+    private void jButton_RfiltrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_RfiltrosMouseClicked
+        // TODO add your handling code here:
+        cargarTablasVentas("desc");
+    }//GEN-LAST:event_jButton_RfiltrosMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -3509,6 +3960,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTable Jtable_ana_num;
     private javax.swing.JTabbedPane PannedRentabilidd;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup10;
+    private javax.swing.ButtonGroup buttonGroup11;
+    private javax.swing.ButtonGroup buttonGroup12;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.ButtonGroup buttonGroup4;
@@ -3516,6 +3970,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup6;
     private javax.swing.ButtonGroup buttonGroup7;
     private javax.swing.ButtonGroup buttonGroup8;
+    private javax.swing.ButtonGroup buttonGroup9;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton_Analisis_Regresar;
     private javax.swing.JButton jButton_Analisis_Regresar1;
@@ -3533,10 +3988,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton_Principal_AbrirReportes;
     private javax.swing.JButton jButton_Principal_SubirArchivo;
     private javax.swing.JButton jButton_Reportes_Regresar;
+    private javax.swing.JButton jButton_Rfiltros;
     private javax.swing.JButton jButton_Stock_Regresar;
     private javax.swing.JButton jButton_Update_Buscar;
     private javax.swing.JButton jButton_Update_Regresar;
-    private javax.swing.JButton jButton_Ventas_Regresar;
+    private javax.swing.JButton jButton_regresar;
     private javax.swing.JButton jButton_stock1_Guardar;
     private javax.swing.JButton jButton_stock3_guardar;
     private javax.swing.JButton jButton_stock4;
@@ -3550,8 +4006,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton_tabventas;
     private javax.swing.JButton jButton_tabventas1;
     private javax.swing.JButton jButton_tabventas2;
-    private javax.swing.JButton jButton_venta_continuar;
-    private javax.swing.JComboBox<String> jComboBox_venta_reportes;
+    private javax.swing.JButton jButton_venta_continuar1;
+    private javax.swing.JButton jButton_venta_continuar2;
+    private javax.swing.JButton jButton_venta_continuar3;
+    private javax.swing.JButton jButton_venta_continuar4;
+    private javax.swing.JButton jButton_venta_continuar5;
     private javax.swing.JDialog jDialog_CRUD;
     private javax.swing.JDialog jDialog_ReporteStock;
     private javax.swing.JDialog jDialog_ResportesAna;
@@ -3603,9 +4062,15 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLabel_1;
+    private javax.swing.JLabel jLabel_10;
     private javax.swing.JLabel jLabel_2;
     private javax.swing.JLabel jLabel_3;
+    private javax.swing.JLabel jLabel_4;
+    private javax.swing.JLabel jLabel_5;
+    private javax.swing.JLabel jLabel_6;
+    private javax.swing.JLabel jLabel_7;
+    private javax.swing.JLabel jLabel_8;
+    private javax.swing.JLabel jLabel_9;
     private javax.swing.JList<String> jList_loaded_files;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
@@ -3643,6 +4108,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel40;
     private javax.swing.JPanel jPanel41;
+    private javax.swing.JPanel jPanel42;
+    private javax.swing.JPanel jPanel43;
+    private javax.swing.JPanel jPanel44;
+    private javax.swing.JPanel jPanel45;
+    private javax.swing.JPanel jPanel46;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
@@ -3679,8 +4149,16 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton_stock3_desc;
     private javax.swing.JRadioButton jRadioButton_stock4_asc;
     private javax.swing.JRadioButton jRadioButton_stock4_desc;
-    private javax.swing.JRadioButton jRadioButton_venta_Asc;
-    private javax.swing.JRadioButton jRadioButton_venta_desc;
+    private javax.swing.JRadioButton jRadioButton_venta_Asc1;
+    private javax.swing.JRadioButton jRadioButton_venta_Asc2;
+    private javax.swing.JRadioButton jRadioButton_venta_Asc3;
+    private javax.swing.JRadioButton jRadioButton_venta_Asc4;
+    private javax.swing.JRadioButton jRadioButton_venta_Asc5;
+    private javax.swing.JRadioButton jRadioButton_venta_desc1;
+    private javax.swing.JRadioButton jRadioButton_venta_desc2;
+    private javax.swing.JRadioButton jRadioButton_venta_desc3;
+    private javax.swing.JRadioButton jRadioButton_venta_desc4;
+    private javax.swing.JRadioButton jRadioButton_venta_desc5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -3697,15 +4175,22 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane21;
     private javax.swing.JScrollPane jScrollPane22;
     private javax.swing.JScrollPane jScrollPane23;
+    private javax.swing.JScrollPane jScrollPane24;
+    private javax.swing.JScrollPane jScrollPane25;
+    private javax.swing.JScrollPane jScrollPane26;
+    private javax.swing.JScrollPane jScrollPane27;
+    private javax.swing.JScrollPane jScrollPane28;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSpinner jSpinner_venta_1;
     private javax.swing.JSpinner jSpinner_venta_2;
+    private javax.swing.JSpinner jSpinner_venta_3;
+    private javax.swing.JSpinner jSpinner_venta_4;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane_AnalisisRendimiento;
     private javax.swing.JTabbedPane jTabbedPane_stock;
     private javax.swing.JTable jTable_Create;
@@ -3716,7 +4201,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTable jTable_stock2;
     private javax.swing.JTable jTable_stock3;
     private javax.swing.JTable jTable_stock4;
-    private javax.swing.JTable jTable_ventas;
+    private javax.swing.JTable jTable_venta_1;
+    private javax.swing.JTable jTable_venta_2;
+    private javax.swing.JTable jTable_venta_3;
+    private javax.swing.JTable jTable_venta_4;
+    private javax.swing.JTable jTable_venta_5;
     private javax.swing.JTextField jTextField_Analisis_nombrenum;
     private javax.swing.JTextField jTextField_Analisis_nombreprom;
     private javax.swing.JTextField jTextField_Analisis_nombretasa;
@@ -3724,7 +4213,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField_Update_BuscarPk;
     private javax.swing.JTextField jTextField_read;
     private javax.swing.JTextField jTextField_stock4_nombre;
-    private javax.swing.JTextField jTextField_venta_condicion;
+    private javax.swing.JTextField jTextField_venta;
     private javax.swing.JButton jbBuscar;
     private javax.swing.JButton jbEliminar;
     private javax.swing.JButton jbVer;
@@ -3805,7 +4294,7 @@ public class Main extends javax.swing.JFrame {
         int count = 0;
         try {
             switch (tableName.toLowerCase()) {
-                case "categoria":
+                case "categorias":
                     if (data.length != 3) {
                         return false;
                     }
@@ -3821,7 +4310,7 @@ public class Main extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido");
                     return false;
 
-                case "proveedor":
+                case "proveedores":
                     if (data.length != 8) {
                         return false;
                     }
@@ -3852,7 +4341,7 @@ public class Main extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido");
                     return false;
 
-                case "producto":
+                case "productos":
                     if (data.length != 11) {
                         return false;
                     }
@@ -4074,7 +4563,7 @@ public class Main extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido");
                     return false;
 
-                case "detalles_pedidos":
+                case "detalles_pedido":
                     if (data.length != 7) {
                         return false;
                     }
@@ -4148,10 +4637,11 @@ public class Main extends javax.swing.JFrame {
         int count = 0;
         try {
             switch (tableName.toLowerCase()) {
-                case "categoria":
+                case "categorias":
                     if (data.length != 2) {
                         return false;
                     }
+                    System.out.println();
                     System.out.println(data[0]);
                     if (data[0].toString().trim().matches("^[a-zA-Z]+$") && data[0].toString().length() < 26) {
                         count++;
@@ -4162,7 +4652,7 @@ public class Main extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido");
                     return false;
 
-                case "proveedor":
+                case "proveedores":
                     if (data.length != 7) {
                         return false;
                     }
@@ -4190,7 +4680,7 @@ public class Main extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido");
                     return false;
 
-                case "producto":
+                case "productos":
                     if (data.length != 10) {
                         return false;
                     }
@@ -4394,7 +4884,7 @@ public class Main extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido");
                     return false;
 
-                case "detalles_pedidos":
+                case "detalles_pedido":
                     if (data.length != 6) {
                         return false;
                     }
@@ -4454,7 +4944,7 @@ public class Main extends javax.swing.JFrame {
             return false;
         }
     }
-    
+
     //metodo depende de la tabla en el tabed pane
     private void mostrarDatosEnTabla(Object[][] datos, JTable tablaDestino) {
         if (datos == null || datos.length == 0) {
@@ -4462,12 +4952,46 @@ public class Main extends javax.swing.JFrame {
         }
 
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.setColumnIdentifiers(datos[0]); 
+        modelo.setColumnIdentifiers(datos[0]);
 
         for (int i = 1; i < datos.length; i++) {
             modelo.addRow(datos[i]);
         }
 
         tablaDestino.setModel(modelo);
+    }
+
+    private void cargarTablasVentas(String selected) {
+        Object[][] tabla1 = BD.obtenerVentasMes("", selected);
+        cargarTabla(jTable_venta_1, tabla1);
+
+        Object[][] tabla2 = BD.obtenerProductosMasVendidos(selected);
+        cargarTabla(jTable_venta_4, tabla2);
+
+        Object[][] tabla3 = BD.obtenerVentasPorCategoria("", selected);
+        cargarTabla(jTable_venta_3, tabla3);
+        jTextField_venta.setText("deje en blanco para mostrar todo....");
+
+        Object[][] tabla4 = BD.obtenerVentasSemana("", selected);
+        cargarTabla(jTable_venta_2, tabla4);
+
+        Object[][] tabla5 = BD.obtenerComparativaPeriodos("1", "1", selected);
+        cargarTabla(jTable_venta_5, tabla5);
+    }
+
+    private void cargarTabla(JTable table, Object[][] data) {
+        DefaultTableModel model = new DefaultTableModel();
+
+        if (data != null) {
+            model.setColumnIdentifiers(data[0]);
+            if (data.length > 1) {
+                for (int i = 1; i < data.length; i++) {
+                    model.addRow(data[i]);
+                }
+            }
+            table.setModel(model);
+        }else{
+            table.setModel(new DefaultTableModel());
+        }
     }
 }
