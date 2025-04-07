@@ -17,6 +17,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -45,11 +46,16 @@ public class FileManager {
             boolean first = false;
             for (String[] row : rows) {
                 if (first) {
-                    
-                    Object[] list = new Object[row.length-1];
+
+                    Object[] list = new Object[row.length - 1];
                     for (int i = 1; i < row.length; i++) {
-                        list[i-1] = row[i];
-                        System.out.print(row[i].toString() + " ");
+                        if (row[i].toString().isBlank()) {
+                            list[i - 1] = null;
+                        } else {
+                            list[i - 1] = row[i];
+                        }
+
+                        System.out.print(list[i - 1] + ", ");
                     }
                     System.out.println("");
                     BD.insertarTabla(table_name, list);
@@ -58,6 +64,8 @@ public class FileManager {
                     first = true;
                 }
             }
+            JOptionPane.showMessageDialog(null, "Registro insertado correctamente en: " + table_name);
+
         } catch (FileNotFoundException ex) {
             Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {

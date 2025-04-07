@@ -19,6 +19,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class BaseDeDatos {
 
@@ -90,6 +91,7 @@ public class BaseDeDatos {
             }
             pstmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "Registro insertado correctamente en: " + tabla);
+
         } catch (SQLIntegrityConstraintViolationException ex) {
             JOptionPane.showMessageDialog(null, "No se pudo insertar en la base de datos. Posibles causas:\n"
                     + "1. Llave primaria está repetida\n"
@@ -265,12 +267,13 @@ public class BaseDeDatos {
         }
     }
 
+    //orden = desc/asc
     //VISTAS PARA Reporte de Ventas por Periodo
-    public void obtenerVentasMes(String condicion, String orden) {
+    public Object[][] obtenerVentasMes(String condicion, String orden) {
         if (condicion.isEmpty()) {
-            MostrarReporteVista("select * from reporte_ventas_mes_semana group by mes " + orden);
+            return MostrarReporteVista("select * from reporte_ventas_mes_semana group by mes " + orden);
         } else {
-            MostrarReporteVista(
+            return MostrarReporteVista(
                     "select mes, sum(total_ventas) as Total_Mes "
                     + "from reporte_ventas_mes_semana "
                     + "where mes=" + condicion
@@ -279,31 +282,44 @@ public class BaseDeDatos {
         }
     }
 
-    public void obtenerVentasSemana(String condicion, String orden) {
+    public Object[][] obtenerVentasSemana(String condicion, String orden) {
         if (condicion.isEmpty()) {
-            MostrarReporteVista("select * from reporte_ventas_mes_semana order by semana " + orden);
+            return MostrarReporteVista("select * from reporte_ventas_mes_semana order by semana " + orden);
         } else {
-            MostrarReporteVista("select * from reporte_ventas_mes_semana where semana=" + condicion + " group by mes " + "order by mes " + orden);
+            return MostrarReporteVista(
+                    "select * from reporte_ventas_mes_semana "
+                    + "where semana=" + condicion
+                    + " group by mes "
+                    + "order by mes " + orden);
         }
     }
 
-    public void obtenerComparativaPeriodos(String mes_1, String mes_2, String orden) {
+    public Object[][] obtenerComparativaPeriodos(String mes_1, String mes_2, String orden) {
         if (mes_1.isEmpty() || mes_2.isEmpty()) {
             System.out.println("Uno o ambos meses ingresados no son válidos");
-        } else {
-            MostrarReporteVista("select * from Comparativa_Periodos_Meses where Mes1=" + mes_1 + " and Mes2=" + mes_2 + " order by Diferencia " + orden);
+            return new Object[][]{{"Error"}, {"Meses no válidos"}};
         }
+        return MostrarReporteVista(
+                "select * from Comparativa_Periodos_Meses "
+                + "where Mes1=" + mes_1
+                + " and Mes2=" + mes_2
+                + " order by Diferencia " + orden);
     }
 
-    public void obtenerProductosMasVendidos(String orden) {
-        MostrarReporteVista("select * from Productos_Mas_Vendidos order by No_Veces_Vendido " + orden);
+    public Object[][] obtenerProductosMasVendidos(String orden) {
+        return MostrarReporteVista(
+                "select * from Productos_Mas_Vendidos "
+                + "order by No_Veces_Vendido " + orden);
     }
 
-    public void obtenerVentasPorCategoria(String categoria, String orden) {
+    public Object[][] obtenerVentasPorCategoria(String categoria, String orden) {
         if (categoria.isEmpty()) {
-            MostrarReporteVista("select * from Ventas_Categoría order by Ventas_Categoría " + orden);
+            return MostrarReporteVista("select * from Ventas_Categoría order by Ventas_Categoría " + orden);
         } else {
-            MostrarReporteVista("select * from Ventas_Categoría where categoria=\'" + categoria + "\' order by Ventas_Categoría " + orden);
+            return MostrarReporteVista(
+                    "select * from Ventas_Categoría "
+                    + "where categoria='" + categoria + "' "
+                    + "order by Ventas_Categoría " + orden);
         }
     }
 
@@ -411,22 +427,34 @@ public class BaseDeDatos {
         }
     }
 
-    public void MostrarReporteVista(String sql) {
-        try (
-                Statement stmt = con.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
+    public Object[][] MostrarReporteVista(String sql) {
+        try (Statement stmt = con.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
 
             ResultSetMetaData meta = (ResultSetMetaData) rs.getMetaData();
             int columnas = meta.getColumnCount();
 
-            while (rs.next()) {
-                for (int i = 1; i <= columnas; i++) {
-                    System.out.print(meta.getColumnLabel(i) + ": " + rs.getObject(i) + "  ");
-                }
-                System.out.println();
+            List<Object[]> resultList = new ArrayList<>();
+
+            Object[] columnNames = new Object[columnas];
+            for (int i = 1; i <= columnas; i++) {
+                columnNames[i - 1] = meta.getColumnLabel(i);
             }
+            resultList.add(columnNames);
+
+            while (rs.next()) {
+                Object[] row = new Object[columnas];
+                for (int i = 1; i <= columnas; i++) {
+                    row[i - 1] = rs.getObject(i);
+                }
+                resultList.add(row);
+            }
+
+            return resultList.toArray(new Object[0][]);
 
         } catch (SQLException e) {
             System.out.println("Error al ejecutar consulta: " + e.getMessage());
+            return null;
         }
     }
+
 }
