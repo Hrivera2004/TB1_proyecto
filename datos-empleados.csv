@@ -1,7 +1,7 @@
 id_empleado,nombre,apellido,puesto,email,telefono,fecha_contratacion
-1,Juan,Pérez,Vendedor,juan.perez@distribucion.com,555-1111,2021-02-15
-2,Laura,Gómez,Vendedor,laura.gomez@distribucion.com,555-2222,2021-03-10
-3,Miguel,Rodríguez,Jefe de Almacén,miguel.rodriguez@distribucion.com,555-3333,2020-11-05
+1,Juan,PÃ©rez,Vendedor,juan.perez@distribucion.com,555-1111,2021-02-15
+2,Laura,GÃ³mez,Vendedor,laura.gomez@distribucion.com,555-2222,2021-03-10
+3,Miguel,RodrÃ­guez,Jefe de AlmacÃ©n,miguel.rodriguez@distribucion.com,555-3333,2020-11-05
 4,Daniela,Herrera,Vendedor,daniela.herrera@distribucion.com,555-4444,2022-01-20
 5,Ricardo,Vargas,Chofer,ricardo.vargas@distribucion.com,555-5555,2021-07-12
-6,Carmen,Jiménez,Vendedor,carmen.jimenez@distribucion.com,555-6666,2021-09-30
+6,Carmen,JimÃ©nez,Vendedor,carmen.jimenez@distribucion.com,555-6666,2021-09-30

@@ -1,6 +1,6 @@
 id_proveedor,nombre,pais_origen,contacto_nombre,contacto_email,contacto_telefono,direccion,tiempo_entrega_promedio
-1,BeautyParis,Francia,Sophie Dubois,sophie@beautyparis.com,33-1-2345-6789,15 Rue de Beauté París,20
-2,KoreanGlow,Corea del Sur,Ji-Yeon Kim,jiyeon@koreanglow.kr,82-2-1234-5678,123 Beauty Street Seúl,25
+1,BeautyParis,Francia,Sophie Dubois,sophie@beautyparis.com,33-1-2345-6789,15 Rue de BeautÃ© ParÃ­s,20
+2,KoreanGlow,Corea del Sur,Ji-Yeon Kim,jiyeon@koreanglow.kr,82-2-1234-5678,123 Beauty Street SeÃºl,25
 3,ItalianStyle,Italia,Marco Bianchi,marco@italianstyle.it,39-6-1234-5678,Via Bellezza 45 Roma,18
 4,USA Beauty,Estados Unidos,Jennifer Smith,jen@usabeauty.com,1-212-555-1234,500 Fashion Ave New York,15
-5,JapanEssence,Japón,Haru Tanaka,haru@japanessence.jp,81-3-1234-5678,7-1 Beauty Bldg Tokio,22
+5,JapanEssence,JapÃ³n,Haru Tanaka,haru@japanessence.jp,81-3-1234-5678,7-1 Beauty Bldg Tokio,22

@@ -1,9 +1,9 @@
 id_cliente,nombre_tienda,tipo_tienda,propietario,email,telefono,direccion,ciudad,codigo_postal,fecha_registro,limite_credito,condiciones_pago
-1,Belleza Total,Mediana,MarÌa Gonz·lez,maria@bellezatotal.com,555-1234,Calle Principal 123,Ciudad de MÈxico,1000,2022-01-15,5000,CrÈdito 30 dÌas
-2,Glamour & Estilo,PequeÒa,Luis RamÌrez,luis@glamourestilo.com,555-5678,Av. Reforma 456,Guadalajara,44100,2022-03-20,2500,CrÈdito 15 dÌas
-3,Beauty Corner,PequeÒa,Ana LÛpez,ana@beautycorner.com,555-9012,Calle Hidalgo 789,Monterrey,64000,2022-02-10,1800,Pago inmediato
-4,CosmÈticos Express,Mediana,Carlos MartÌnez,carlos@cosmeticosexpress.com,555-3456,Blvd. Independencia 234,Puebla,72000,2022-05-05,4200,CrÈdito 30 dÌas
-5,La Casa del Maquillaje,Mediana,SofÌa Torres,sofia@casadelmaquillaje.com,555-7890,Av. Universidad 567,QuerÈtaro,76000,2022-04-12,3800,CrÈdito 21 dÌas
-6,Belleza Natural,PequeÒa,Roberto DÌaz,roberto@bellezanatural.com,555-2345,Calle Ju·rez 890,MÈrida,97000,2022-06-18,2000,Pago inmediato
-7,Esencia & Belleza,PequeÒa,Patricia S·nchez,patricia@esenciabelleza.com,555-6789,Av. Morelos 123,Toluca,50000,2022-07-25,1500,CrÈdito 15 dÌas
-8,Face & Body,Mediana,Eduardo Flores,eduardo@facebody.com,555-0123,Calle 5 de Mayo 456,LeÛn,37000,2022-03-03,4500,CrÈdito 30 dÌas
+1,Belleza Total,Mediana,Mar√≠a Gonz√°lez,maria@bellezatotal.com,555-1234,Calle Principal 123,Ciudad de M√©xico,1000,2022-01-15,5000,Cr√©dito 30 d√≠as
+2,Glamour & Estilo,Peque√±a,Luis Ram√≠rez,luis@glamourestilo.com,555-5678,Av. Reforma 456,Guadalajara,44100,2022-03-20,2500,Cr√©dito 15 d√≠as
+3,Beauty Corner,Peque√±a,Ana L√≥pez,ana@beautycorner.com,555-9012,Calle Hidalgo 789,Monterrey,64000,2022-02-10,1800,Pago inmediato
+4,Cosm√©ticos Express,Mediana,Carlos Mart√≠nez,carlos@cosmeticosexpress.com,555-3456,Blvd. Independencia 234,Puebla,72000,2022-05-05,4200,Cr√©dito 30 d√≠as
+5,La Casa del Maquillaje,Mediana,Sof√≠a Torres,sofia@casadelmaquillaje.com,555-7890,Av. Universidad 567,Quer√©taro,76000,2022-04-12,3800,Cr√©dito 21 d√≠as
+6,Belleza Natural,Peque√±a,Roberto D√≠az,roberto@bellezanatural.com,555-2345,Calle Ju√°rez 890,M√©rida,97000,2022-06-18,2000,Pago inmediato
+7,Esencia & Belleza,Peque√±a,Patricia S√°nchez,patricia@esenciabelleza.com,555-6789,Av. Morelos 123,Toluca,50000,2022-07-25,1500,Cr√©dito 15 d√≠as
+8,Face & Body,Mediana,Eduardo Flores,eduardo@facebody.com,555-0123,Calle 5 de Mayo 456,Le√≥n,37000,2022-03-03,4500,Cr√©dito 30 d√≠as
