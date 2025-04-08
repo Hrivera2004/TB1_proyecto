@@ -90,7 +90,6 @@ public class BaseDeDatos {
                 pstmt.setObject(i + 1, valores[i]);
             }
             pstmt.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Registro insertado correctamente en: " + tabla);
 
         } catch (SQLIntegrityConstraintViolationException ex) {
             JOptionPane.showMessageDialog(null, "No se pudo insertar en la base de datos. Posibles causas:\n"
@@ -324,8 +323,11 @@ public class BaseDeDatos {
     }
 
     //VISTAS PARA Inventario y Stock Crítico
-    public Object[][] obtenerProductosStockBajo(String orden) {
-        return MostrarReporteVista("select * from cantidad_producto_disponible order by cantidad_disponible " + orden);
+    public Object[][] obtenerProductosStockBajo(String umbral, String orden) {
+        return MostrarReporteVista(
+                "select * "
+                + "from cantidad_producto_disponible where cantidad_disponible <=" + umbral
+                + " order by cantidad_disponible " + orden);
     }
 
     public Object[][] obtenerRotacionInventario(String producto, String orden) {
@@ -401,14 +403,14 @@ public class BaseDeDatos {
     //VISTAS PARA Rentabilidad por Productos y Categorías
     public Object[][] obtenerGananciaPorProducto(String producto, String orden) {
         if (producto.isEmpty()) {
-           return MostrarReporteVista("select * from Ganancia_Producto order by Ganancia " + orden);
+            return MostrarReporteVista("select * from Ganancia_Producto order by Ganancia " + orden);
         } else {
             return MostrarReporteVista("select * from Ganancia_Producto where nombre=\'" + producto + "\'");
         }
     }
 
     public Object[][] obtenerCategoriasMasRentables(String categoria, String orden) {
-       return MostrarReporteVista("select * from Categorias_Rentables order by Ganancia_Total " + orden);
+        return MostrarReporteVista("select * from Categorias_Rentables order by Ganancia_Total " + orden);
     }
 
     public Object[][] obtenerAnalisisDescuentos(String producto, String orden) {

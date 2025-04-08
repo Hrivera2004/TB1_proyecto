@@ -1270,8 +1270,6 @@
                           <Group type="102" attributes="0">
                               <Component id="jButton_Excel_1" min="-2" pref="140" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jButton_Rfiltros" min="-2" pref="116" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="jButton_regresar" min="-2" pref="116" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -1288,7 +1286,6 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jButton_regresar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton_Rfiltros" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton_Excel_1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="15" max="32767" attributes="0"/>
@@ -1402,7 +1399,7 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="jButton_venta_continuar1">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="continuar"/>
+                        <Property name="text" type="java.lang.String" value="VER"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton_venta_continuar1MouseClicked"/>
@@ -1549,7 +1546,7 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="jButton_venta_continuar4">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="continuar"/>
+                        <Property name="text" type="java.lang.String" value="VER"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton_venta_continuar4MouseClicked"/>
@@ -1674,7 +1671,7 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="jButton_venta_continuar2">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="continuar"/>
+                        <Property name="text" type="java.lang.String" value="VER"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton_venta_continuar2MouseClicked"/>
@@ -1716,14 +1713,14 @@
                                   <Component id="jScrollPane28" min="-2" pref="882" max="-2" attributes="0"/>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel_2" min="-2" pref="180" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
                                               <Component id="jSpinner_venta_1" min="-2" pref="81" max="-2" attributes="0"/>
                                               <EmptySpace min="19" pref="19" max="-2" attributes="0"/>
                                               <Component id="jSpinner_venta_2" min="-2" pref="81" max="-2" attributes="0"/>
                                           </Group>
+                                          <Component id="jLabel_2" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="321" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="173" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel_8" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
@@ -1743,25 +1740,28 @@
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="jLabel_2" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="jButton_venta_continuar5" alignment="1" min="-2" pref="34" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="jLabel_8" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jRadioButton_venta_Asc5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jRadioButton_venta_desc5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                                      <Component id="jLabel_2" min="-2" pref="24" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jSpinner_venta_1" min="-2" max="-2" attributes="0"/>
                                           <Component id="jSpinner_venta_2" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="jButton_venta_continuar5" alignment="1" min="-2" pref="34" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="jLabel_8" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jRadioButton_venta_Asc5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jRadioButton_venta_desc5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
                                       </Group>
                                   </Group>
                               </Group>
@@ -1821,7 +1821,7 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel_2">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Rango de filtrar"/>
+                        <Property name="text" type="java.lang.String" value="Rango de filtra[primer mes no puede ser mayor que segundo]"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel_8">
@@ -1854,7 +1854,7 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="jButton_venta_continuar5">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="continuar"/>
+                        <Property name="text" type="java.lang.String" value="VER"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton_venta_continuar5MouseClicked"/>
@@ -1975,7 +1975,7 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="jButton_venta_continuar3">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="continuar"/>
+                        <Property name="text" type="java.lang.String" value="VER"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton_venta_continuar3MouseClicked"/>
@@ -2063,14 +2063,6 @@
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton_regresarMouseClicked"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton_Rfiltros">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Remover filtros"/>
-              </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton_RfiltrosMouseClicked"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JButton" name="jButton_Excel_1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Exportar Excel"/>
@@ -2098,20 +2090,12 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jPanel18" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
+              <Component id="jPanel18" alignment="1" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jPanel18" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
+              <Component id="jPanel18" min="-2" max="-2" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -2129,39 +2113,34 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jPanel19" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="jButton_Excel_2" min="-2" pref="140" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="jButton_Stock_Regresar" min="-2" pref="107" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="jTabbedPane_stock" min="-2" pref="808" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jButton_Excel_2" min="-2" pref="140" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="561" max="-2" attributes="0"/>
+                              <Component id="jButton_Stock_Regresar" min="-2" pref="107" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jTabbedPane_stock" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
+                  <Component id="jPanel19" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel19" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jTabbedPane_stock" min="-2" pref="315" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jTabbedPane_stock" min="-2" pref="315" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jButton_Stock_Regresar" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton_Excel_2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="14" max="32767" attributes="0"/>
+                      <EmptySpace pref="16" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2188,7 +2167,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                          <Component id="jLabel19" pref="61" max="32767" attributes="0"/>
+                          <Component id="jLabel19" pref="67" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -2245,7 +2224,7 @@
                                               <Component id="jRadioButton_stock4_desc" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace pref="24" max="32767" attributes="0"/>
+                                      <EmptySpace pref="112" max="32767" attributes="0"/>
                                       <Component id="jButton_stock4" min="-2" pref="127" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -2277,7 +2256,7 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jScrollPane11" min="-2" pref="186" max="-2" attributes="0"/>
-                              <EmptySpace pref="8" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2297,7 +2276,7 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="jButton_stock4">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Guardar"/>
+                        <Property name="text" type="java.lang.String" value="VER"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_stock4ActionPerformed"/>
@@ -2340,8 +2319,8 @@
                 <Container class="javax.swing.JPanel" name="jPanel22">
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                      <JTabbedPaneConstraints tabName="Productos pr&#xf3;ximos a caducar">
-                        <Property name="tabTitle" type="java.lang.String" value="Productos pr&#xf3;ximos a caducar"/>
+                      <JTabbedPaneConstraints tabName="Obtener prodcutos proximos a caducar y caducados">
+                        <Property name="tabTitle" type="java.lang.String" value="Obtener prodcutos proximos a caducar y caducados"/>
                       </JTabbedPaneConstraints>
                     </Constraint>
                   </Constraints>
@@ -2362,7 +2341,7 @@
                                   <Component id="jLabel22" min="-2" pref="272" max="-2" attributes="0"/>
                                   <Component id="jScrollPane10" alignment="0" min="-2" pref="746" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="22" max="32767" attributes="0"/>
+                              <EmptySpace pref="110" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2431,7 +2410,7 @@
                     </Container>
                     <Component class="javax.swing.JButton" name="jButton_stock3_guardar">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Guardar"/>
+                        <Property name="text" type="java.lang.String" value="VER"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_stock3_guardarActionPerformed"/>
@@ -2457,14 +2436,14 @@
                                   <Component id="jLabel21" min="-2" pref="470" max="-2" attributes="0"/>
                                   <Component id="jScrollPane9" min="-2" pref="733" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="28" max="32767" attributes="0"/>
+                              <EmptySpace pref="116" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="16" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Component id="jLabel21" min="-2" pref="27" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jScrollPane9" min="-2" pref="193" max="-2" attributes="0"/>
@@ -2510,47 +2489,56 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jRadioButton_stock1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton_stock2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel49" min="-2" pref="272" max="-2" attributes="0"/>
+                                          <Component id="jSpinner1" min="-2" pref="133" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jRadioButton_stock1" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                                              <Component id="jRadioButton_stock2" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jLabel20" alignment="0" min="-2" pref="272" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                                      <Component id="jButton_stock1_Guardar" min="-2" pref="131" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jLabel20" alignment="0" min="-2" pref="272" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane7" min="-2" pref="753" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                              <Component id="jButton_stock1_Guardar" min="-2" pref="131" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="49" max="32767" attributes="0"/>
-                              <Component id="jScrollPane7" min="-2" pref="753" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace pref="76" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                      <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel49" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jRadioButton_stock1" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jRadioButton_stock2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jSpinner1" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                                       <Component id="jButton_stock1_Guardar" min="-2" pref="35" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jScrollPane7" min="-2" pref="173" max="-2" attributes="0"/>
-                              <EmptySpace pref="12" max="32767" attributes="0"/>
+                              <EmptySpace pref="25" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2595,11 +2583,23 @@
                     </Container>
                     <Component class="javax.swing.JButton" name="jButton_stock1_Guardar">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Guardar"/>
+                        <Property name="text" type="java.lang.String" value="VER"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_stock1_GuardarActionPerformed"/>
                       </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel49">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Umbral:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JSpinner" name="jSpinner1">
+                      <Properties>
+                        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                          <SpinnerModel initial="30" maximum="80" minimum="30" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                        </Property>
+                      </Properties>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -2848,7 +2848,7 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="jButton_tabtasa">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Guardar"/>
+                        <Property name="text" type="java.lang.String" value="VER"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_tabtasaActionPerformed"/>
@@ -2968,7 +2968,7 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="jButton_tabnum">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Guardar"/>
+                        <Property name="text" type="java.lang.String" value="VER"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_tabnumActionPerformed"/>
@@ -3088,7 +3088,7 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="jButton_tabprom">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Guardar"/>
+                        <Property name="text" type="java.lang.String" value="VER"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_tabpromActionPerformed"/>
@@ -3208,7 +3208,7 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="jButton_tabventas">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Guardar"/>
+                        <Property name="text" type="java.lang.String" value="VER"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_tabventasActionPerformed"/>
@@ -4451,6 +4451,11 @@
         </Container>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JLabel" name="jLabel50">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel50"/>
+      </Properties>
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
