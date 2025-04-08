@@ -3611,7 +3611,6 @@ public class Main extends javax.swing.JFrame {
         // stock bajo
         String orden = jRadioButton_stock1.isSelected() ? "asc" : "desc";
         SpinnerNumberModel model = (SpinnerNumberModel) jSpinner1.getModel();
-
         Object[][] tabla = BD.obtenerProductosStockBajo(model.getValue().toString(), orden);
         mostrarDatosEnTabla(tabla, jTable_stock1);
     }//GEN-LAST:event_jButton_stock1_GuardarActionPerformed
@@ -3627,10 +3626,6 @@ public class Main extends javax.swing.JFrame {
         // ventas por vendedor
         String orden = jRadioButton_ana_ascventas.isSelected() ? "asc" : "desc";
         String nombreVendedor = jTextField_Analisis_nombretventas.getText().trim();
-        if (nombreVendedor.isEmpty()) {
-            JOptionPane.showMessageDialog(jDialog_ResportesAna, "Por favor, ingresa el nombre del vendedor.", "Campo vacío", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
         Object[][] tabla = BD.obtenerVentasPorVendedor(nombreVendedor, orden);
         mostrarDatosEnTabla(tabla, jTable_ana_ventas);
 
@@ -3640,10 +3635,6 @@ public class Main extends javax.swing.JFrame {
         // tasa de conversion
         String orden = jRadioButton_ana_asctasa.isSelected() ? "asc" : "desc";
         String nombreVendedor = jTextField_Analisis_nombretasa.getText().trim();
-        if (nombreVendedor.isEmpty()) {
-            JOptionPane.showMessageDialog(jDialog_ResportesAna, "Por favor, ingresa el nombre del vendedor.", "Campo vacío", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
         Object[][] tabla = BD.obtenerTasaConversionVentas(nombreVendedor, orden);
         mostrarDatosEnTabla(tabla, jTable_ana_tasa);
     }//GEN-LAST:event_jButton_tabtasaActionPerformed
@@ -3652,10 +3643,6 @@ public class Main extends javax.swing.JFrame {
         // numero de pedidos procesados
         String orden = jRadioButton_ana_ascnum.isSelected() ? "asc" : "desc";
         String nombreVendedor = jTextField_Analisis_nombrenum.getText().trim();
-        if (nombreVendedor.isEmpty()) {
-            JOptionPane.showMessageDialog(jDialog_ResportesAna, "Por favor, ingresa el nombre del vendedor.", "Campo vacío", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
         Object[][] tabla = BD.obtenerPedidosProcesados(nombreVendedor, orden);
         mostrarDatosEnTabla(tabla, Jtable_ana_num);
     }//GEN-LAST:event_jButton_tabnumActionPerformed
@@ -3664,10 +3651,6 @@ public class Main extends javax.swing.JFrame {
         // valor promedio por pedido
         String orden = jRadioButton_ana_ascprom.isSelected() ? "asc" : "desc";
         String nombreVendedor = jTextField_Analisis_nombreprom.getText().trim();
-        if (nombreVendedor.isEmpty()) {
-            JOptionPane.showMessageDialog(jDialog_ResportesAna, "Por favor, ingresa el nombre del vendedor.", "Campo vacío", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
         Object[][] tabla = BD.obtenerValorPromedioPedido(nombreVendedor, orden);
         mostrarDatosEnTabla(tabla, jTable_ana_prom);
     }//GEN-LAST:event_jButton_tabpromActionPerformed
