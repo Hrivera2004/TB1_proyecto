@@ -6,6 +6,9 @@ package tb1_proyecto;
 
 import java.awt.Component;
 import java.awt.Desktop;
+import java.awt.Font;
+import java.awt.FontMetrics;
+import java.awt.ScrollPane;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -23,8 +26,12 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SpinnerListModel;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.SwingUtilities;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -754,9 +761,9 @@ public class Main extends javax.swing.JFrame {
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(244, 244, 244)
+                .addGap(65, 65, 65)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -792,25 +799,20 @@ public class Main extends javax.swing.JFrame {
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
+            .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(63, 63, 63)
-                                .addComponent(jTextField_read, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addGap(272, 272, 272)
-                                .addComponent(jdGuardarUpdate1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 857, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())))
+                        .addGap(258, 258, 258)
+                        .addComponent(jdGuardarUpdate1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49)
+                        .addComponent(jTextField_read, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3030,7 +3032,7 @@ public class Main extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel16.setText("IR A REPORTES");
 
-        jButton_Principal_AbrirReportes.setText("VISTAS");
+        jButton_Principal_AbrirReportes.setText("REPORTES");
         jButton_Principal_AbrirReportes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton_Principal_AbrirReportesMouseClicked(evt);
@@ -3177,24 +3179,10 @@ public class Main extends javax.swing.JFrame {
         }
         model.addRow(new Object[]{});
 
-        jTable_Create.setDefaultEditor(Object.class, new DefaultCellEditor(new JTextField()) {
-            private JTextArea textArea;
-
-            @Override
-            public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column) {
-                textArea = new JTextArea(value != null ? value.toString() : "");
-                textArea.setLineWrap(true);
-                textArea.setWrapStyleWord(true);
-                return textArea;
-            }
-
-            @Override
-            public Object getCellEditorValue() {
-                return textArea != null ? textArea.getText() : "";
-            }
-        });
         jTable_Create.setModel(model);
-        jTable_Create.setRowHeight(150);
+
+        tableStyle(jTable_Create, true, 1);
+
         jdCreate.pack();
         jdCreate.setLocationRelativeTo(this);
         jdCreate.setModal(true);
@@ -3217,7 +3205,9 @@ public class Main extends javax.swing.JFrame {
             }
         };
         model.setColumnIdentifiers(attributos(tabla));
+
         jtUpdateTable.setModel(model);
+        tableStyle(jtUpdateTable, true, 1);
 
         jdUpdate.pack();
         jdUpdate.setLocationRelativeTo(this);
@@ -3238,6 +3228,7 @@ public class Main extends javax.swing.JFrame {
         model.setColumnIdentifiers(attributos(tabla));
         jtTableDelete.setModel(model);
         //String tablaNombre = jlListaTablas.getSelectedValue();
+        tableStyle(jtTableDelete, false, 1);
         jdDelete.pack();
         jdDelete.setLocationRelativeTo(this);
         jdDelete.setModal(true);
@@ -3270,7 +3261,8 @@ public class Main extends javax.swing.JFrame {
                 try {
                     DefaultTableModel model = (DefaultTableModel) jtTableDelete.getModel();
                     model.setRowCount(0);
-                    if (tfPKbusqueda.getText().trim().matches("^[+-]?\\d+$")) {
+
+                    if (tfPKbusqueda.getText().trim().matches("^[+]?\\d+$")) {
                         Object[] tupla = BD.conseguir_tupla(tablaNombre, tfPKbusqueda.getText().trim());
                         System.out.println(tupla);
                         model.addRow(tupla);
@@ -3380,6 +3372,9 @@ public class Main extends javax.swing.JFrame {
         }
 
         jdReadTable.setModel(model);
+
+        tableStyle(jdReadTable, true, 0);
+
         jdRead.pack();
         jdRead.setLocationRelativeTo(this);
         jdRead.setModal(true);
@@ -3392,6 +3387,7 @@ public class Main extends javax.swing.JFrame {
         try {
             DefaultTableModel model = (DefaultTableModel) jdReadTable.getModel();
             model.setRowCount(0);
+            int type = 0;
             if (jTextField_read.getText().trim().equals("*")) {
                 Object[][] tuplas;
                 tuplas = BD.tuplas_select_cinco(jlListaTablas.getSelectedValue());
@@ -3399,15 +3395,17 @@ public class Main extends javax.swing.JFrame {
                     model.addRow(tupla);
                 }
             }
-            if (jTextField_read.getText().trim().matches("^[+-]?\\d+$")) {
+            if (jTextField_read.getText().trim().matches("^[+]?\\d+$")) {
                 Object[] tupla = BD.conseguir_tupla(jlListaTablas.getSelectedValue(), jTextField_read.getText().trim());
                 if (tupla == null) {
                     JOptionPane.showMessageDialog(jdRead, "Llave" + jTextField_read.getText().trim() + " no se encontro");
                 } else {
                     model.addRow(tupla);
                 }
+                type = 1;
             }
             jdReadTable.setModel(model);
+            tableStyle(jdReadTable, true, type);
         } catch (SQLException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -3545,7 +3543,6 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton_CRUD_Create1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_CRUD_Create1MouseClicked
         // TODO add your handling code here:
-        cargarTablasVentas("asc");
         jdReporteVenta.pack();
         jdReporteVenta.setLocationRelativeTo(this);
         jdReporteVenta.setModal(true);
@@ -3567,7 +3564,7 @@ public class Main extends javax.swing.JFrame {
 
         if (index1 > index2) {
             jSpinner_venta_2.setValue(list.get(index1 + 1 <= 11 ? index1 + 1 : 11));
-            
+
         }
     }//GEN-LAST:event_jSpinner_venta_1StateChanged
 
@@ -3780,7 +3777,7 @@ public class Main extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(jdReporteVenta, "No hay valores para seleccionar");
         }
         jTable_venta_1.setModel(model);
-
+        tableStyle(jTable_venta_1, false, 0);
 
     }//GEN-LAST:event_jButton_venta_continuar1MouseClicked
 
@@ -3818,6 +3815,8 @@ public class Main extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(jdReporteVenta, "No hay valores para seleccionar");
         }
         jTable_venta_4.setModel(model);
+        tableStyle(jTable_venta_4, false, 0);
+
     }//GEN-LAST:event_jButton_venta_continuar2MouseClicked
 
     private void jRadioButton_venta_Asc3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_venta_Asc3ActionPerformed
@@ -3856,6 +3855,8 @@ public class Main extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(jdReporteVenta, "No hay valores para seleccionar");
         }
         jTable_venta_3.setModel(model);
+        tableStyle(jTable_venta_3, false, 0);
+
     }//GEN-LAST:event_jButton_venta_continuar3MouseClicked
 
     private void jRadioButton_venta_Asc4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_venta_Asc4ActionPerformed
@@ -3896,6 +3897,7 @@ public class Main extends javax.swing.JFrame {
         }
 
         jTable_venta_2.setModel(model);
+        tableStyle(jTable_venta_2, false, 0);
     }//GEN-LAST:event_jButton_venta_continuar4MouseClicked
 
     private void jRadioButton_venta_Asc5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_venta_Asc5ActionPerformed
@@ -3940,6 +3942,8 @@ public class Main extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(jdReporteVenta, "No hay valores para seleccionar");
         }
         jTable_venta_5.setModel(model);
+        tableStyle(jTable_venta_5, false, 0);
+
     }//GEN-LAST:event_jButton_venta_continuar5MouseClicked
 
     private void jButton_regresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_regresarMouseClicked
@@ -4534,7 +4538,7 @@ public class Main extends javax.swing.JFrame {
                                         count++;
                                         if (data[5] instanceof String && data[5].toString().length() < 71) {
                                             count++;
-                                            if (data[6].toString().matches("^[+-]?\\d+$")) {
+                                            if (data[6].toString().matches("^[+]?\\d+$")) {
                                                 return true;
                                             }
                                         }
@@ -4556,9 +4560,9 @@ public class Main extends javax.swing.JFrame {
                             count++;
                             if (data[2] instanceof String && data[2].toString().length() < 101) {
                                 count++;
-                                if (data[3].toString().matches("^[+-]?\\d+$")) {
+                                if (data[3].toString().matches("^[+]?\\d+$")) {
                                     count++;
-                                    if (data[4].toString().matches("^[+-]?\\d+$")) {
+                                    if (data[4].toString().matches("^[+]?\\d+$")) {
                                         count++;
                                         if (data[5].toString().matches("^[+-]?\\d+(\\.\\d+)?$")) {
                                             count++;
@@ -4590,9 +4594,9 @@ public class Main extends javax.swing.JFrame {
                     if (data.length != 6) {
                         return false;
                     }
-                    if (data[0].toString().matches("^[+-]?\\d+$")) {
+                    if (data[0].toString().matches("^[+]?\\d+$")) {
                         count++;
-                        if (data[1].toString().matches("^[+-]?\\d+$")) {
+                        if (data[1].toString().matches("^[+]?\\d+$")) {
                             count++;
                             if (data[2] instanceof String && data[2].toString().length() < 11) {
                                 count++;
@@ -4825,45 +4829,8 @@ public class Main extends javax.swing.JFrame {
         }
 
         tablaDestino.setModel(modelo);
-    }
+        tableStyle(tablaDestino, false, 0);
 
-    private void cargarTablasVentas(String selected) {
-        int count = 1;
-        Object[][] tabla1 = BD.obtenerVentasMes("", selected);
-        cargarTabla(jTable_venta_1, tabla1, "Ventas mes");
-
-        Object[][] tabla2 = BD.obtenerProductosMasVendidos(selected);
-        cargarTabla(jTable_venta_4, tabla2, "Productos mas vendidos");
-
-        Object[][] tabla3 = BD.obtenerVentasPorCategoria("", selected);
-        cargarTabla(jTable_venta_3, tabla3, "Ventas por categoria");
-        jTextField_venta.setText("deje en blanco para mostrar todo....");
-
-        Object[][] tabla4 = BD.obtenerVentasSemana("", selected);
-        cargarTabla(jTable_venta_2, tabla4, "Ventas semana");
-
-        Object[][] tabla5 = BD.obtenerComparativaPeriodos("1", "1", selected);
-        cargarTabla(jTable_venta_5, tabla5, "Comparativa periodos");
-
-    }
-
-    private void cargarTabla(JTable table, Object[][] data, String nombre) {
-        DefaultTableModel model = new DefaultTableModel();
-
-        if (data != null) {
-            model.setColumnIdentifiers(data[0]);
-            if (data.length > 1) {
-                for (int i = 1; i < data.length; i++) {
-                    model.addRow(data[i]);
-                }
-            } else {
-                //JOptionPane.showMessageDialog(jdReporteVenta, "La tabla " + nombre + " esta vacia");
-            }
-            table.setModel(model);
-        } else {
-            //JOptionPane.showMessageDialog(jdReporteVenta, "Error la tabla " + nombre + " no existe");
-            table.setModel(new DefaultTableModel());
-        }
     }
 
     public void exportar(JTable t) throws IOException {
@@ -4925,5 +4892,52 @@ public class Main extends javax.swing.JFrame {
                 throw e;
             }
         }
+    }
+
+    public void tableStyle(JTable t, boolean editable, int type) {
+        if (editable) {
+            jTable_Create.setDefaultEditor(Object.class, new DefaultCellEditor(new JTextField()) {
+                private JTextArea textArea;
+
+                @Override
+                public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column) {
+                    textArea = new JTextArea(value != null ? value.toString() : "");
+                    textArea.setLineWrap(true);
+                    textArea.setWrapStyleWord(true);
+                    return new JScrollPane(textArea);
+                }
+
+                @Override
+                public Object getCellEditorValue() {
+                    return textArea != null ? textArea.getText() : "";
+                }
+            });
+        }
+
+        t.setRowSelectionAllowed(false);
+        t.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        t.getTableHeader().setFont(new Font("SansSerif", Font.BOLD, 14));
+        t.setRowHeight(20);
+        JTableHeader header = t.getTableHeader();
+        Font headerFont = header.getFont();
+        FontMetrics metrics = header.getFontMetrics(headerFont);
+        TableColumnModel model = t.getColumnModel();
+        for (int i = 0; i < model.getColumnCount(); i++) {
+            String columnName = t.getColumnName(i).trim();
+            int text = metrics.stringWidth(columnName);
+            int width = text + 50;
+            TableColumn column = model.getColumn(i);
+            column.setPreferredWidth(width);
+        }
+        if (type == 1) {
+
+            SwingUtilities.invokeLater(() -> {
+                t.setRowHeight(t.getParent().getHeight());
+            });
+
+        } else {
+            t.setRowHeight(30);
+        }
+
     }
 }

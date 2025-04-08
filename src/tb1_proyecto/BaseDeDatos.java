@@ -286,10 +286,10 @@ public class BaseDeDatos {
             return MostrarReporteVista("select * from reporte_ventas_mes_semana order by semana " + orden);
         } else {
             return MostrarReporteVista(
-                    "select * from reporte_ventas_mes_semana "
+                    "select semana,sum(total_ventas) as Total_semana from reporte_ventas_mes_semana "
                     + "where semana=" + condicion
-                    + " group by mes "
-                    + "order by mes " + orden);
+                    + " group by semana "
+                    + "order by semana " + orden);
         }
     }
 
@@ -317,7 +317,7 @@ public class BaseDeDatos {
         } else {
             return MostrarReporteVista(
                     "select * from Ventas_Categoria "
-                    + "where ventas_categoria='" + categoria + "' "
+                    + "where nombre='" + categoria + "' "
                     + "order by Ventas_Categoria " + orden);
         }
     }
@@ -430,7 +430,7 @@ public class BaseDeDatos {
     }
 
     public Object[][] MostrarReporteVista(String sql) {
-        try (Statement stmt = con.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
+        try (Statement stmt = con.createStatement(); ResultSet rs = stmt.executeQuery(sql + " LIMIT 11")) {
 
             ResultSetMetaData meta = (ResultSetMetaData) rs.getMetaData();
             int columnas = meta.getColumnCount();
