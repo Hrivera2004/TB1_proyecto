@@ -18,6 +18,7 @@ import com.mysql.cj.jdbc.result.ResultSetMetaData;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -243,23 +244,33 @@ public class BaseDeDatos {
     public Object[][] tuplas_select_cinco(String tabla) throws SQLException {
         // Query to get first 5 rows (syntax may vary by database)
         String consulta = "SELECT * FROM " + tabla + " LIMIT 5";
-
+        ResultSetMetaData meta = null;
         try (PreparedStatement pstmt = con.prepareStatement(consulta); ResultSet rs = pstmt.executeQuery()) {
 
-            ResultSetMetaData metaData = (ResultSetMetaData) rs.getMetaData();
-            int columnCount = metaData.getColumnCount();
+            meta = (ResultSetMetaData) rs.getMetaData();
+            int columnCount = meta.getColumnCount();
             System.out.println(columnCount);
             List<Object[]> rows = new ArrayList<>();
+            Set<String> columnasMonetarias = Set.of(
+                    "limite_credito", "precio_unitario", "subtotal", "monto", "total", "precio_compra", "precio_venta_sugerido"
+            );
 
             while (rs.next() && rows.size() < 5) {
                 Object[] values = new Object[columnCount];
-                for (int i = 0; i < columnCount; i++) {
-                    values[i] = rs.getObject(i + 1);
-                    System.out.println("Column " + (i + 1) + ": " + values[i]); // Debug each value
 
+                for (int i = 1; i <= columnCount; i++) {
+                    Object valor = rs.getObject(i);
+                    String columnName = meta.getColumnLabel(i).toLowerCase();
+                    if (columnasMonetarias.contains(columnName) && valor != null) {
+                        values[i - 1] = valor.toString() + " LPS";
+                    } else {
+                        values[i - 1] = valor;
+                    }
+
+                    System.out.println("Column " + i + ": " + values[i - 1]); // Debug each value
                 }
-                rows.add(values);
 
+                rows.add(values);
             }
 
             return rows.toArray(new Object[0][]);
@@ -293,7 +304,7 @@ public class BaseDeDatos {
         }
     }
 
-    public Object[][] obtenerComparativaPeriodos(String mes_1, String mes_2, String orden) {
+    public Object[][] obtenerComparativaPeriodos(String mes_1, String a_1, String mes_2, String a_2, String orden) {
         if (mes_1.isEmpty() || mes_2.isEmpty()) {
             System.out.println("Uno o ambos meses ingresados no son válidos");
             return new Object[][]{{"Error"}, {"Meses no válidos"}};
@@ -302,6 +313,8 @@ public class BaseDeDatos {
                 "select * from Comparativa_Periodos_Meses "
                 + "where Mes1=" + mes_1
                 + " and Mes2=" + mes_2
+                + " and Año1=" + a_1
+                + " and Año2=" + a_2
                 + " order by Diferencia " + orden);
     }
 
@@ -443,10 +456,24 @@ public class BaseDeDatos {
             }
             resultList.add(columnNames);
 
+            Set<String> columnasMonetarias = Set.of(
+                    "total_ventas", "ventas_mes_1", "ventas_mes_2", "diferencia",
+                    "ventas_categoria", "valor_total_inventario", "precio_compra", "precio_venta_sugerido",
+                    "ganancia", "ganancia_total", "ganancia_teórica", "ganancia_real",
+                    "margen_unitario", "ventas_promedio", "ventas_vendedor", "total_descuento"
+            );
+
             while (rs.next()) {
                 Object[] row = new Object[columnas];
                 for (int i = 1; i <= columnas; i++) {
-                    row[i - 1] = rs.getObject(i);
+                    String columnName = meta.getColumnLabel(i).toLowerCase();
+                    Object valor = rs.getObject(i);
+
+                    if (columnasMonetarias.contains(columnName) && valor instanceof Number) {
+                        row[i - 1] = valor.toString() + " LPS";
+                    } else {
+                        row[i - 1] = valor;
+                    }
                 }
                 resultList.add(row);
             }

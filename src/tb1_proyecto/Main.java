@@ -13,6 +13,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,11 +23,14 @@ import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
+import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.SpinnerDateModel;
 import javax.swing.SpinnerListModel;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -50,6 +55,9 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
+        initializeDateSpinners(jSpinner_venta_1);
+        initializeDateSpinners(jSpinner_venta_2);
+
         setResizable(false); // Desactiva la redimensionabilidad
         setLocationRelativeTo(null);
         try {
@@ -169,6 +177,7 @@ public class Main extends javax.swing.JFrame {
         jButton_venta_continuar5 = new javax.swing.JButton();
         jScrollPane28 = new javax.swing.JScrollPane();
         jTable_venta_5 = new javax.swing.JTable();
+        jLabel51 = new javax.swing.JLabel();
         jPanel46 = new javax.swing.JPanel();
         jLabel_6 = new javax.swing.JLabel();
         jRadioButton_venta_Asc3 = new javax.swing.JRadioButton();
@@ -1349,21 +1358,21 @@ public class Main extends javax.swing.JFrame {
 
         jTabbedPane_ventas.addTab("Productos más vendidos", jPanel45);
 
-        jSpinner_venta_1.setModel(new javax.swing.SpinnerListModel(new String[] {"Enero  ", "Febrero  ", "Marzo  ", "Abril  ", "Mayo  ", "Junio  ", "Julio  ", "Agosto  ", "Septiembre  ", "Octubre  ", "Noviembre  ", "Diciembre"}));
+        jSpinner_venta_1.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(1704149940000L), new java.util.Date(1704149940000L), new java.util.Date(), java.util.Calendar.MONTH));
         jSpinner_venta_1.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSpinner_venta_1StateChanged(evt);
             }
         });
 
-        jSpinner_venta_2.setModel(new javax.swing.SpinnerListModel(new String[] {"Enero  ", "Febrero  ", "Marzo  ", "Abril  ", "Mayo  ", "Junio  ", "Julio  ", "Agosto  ", "Septiembre  ", "Octubre  ", "Noviembre  ", "Diciembre"}));
+        jSpinner_venta_2.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(1704149940000L), new java.util.Date(1704149940000L), new java.util.Date(), java.util.Calendar.MONTH));
         jSpinner_venta_2.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSpinner_venta_2StateChanged(evt);
             }
         });
 
-        jLabel_2.setText("Rango de filtra [primer mes no puede ser mayor que segundo]");
+        jLabel_2.setText("Rango de filtra ");
 
         jLabel_8.setText("Ordenamiento");
 
@@ -1394,56 +1403,66 @@ public class Main extends javax.swing.JFrame {
         jTable_venta_5.setModel(new DefaultTableModel());
         jScrollPane28.setViewportView(jTable_venta_5);
 
+        jLabel51.setText("[Fecha 1 tiene que ser menor que fecha 2]");
+
         javax.swing.GroupLayout jPanel44Layout = new javax.swing.GroupLayout(jPanel44);
         jPanel44.setLayout(jPanel44Layout);
         jPanel44Layout.setHorizontalGroup(
             jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel44Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
-                .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane28, javax.swing.GroupLayout.PREFERRED_SIZE, 763, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel44Layout.createSequentialGroup()
+                        .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel44Layout.createSequentialGroup()
+                                .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(171, 171, 171))
+                            .addGroup(jPanel44Layout.createSequentialGroup()
+                                .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel_2)
+                                    .addComponent(jSpinner_venta_1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jSpinner_venta_2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(128, 128, 128)))
                         .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel44Layout.createSequentialGroup()
-                                .addComponent(jSpinner_venta_1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(19, 19, 19)
-                                .addComponent(jSpinner_venta_2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel_2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel_8, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel44Layout.createSequentialGroup()
+                                .addGap(28, 28, 28)
                                 .addComponent(jRadioButton_venta_Asc5)
                                 .addGap(16, 16, 16)
-                                .addComponent(jRadioButton_venta_desc5)))
-                        .addGap(32, 32, 32)
-                        .addComponent(jButton_venta_continuar5, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                                .addComponent(jRadioButton_venta_desc5))
+                            .addGroup(jPanel44Layout.createSequentialGroup()
+                                .addGap(38, 38, 38)
+                                .addComponent(jLabel_8, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton_venta_continuar5, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(109, 109, 109))
         );
         jPanel44Layout.setVerticalGroup(
             jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel44Layout.createSequentialGroup()
                 .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel44Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jLabel_2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(4, 4, 4)
-                        .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSpinner_venta_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSpinner_venta_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel44Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton_venta_continuar5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel44Layout.createSequentialGroup()
-                                .addComponent(jLabel_8)
-                                .addGap(4, 4, 4)
-                                .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRadioButton_venta_Asc5)
-                                    .addComponent(jRadioButton_venta_desc5))))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel44Layout.createSequentialGroup()
+                            .addGap(7, 7, 7)
+                            .addComponent(jLabel_2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel51)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jSpinner_venta_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jSpinner_venta_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel44Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jLabel_8)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jRadioButton_venta_Asc5)
+                                .addComponent(jRadioButton_venta_desc5))))
+                    .addComponent(jButton_venta_continuar5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane28, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(7, Short.MAX_VALUE))
         );
 
         jTabbedPane_ventas.addTab("Comparativa con periodos anteriores", jPanel44);
@@ -3563,38 +3582,22 @@ public class Main extends javax.swing.JFrame {
 
     private void jSpinner_venta_1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner_venta_1StateChanged
         // TODO add your handling code here:
-        SpinnerListModel model1 = (SpinnerListModel) jSpinner_venta_1.getModel();
-        SpinnerListModel model2 = (SpinnerListModel) jSpinner_venta_2.getModel();
+        Date startDate = (Date) jSpinner_venta_1.getValue();
+        Date endDate = (Date) jSpinner_venta_2.getValue();
 
-        Object value1 = jSpinner_venta_1.getValue();
-        Object value2 = jSpinner_venta_2.getValue();
-
-        List<?> list = model1.getList();
-
-        int index1 = list.indexOf(value1);
-        int index2 = list.indexOf(value2);
-
-        if (index1 > index2) {
-            jSpinner_venta_2.setValue(list.get(index1 + 1 <= 11 ? index1 + 1 : 11));
-
+        if (startDate.after(endDate)) {
+            jSpinner_venta_1.setValue(endDate);
         }
+
     }//GEN-LAST:event_jSpinner_venta_1StateChanged
 
     private void jSpinner_venta_2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner_venta_2StateChanged
         // TODO add your handling code here:
-        SpinnerListModel model1 = (SpinnerListModel) jSpinner_venta_1.getModel();
-        SpinnerListModel model2 = (SpinnerListModel) jSpinner_venta_2.getModel();
+        Date startDate = (Date) jSpinner_venta_1.getValue();
+        Date endDate = (Date) jSpinner_venta_2.getValue();
 
-        Object value1 = jSpinner_venta_1.getValue();
-        Object value2 = jSpinner_venta_2.getValue();
-
-        List<?> list = model1.getList();
-
-        int index1 = list.indexOf(value1);
-        int index2 = list.indexOf(value2);
-
-        if (index1 > index2) {
-            jSpinner_venta_1.setValue(list.get(index2 - 1 >= 0 ? index2 - 1 : 0));
+        if (startDate.after(endDate)) {
+            jSpinner_venta_1.setValue(endDate);
         }
 
     }//GEN-LAST:event_jSpinner_venta_2StateChanged
@@ -3888,7 +3891,7 @@ public class Main extends javax.swing.JFrame {
             selected = "desc";
         }
         SpinnerNumberModel spin_model = (SpinnerNumberModel) jSpinner_venta_4.getModel();
-        int semana = ((int) spin_model.getValue()) + 1;
+        int semana = ((int) spin_model.getValue());
 
         Object[][] tabla = BD.obtenerVentasSemana(semana + "", selected);
         Object[] columnNames = tabla[0];
@@ -3928,15 +3931,19 @@ public class Main extends javax.swing.JFrame {
         } else {
             selected = "desc";
         }
-        SpinnerListModel spin_model1 = (SpinnerListModel) jSpinner_venta_1.getModel();
-        Object object1 = spin_model1.getValue();
-        int month1 = spin_model1.getList().indexOf(object1) + 1;
+        Date date1 = (Date) (jSpinner_venta_1.getValue());
+        Calendar cal1 = (Calendar.getInstance());
+        cal1.setTime(date1);
+        int month1 = cal1.get(Calendar.MONTH) + 1;
+        int year1 = cal1.get(Calendar.YEAR);
 
-        SpinnerListModel spin_model2 = (SpinnerListModel) jSpinner_venta_2.getModel();
-        Object object2 = spin_model2.getValue();
-        int month2 = spin_model2.getList().indexOf(object2) + 1;
-
-        Object[][] tabla = BD.obtenerComparativaPeriodos(month1 + "", month2 + "", selected);
+        Date date2 = (Date) (jSpinner_venta_2.getValue());
+        Calendar cal2 = Calendar.getInstance();
+        cal2.setTime(date2);
+        int month2 = cal2.get(Calendar.MONTH) + 1; 
+        int year2 = cal2.get(Calendar.YEAR);
+        
+        Object[][] tabla = BD.obtenerComparativaPeriodos(month1 + "", year1 + "", month2 + "", year2 + "", selected);
         Object[] columnNames = tabla[0];
 
         DefaultTableModel model = new DefaultTableModel();
@@ -4281,6 +4288,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -4934,6 +4942,33 @@ public class Main extends javax.swing.JFrame {
         } else {
             t.setRowHeight(50);
         }
-
     }
+
+    private void initializeDateSpinners(JSpinner spinner) {
+        
+        Calendar minCal = Calendar.getInstance();
+        minCal.set(2024, Calendar.JANUARY, 1);
+        minCal.set(Calendar.HOUR_OF_DAY, 0);
+        minCal.set(Calendar.MINUTE, 0);
+        minCal.set(Calendar.SECOND, 0);
+        minCal.set(Calendar.MILLISECOND, 0);
+        
+        Calendar maxCal = Calendar.getInstance();
+        maxCal.set(2025, Calendar.DECEMBER, 1);
+        maxCal.set(Calendar.HOUR_OF_DAY, 0);
+        maxCal.set(Calendar.MINUTE, 0);
+        maxCal.set(Calendar.SECOND, 0);
+        maxCal.set(Calendar.MILLISECOND, 0);
+        
+        SpinnerDateModel model1 = new SpinnerDateModel(minCal.getTime(), minCal.getTime(), maxCal.getTime(), Calendar.MONTH);
+        spinner.setModel(model1);
+        
+        JSpinner.DateEditor editor1 = new JSpinner.DateEditor(spinner, "MMMM-yyyy");
+        spinner.setEditor(editor1);
+        
+        editor1.getTextField().setEditable(true);
+        
+        spinner.setValue(minCal.getTime());
+    }
+
 }
