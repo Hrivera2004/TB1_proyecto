@@ -3448,7 +3448,7 @@ public class Main extends javax.swing.JFrame {
                     model.addRow(tupla);
                 }
             }
-            if (jTextField_read.getText().trim().matches("^[+]?\\d+$")&&cb_atributo.getSelectedIndex()==0) {
+            if (jTextField_read.getText().trim().matches("^[+]?\\d+$") && cb_atributo.getSelectedIndex() == 0) {
                 String tabla = jlListaTablas.getSelectedValue();
                 model.setColumnIdentifiers(attributos(tabla));
                 Object[] tupla = BD.conseguir_tupla(jlListaTablas.getSelectedValue(), jTextField_read.getText().trim());
@@ -3459,18 +3459,18 @@ public class Main extends javax.swing.JFrame {
                     model.addRow(tupla);
                 }
                 type = 1;
-                
+
             }
-            if(cb_atributo.getSelectedIndex()>0){
-                String cambio=jlListaTablas.getSelectedValue();
+            if (cb_atributo.getSelectedIndex() > 0) {
+                String cambio = jlListaTablas.getSelectedValue();
                 if (cambio.equals("pedidos")) {
-                    cambio="Pedidos_Con_Nombre_Cliente"; 
-                }else if(cambio.equals("inventario")){
-                    cambio="Inventario_Con_Nombre_Producto";
-                }else if(cambio.equals("detalles_pedido")){
-                    cambio="Detalles_Pedidos_Con_Nombre_Producto";
-                }else if(cambio.equals("pagos")){
-                    cambio="Pago_Con_Nombre_Cliente";
+                    cambio = "Pedidos_Con_Nombre_Cliente";
+                } else if (cambio.equals("inventario")) {
+                    cambio = "Inventario_Con_Nombre_Producto";
+                } else if (cambio.equals("detalles_pedido")) {
+                    cambio = "Detalles_Pedidos_Con_Nombre_Producto";
+                } else if (cambio.equals("pagos")) {
+                    cambio = "Pago_Con_Nombre_Cliente";
                 }
                 System.out.println(cambio);
                 model = new DefaultTableModel();
@@ -3483,7 +3483,7 @@ public class Main extends javax.swing.JFrame {
                 }
                 if (tuplas.length == 0) {
                     JOptionPane.showMessageDialog(jdRead, "Valor " + jTextField_read.getText().trim() + " no se encontro");
-                } 
+                }
                 type = 1;
             }
             jdReadTable.setModel(model);
@@ -4200,14 +4200,14 @@ public class Main extends javax.swing.JFrame {
     private void jlListaTablasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlListaTablasMouseClicked
         // TODO add your handling code here:
         if (!jlListaTablas.getSelectedValue().equals(null)) {
-            DefaultComboBoxModel modelo=new DefaultComboBoxModel();
+            DefaultComboBoxModel modelo = new DefaultComboBoxModel();
             cb_atributo.setModel(modelo);
-            String tabla=jlListaTablas.getSelectedValue();
-            Object[] atributos=attributos(tabla);
-            if (tabla.equals("clientes")||tabla.equals("pagos")||tabla.equals("pedidos")) {
+            String tabla = jlListaTablas.getSelectedValue();
+            Object[] atributos = attributos(tabla);
+            if (tabla.equals("clientes") || tabla.equals("pagos") || tabla.equals("pedidos")) {
                 cb_atributo.addItem(atributos[0].toString());
                 cb_atributo.addItem("nombre_tienda");
-            }else{
+            } else {
                 cb_atributo.addItem(atributos[0].toString());
                 cb_atributo.addItem("nombre");
             }
@@ -4595,11 +4595,11 @@ public class Main extends javax.swing.JFrame {
             case "rutas" ->
                 new Object[]{"id_ruta", "nombre", "zona_geografica", "id_empleado_responsable", "dia_semana"};
             case "pedidos_con_nombre_cliente" ->
-                new Object[]{"id_pedido", "nombre_tienda", "fecha_pedido", "fecha_entrega_real", "estado","total"};
+                new Object[]{"id_pedido", "nombre_tienda", "fecha_pedido", "fecha_entrega_real", "estado", "total"};
             case "detalles_pedidos_con_nombre_producto" ->
                 new Object[]{"id_detalle", "id_pedido", "nombre", "cantidad", "precio_unitario", "descuento", "subtotal"};
             case "inventario_con_nombre_producto" ->
-                new Object[]{"id_inventario", "nombre", "cantidad_disponible", "ubicacion_almacen", "lote","fecha_ingreso", "fecha_caducidad"};
+                new Object[]{"id_inventario", "nombre", "cantidad_disponible", "ubicacion_almacen", "lote", "fecha_ingreso", "fecha_caducidad"};
             case "pago_con_nombre_cliente" ->
                 new Object[]{"id_pago", "nombre_tienda", "fecha_pago", "monto", "metodo_pago", "referencia", "estado"};
             default ->
@@ -4683,11 +4683,17 @@ public class Main extends javax.swing.JFrame {
                                                             // Validar que la fecha no sea del futuro
                                                             String dateStr = data[9].toString();
                                                             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-                                                            LocalDate inputDate = LocalDate.parse(dateStr, formatter);
-                                                            if (inputDate.isAfter(LocalDate.now())) {
-                                                                JOptionPane.showMessageDialog(jdCreate, "Error en campo 10: La fecha no puede ser del futuro.");
+                                                            try {
+                                                                LocalDate inputDate = LocalDate.parse(dateStr, formatter);
+                                                                if (inputDate.isAfter(LocalDate.now())) {
+                                                                    JOptionPane.showMessageDialog(jdCreate, "Error en campo 10: La fecha no puede ser del futuro.");
+                                                                    return false;
+                                                                }
+                                                            } catch (Exception e) {
+                                                                JOptionPane.showMessageDialog(jdCreate, "Error en campo 10: La fecha es invalida.");
                                                                 return false;
                                                             }
+
                                                         } else {
                                                             JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido\n Formato: YYYY-MM-DD");
                                                             return false;
@@ -4723,9 +4729,14 @@ public class Main extends javax.swing.JFrame {
                                             // Validar que la fecha no sea del futuro
                                             String dateStr = data[5].toString();
                                             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-                                            LocalDate inputDate = LocalDate.parse(dateStr, formatter);
-                                            if (inputDate.isAfter(LocalDate.now())) {
-                                                JOptionPane.showMessageDialog(jdCreate, "Error en campo 6: La fecha no puede ser del futuro.");
+                                            try {
+                                                LocalDate inputDate = LocalDate.parse(dateStr, formatter);
+                                                if (inputDate.isAfter(LocalDate.now())) {
+                                                    JOptionPane.showMessageDialog(jdCreate, "Error en campo 10: La fecha no puede ser del futuro.");
+                                                    return false;
+                                                }
+                                            } catch (Exception e) {
+                                                JOptionPane.showMessageDialog(jdCreate, "Error en campo 10: La fecha es invalida.");
                                                 return false;
                                             }
                                         } else {
@@ -4766,9 +4777,14 @@ public class Main extends javax.swing.JFrame {
                                                     if (data[8].toString().matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$")) {
                                                         String dateStr = data[8].toString();
                                                         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-                                                        LocalDate inputDate = LocalDate.parse(dateStr, formatter);
-                                                        if (inputDate.isAfter(LocalDate.now())) {
-                                                            JOptionPane.showMessageDialog(null, "La fecha no puede ser del futuro");
+                                                        try {
+                                                            LocalDate inputDate = LocalDate.parse(dateStr, formatter);
+                                                            if (inputDate.isAfter(LocalDate.now())) {
+                                                                JOptionPane.showMessageDialog(jdCreate, "Error en campo 10: La fecha no puede ser del futuro.");
+                                                                return false;
+                                                            }
+                                                        } catch (Exception e) {
+                                                            JOptionPane.showMessageDialog(jdCreate, "Error en campo 10: La fecha es invalida.");
                                                             return false;
                                                         }
                                                         count++;
@@ -4811,13 +4827,14 @@ public class Main extends javax.swing.JFrame {
                                             // Validar que la fecha no sea del futuro
                                             String dateStr = data[5].toString();
                                             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-                                            LocalDate inputDate = LocalDate.parse(dateStr, formatter);
-                                            count++;
-                                            if (inputDate.isAfter(LocalDate.now())) {
-                                                JOptionPane.showMessageDialog(jdCreate, "Error en campo 6: La fecha no puede ser del futuro.");
-                                                return false;
-                                            } else {
-                                                JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido\n Formato: YYYY-MM-DD");
+                                            try {
+                                                LocalDate inputDate = LocalDate.parse(dateStr, formatter);
+                                                if (inputDate.isAfter(LocalDate.now())) {
+                                                    JOptionPane.showMessageDialog(jdCreate, "Error en campo 6: La fecha no puede ser del futuro.");
+                                                    return false;
+                                                }
+                                            } catch (Exception e) {
+                                                JOptionPane.showMessageDialog(jdCreate, "Error en campo 6: La fecha es invalida.");
                                                 return false;
                                             }
                                         }
@@ -4970,10 +4987,14 @@ public class Main extends javax.swing.JFrame {
                             // Validar que la fecha no sea del futuro
                             String dateStr = data[1].toString();
                             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-                            LocalDate inputDate = LocalDate.parse(dateStr, formatter);
-                            count++;
-                            if (inputDate.isAfter(LocalDate.now())) {
-                                JOptionPane.showMessageDialog(jdCreate, "Error en campo 2: La fecha no puede ser del futuro.");
+                            try {
+                                LocalDate inputDate = LocalDate.parse(dateStr, formatter);
+                                if (inputDate.isAfter(LocalDate.now())) {
+                                    JOptionPane.showMessageDialog(jdCreate, "Error en campo 2: La fecha no puede ser del futuro.");
+                                    return false;
+                                }
+                            } catch (Exception e) {
+                                JOptionPane.showMessageDialog(jdCreate, "Error en campo 2: La fecha es invalida.");
                                 return false;
                             }
                         }
