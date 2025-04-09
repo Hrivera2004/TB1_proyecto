@@ -25,9 +25,9 @@ import javax.swing.table.DefaultTableModel;
 public class BaseDeDatos {
 
     ///BASE DE DATOS
-    String url = "jdbc:mysql://localhost:3306/maquillaje"; //[maquillaje = nombre de su base de datos]
+    String url = "jdbc:mysql://localhost:3306/proyecto"; //[maquillaje = nombre de su base de datos]
     String usuario = "root";  // Usuario de MySQL [USUARIO PROPIO]
-    String contraseña = "Hect@R1213";
+    String contraseña = "Deltarune22";
     String driver = "com.mysql.cj.jdbc.Driver";
     Connection con;
 
@@ -71,7 +71,7 @@ public class BaseDeDatos {
         }
     }
 
-    public void insertarTabla(String tabla, Object[] valores) throws SQLException {
+    public void insertarTabla(String tabla, Object[] valores,int flag) throws SQLException {
         String consulta = "SELECT * FROM " + tabla + " LIMIT 1"; // limitar a 1 fila, más eficiente
         String[] columnas = null;
         try (Statement stmt = con.createStatement(); ResultSet rs = stmt.executeQuery(consulta)) {
@@ -91,7 +91,9 @@ public class BaseDeDatos {
                 pstmt.setObject(i + 1, valores[i]);
             }
             pstmt.executeUpdate();
-
+            if(flag==1){
+                JOptionPane.showMessageDialog(null, "Se inserto correctamente");
+            }
         } catch (SQLIntegrityConstraintViolationException ex) {
             JOptionPane.showMessageDialog(null, "No se pudo insertar en la base de datos. Posibles causas:\n"
                     + "1. Llave primaria está repetida\n"
@@ -460,7 +462,7 @@ public class BaseDeDatos {
                     "total_ventas", "ventas_mes_1", "ventas_mes_2", "diferencia",
                     "ventas_categoria", "valor_total_inventario", "precio_compra", "precio_venta_sugerido",
                     "ganancia", "ganancia_total", "ganancia_teórica", "ganancia_real",
-                    "margen_unitario", "ventas_promedio", "ventas_vendedor", "total_descuento"
+                    "margen_unitario", "ventas_promedio", "ventas_vendedor", "total_descuento","total_mes","total_semana"
             );
 
             while (rs.next()) {

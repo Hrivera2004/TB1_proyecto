@@ -13,6 +13,10 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -771,16 +775,16 @@ public class Main extends javax.swing.JFrame {
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(65, 65, 65)
+                .addGap(195, 195, 195)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGap(14, 14, 14)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         jdGuardarUpdate1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -809,20 +813,24 @@ public class Main extends javax.swing.JFrame {
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(71, 71, 71)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 655, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 57, Short.MAX_VALUE))
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(258, 258, 258)
-                        .addComponent(jdGuardarUpdate1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49)
-                        .addComponent(jTextField_read, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(33, 33, 33)
+                        .addComponent(jTextField_read, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(92, 92, 92))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                        .addComponent(jdGuardarUpdate1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(205, 205, 205))))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -834,11 +842,11 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jTextField_read, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jdGuardarUpdate1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56)
+                .addGap(62, 62, 62)
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jdReadLayout = new javax.swing.GroupLayout(jdRead.getContentPane());
@@ -849,7 +857,9 @@ public class Main extends javax.swing.JFrame {
         );
         jdReadLayout.setVerticalGroup(
             jdReadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jdReadLayout.createSequentialGroup()
+                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jPanel9.setBackground(new java.awt.Color(204, 204, 204));
@@ -3341,12 +3351,14 @@ public class Main extends javax.swing.JFrame {
 
         for (int col = 0; col < rowData.length; col++) {
             rowData[col] = jTable_Create.getValueAt(0, col);
-            System.out.println(rowData[col].toString());
         }
         if (validateDataTypes(jlListaTablas.getSelectedValue(), rowData)) {
             try {
-                BD.insertarTabla(jlListaTablas.getSelectedValue(), rowData);
-                JOptionPane.showMessageDialog(null, "Registros insertado correctamente en: " + jlListaTablas.getSelectedValue());
+                BD.insertarTabla(jlListaTablas.getSelectedValue(), rowData, 1);
+                DefaultTableModel model = (DefaultTableModel) jTable_Create.getModel();
+                model.setRowCount(0);
+                model.setRowCount(1);
+                jTable_Create.setModel(model);
 
             } catch (SQLException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
@@ -3355,10 +3367,6 @@ public class Main extends javax.swing.JFrame {
             }
         }
 
-        DefaultTableModel model = (DefaultTableModel) jTable_Create.getModel();
-        model.setRowCount(0);
-        model.setRowCount(1);
-        jTable_Create.setModel(model);
     }//GEN-LAST:event_jdGuardarCreateMouseClicked
 
     private void jdGuardarCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jdGuardarCreateActionPerformed
@@ -3940,9 +3948,9 @@ public class Main extends javax.swing.JFrame {
         Date date2 = (Date) (jSpinner_venta_2.getValue());
         Calendar cal2 = Calendar.getInstance();
         cal2.setTime(date2);
-        int month2 = cal2.get(Calendar.MONTH) + 1; 
+        int month2 = cal2.get(Calendar.MONTH) + 1;
         int year2 = cal2.get(Calendar.YEAR);
-        
+
         Object[][] tabla = BD.obtenerComparativaPeriodos(month1 + "", year1 + "", month2 + "", year2 + "", selected);
         Object[] columnNames = tabla[0];
 
@@ -4593,11 +4601,19 @@ public class Main extends javax.swing.JFrame {
                                                     if (data[8] instanceof String && data[8].toString().length() < 31) {
                                                         count++;
                                                         if (data[9].toString().matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$")) {
-                                                            return true;
+                                                            // Validar que la fecha no sea del futuro
+                                                            String dateStr = data[9].toString();
+                                                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                                                            LocalDate inputDate = LocalDate.parse(dateStr, formatter);
+                                                            if (inputDate.isAfter(LocalDate.now())) {
+                                                                JOptionPane.showMessageDialog(jdCreate, "Error en campo 10: La fecha no puede ser del futuro.");
+                                                                return false;
+                                                            }
                                                         } else {
                                                             JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido\n Formato: YYYY-MM-DD");
                                                             return false;
                                                         }
+                                                        return true;
                                                     }
                                                 }
                                             }
@@ -4625,7 +4641,14 @@ public class Main extends javax.swing.JFrame {
                                     if (data[4].toString().matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$")) {
                                         count++;
                                         if (data[5].toString().matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$")) {
-                                            return true;
+                                            // Validar que la fecha no sea del futuro
+                                            String dateStr = data[5].toString();
+                                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                                            LocalDate inputDate = LocalDate.parse(dateStr, formatter);
+                                            if (inputDate.isAfter(LocalDate.now())) {
+                                                JOptionPane.showMessageDialog(jdCreate, "Error en campo 6: La fecha no puede ser del futuro.");
+                                                return false;
+                                            }
                                         } else {
                                             JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido\n Formato: YYYY-MM-DD");
                                             return false;
@@ -4662,6 +4685,13 @@ public class Main extends javax.swing.JFrame {
                                                 if (data[7] instanceof String && data[7].toString().length() < 11) {
                                                     count++;
                                                     if (data[8].toString().matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$")) {
+                                                        String dateStr = data[8].toString();
+                                                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                                                        LocalDate inputDate = LocalDate.parse(dateStr, formatter);
+                                                        if (inputDate.isAfter(LocalDate.now())) {
+                                                            JOptionPane.showMessageDialog(null, "La fecha no puede ser del futuro");
+                                                            return false;
+                                                        }
                                                         count++;
                                                         if (data[9].toString().matches("^[+-]?\\d+(\\.\\d+)?$")) {
                                                             count++;
@@ -4680,9 +4710,9 @@ public class Main extends javax.swing.JFrame {
                                 }
                             }
                         }
+                        JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido");
+                        return false;
                     }
-                    JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido");
-                    return false;
 
                 case "empleados":
                     if (data.length != 6) {
@@ -4699,10 +4729,18 @@ public class Main extends javax.swing.JFrame {
                                     if (data[4] instanceof String && data[4].toString().length() < 26) {
                                         count++;
                                         if (data[5].toString().matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$")) {
-                                            return true;
-                                        } else {
-                                            JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido\n Formato: YYYY-MM-DD");
-                                            return false;
+                                            // Validar que la fecha no sea del futuro
+                                            String dateStr = data[5].toString();
+                                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                                            LocalDate inputDate = LocalDate.parse(dateStr, formatter);
+                                            count++;
+                                            if (inputDate.isAfter(LocalDate.now())) {
+                                                JOptionPane.showMessageDialog(jdCreate, "Error en campo 6: La fecha no puede ser del futuro.");
+                                                return false;
+                                            } else {
+                                                JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido\n Formato: YYYY-MM-DD");
+                                                return false;
+                                            }
                                         }
                                     }
                                 }
@@ -4711,7 +4749,6 @@ public class Main extends javax.swing.JFrame {
                     }
                     JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido");
                     return false;
-
                 case "rutas":
                     if (data.length != 4) {
                         return false;
@@ -4730,49 +4767,94 @@ public class Main extends javax.swing.JFrame {
                     }
                     JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido");
                     return false;
-
                 case "pedidos":
                     if (data.length != 9) {
                         return false;
                     }
-                    if (data[0].toString().matches("^[+-]?\\d+$")) {
-                        count++;
-                        if (data[1].toString().matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])\\s(0\\d|1\\d|2[0-3]):[0-5]\\d:[0-5]\\d$")) {
-                            count++;
-                            if (data[2].toString().matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$")) {
-                                count++;
-                                if (data[3] == null || data[3].toString().matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$")) {
-                                    count++;
-                                    if (data[4].toString().matches("^[+-]?\\d+$")) {
-                                        count++;
-                                        if (data[5].toString().matches("^[+-]?\\d+$")) {
-                                            count++;
-                                            if (data[6] instanceof String && data[6].toString().length() < 26) {
-                                                count++;
-                                                if (data[7] == null || (data[7] instanceof String && data[7].toString().length() < 26)) {
-                                                    count++;
-                                                    if (data[8].toString().matches("^[+-]?\\d+(\\.\\d+)?$")) {
-                                                        return true;
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    } else {
-                                        JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido\n Formato: YYYY-MM-DD");
-                                        return false;
-                                    }
-                                } else {
-                                    JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido\n Formato: YYYY-MM-DD");
-                                    return false;
-                                }
-                            } else {
-                                JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido\n Formato: YYYY-MM-DD HH:MI:SS");
+
+                    if (!data[0].toString().matches("^[+-]?\\d+$")) {
+                        JOptionPane.showMessageDialog(jdCreate, "Error en campo 1: ID no válido.");
+                        return false;
+                    }
+                    count++;
+
+                    if (!data[1].toString().matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])\\s(0\\d|1\\d|2[0-3]):[0-5]\\d:[0-5]\\d$")) {
+                        JOptionPane.showMessageDialog(jdCreate, "Error en campo 2: Formato inválido (esperado: YYYY-MM-DD HH:mm:ss)");
+                        return false;
+                    }
+
+                    // Validar que la fecha con hora no sea del futuro
+                    try {
+                        String dateStrT = data[1].toString();
+                        DateTimeFormatter formatterT = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                        LocalDateTime inputDateTime = LocalDateTime.parse(dateStrT, formatterT);
+                        if (inputDateTime.isAfter(LocalDateTime.now())) {
+                            JOptionPane.showMessageDialog(jdCreate, "Error en campo 2: La fecha no puede ser del futuro.");
+                            return false;
+                        }
+                    } catch (DateTimeParseException e) {
+                        JOptionPane.showMessageDialog(jdCreate, "Error en campo 2: Formato de fecha y hora inválido.");
+                        return false;
+                    }
+                    count++;
+
+                    if (!data[2].toString().matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$")) {
+                        JOptionPane.showMessageDialog(jdCreate, "Error en campo 3: Formato inválido (esperado: YYYY-MM-DD)");
+                        return false;
+                    }
+                    count++;
+
+                    if (data[3] != null) {
+                        if (!data[3].toString().matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$")) {
+                            JOptionPane.showMessageDialog(jdCreate, "Error en campo 4: Formato inválido (esperado: YYYY-MM-DD)");
+                            return false;
+                        }
+
+                        // Validar que la fecha no sea del futuro
+                        try {
+                            String dateStr = data[3].toString();
+                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                            LocalDate inputDate = LocalDate.parse(dateStr, formatter);
+                            if (inputDate.isAfter(LocalDate.now())) {
+                                JOptionPane.showMessageDialog(jdCreate, "Error en campo 4: La fecha no puede ser del futuro.");
                                 return false;
                             }
+                        } catch (DateTimeParseException e) {
+                            JOptionPane.showMessageDialog(jdCreate, "Error en campo 4: Formato de fecha inválido.");
+                            return false;
                         }
                     }
-                    JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido");
-                    return false;
+                    count++;
+
+                    if (!data[4].toString().matches("^[+-]?\\d+$")) {
+                        JOptionPane.showMessageDialog(jdCreate, "Error en campo 5: Id no valido");
+                        return false;
+                    }
+                    count++;
+
+                    if (!data[5].toString().matches("^[+-]?\\d+$")) {
+                        JOptionPane.showMessageDialog(jdCreate, "Error en campo 6: Debe ser un número entero.");
+                        return false;
+                    }
+                    count++;
+
+                    if (!(data[6] instanceof String) || data[6].toString().length() >= 26) {
+                        JOptionPane.showMessageDialog(jdCreate, "Error en campo 7: Texto demasiado largo.");
+                        return false;
+                    }
+                    count++;
+
+                    if (data[7] != null && (!(data[7] instanceof String) || data[7].toString().length() >= 26)) {
+                        JOptionPane.showMessageDialog(jdCreate, "Error en campo 8: Texto demasiado largo.");
+                        return false;
+                    }
+                    count++;
+
+                    if (!data[8].toString().matches("^[+-]?\\d+(\\.\\d+)?$")) {
+                        JOptionPane.showMessageDialog(jdCreate, "Error en campo 9: Debe ser un número decimal válido.");
+                        return false;
+                    }
+                    return true;
 
                 case "detalles_pedido":
                     if (data.length != 6) {
@@ -4806,22 +4888,30 @@ public class Main extends javax.swing.JFrame {
                     if (data[0].toString().matches("^[+-]?\\d+$")) {
                         count++;
                         if (data[1].toString().matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$")) {
+                            // Validar que la fecha no sea del futuro
+                            String dateStr = data[1].toString();
+                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                            LocalDate inputDate = LocalDate.parse(dateStr, formatter);
                             count++;
-                            if (data[2].toString().matches("^[+-]?\\d+(\\.\\d+)?$")) {
-                                count++;
-                                if (data[3] instanceof String && data[3].toString().length() < 31) {
-                                    count++;
-                                    if (data[4] instanceof String && data[4].toString().length() < 51) {
-                                        count++;
-                                        if (data[5] instanceof String && data[5].toString().length() < 31) {
-                                            return true;
-                                        }
-                                    }
-                                }
-                            } else {
-                                JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido\n Formato: YYYY-MM-DD");
+                            if (inputDate.isAfter(LocalDate.now())) {
+                                JOptionPane.showMessageDialog(jdCreate, "Error en campo 2: La fecha no puede ser del futuro.");
                                 return false;
                             }
+                        }
+                        if (data[2].toString().matches("^[+-]?\\d+(\\.\\d+)?$")) {
+                            count++;
+                            if (data[3] instanceof String && data[3].toString().length() < 31) {
+                                count++;
+                                if (data[4] instanceof String && data[4].toString().length() < 51) {
+                                    count++;
+                                    if (data[5] instanceof String && data[5].toString().length() < 31) {
+                                        return true;
+                                    }
+                                }
+                            }
+                        } else {
+                            JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido\n Formato: YYYY-MM-DD");
+                            return false;
                         }
                     }
                     JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido");
@@ -4834,8 +4924,8 @@ public class Main extends javax.swing.JFrame {
             return false;
         }
     }
+//metodo depende de la tabla en el tabed pane
 
-    //metodo depende de la tabla en el tabed pane
     private void mostrarDatosEnTabla(Object[][] datos, JTable tablaDestino) {
         if (datos == null || datos.length == 0) {
             return;
@@ -4915,8 +5005,11 @@ public class Main extends javax.swing.JFrame {
     }
 
     public void tableStyle(JTable t, int type) {
-        t.setDefaultEditor(Object.class, new Editor_txtArea(new JTextField()));
-        t.setDefaultRenderer(Object.class, new Renderer_txtArea());
+        t.setDefaultEditor(Object.class,
+                new Editor_txtArea(new JTextField()));
+        t
+                .setDefaultRenderer(Object.class,
+                        new Renderer_txtArea());
         t.setRowSelectionAllowed(false);
         t.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
@@ -4945,29 +5038,29 @@ public class Main extends javax.swing.JFrame {
     }
 
     private void initializeDateSpinners(JSpinner spinner) {
-        
+
         Calendar minCal = Calendar.getInstance();
         minCal.set(2024, Calendar.JANUARY, 1);
         minCal.set(Calendar.HOUR_OF_DAY, 0);
         minCal.set(Calendar.MINUTE, 0);
         minCal.set(Calendar.SECOND, 0);
         minCal.set(Calendar.MILLISECOND, 0);
-        
+
         Calendar maxCal = Calendar.getInstance();
         maxCal.set(2025, Calendar.DECEMBER, 1);
         maxCal.set(Calendar.HOUR_OF_DAY, 0);
         maxCal.set(Calendar.MINUTE, 0);
         maxCal.set(Calendar.SECOND, 0);
         maxCal.set(Calendar.MILLISECOND, 0);
-        
+
         SpinnerDateModel model1 = new SpinnerDateModel(minCal.getTime(), minCal.getTime(), maxCal.getTime(), Calendar.MONTH);
         spinner.setModel(model1);
-        
+
         JSpinner.DateEditor editor1 = new JSpinner.DateEditor(spinner, "MMMM-yyyy");
         spinner.setEditor(editor1);
-        
+
         editor1.getTextField().setEditable(true);
-        
+
         spinner.setValue(minCal.getTime());
     }
 

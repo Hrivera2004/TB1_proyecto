@@ -58,8 +58,7 @@ public class FileManager {
                         System.out.print(list[i - 1] + ", ");
                     }
                     System.out.println("");
-                    BD.insertarTabla(table_name, list);
-                    JOptionPane.showMessageDialog(null, "Registros insertado correctamente en: " + table_name);
+                    BD.insertarTabla(table_name, list,0);
 
                 } else {
                     first = true;
