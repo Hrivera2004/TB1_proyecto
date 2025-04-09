@@ -27,13 +27,13 @@ public class BaseDeDatos {
     ///BASE DE DATOS
     String url = "jdbc:mysql://localhost:3306/maquillaje"; //[maquillaje = nombre de su base de datos]
     String usuario = "root";  // Usuario de MySQL [USUARIO PROPIO]
-    String contraseÃ±a = "Hect@R1213";
+    String contraseña = "Hect@R1213";
     String driver = "com.mysql.cj.jdbc.Driver";
     Connection con;
 
     public void conexion() throws SQLException {
         // Intentamos conectar
-        con = conector(driver, usuario, contraseÃ±a, url);
+        con = conector(driver, usuario, contraseña, url);
     }
 
     public Connection conector(String driver, String user, String pass, String url) {
@@ -41,13 +41,13 @@ public class BaseDeDatos {
         try {
             Class.forName(driver);
             con = DriverManager.getConnection(url, user, pass);
-            System.out.println("ConexiÃ³n establecida exitosamente.");
+            System.out.println("Conexión establecida exitosamente.");
         } catch (ClassNotFoundException e) {
-            System.out.println("Error: No se encontrÃ³ el driver de la base de datos.");
+            System.out.println("Error: No se encontró el driver de la base de datos.");
         } catch (SQLException e) {
             System.out.println("Error al conectar a la base de datos: " + e.getMessage());
         }
-        return con; // Retornamos la conexiÃ³n
+        return con; // Retornamos la conexión
     }
 
     public void mostrar_tabla(String tabla) throws SQLException {
@@ -66,13 +66,13 @@ public class BaseDeDatos {
                     Object value = rs.getObject(i);
                     row.append(columnName).append(": ").append(value).append(", ");
                 }
-                System.out.println(row.substring(0, row.length() - 2)); // Elimina la Ãºltima coma y espacio
+                System.out.println(row.substring(0, row.length() - 2)); // Elimina la última coma y espacio
             }
         }
     }
 
-    public void insertarTabla(String tabla, Object[] valores,int flag) throws SQLException {
-        String consulta = "SELECT * FROM " + tabla + " LIMIT 1"; // limitar a 1 fila, mÃ¡s eficiente
+    public void insertarTabla(String tabla, Object[] valores, int flag) throws SQLException {
+        String consulta = "SELECT * FROM " + tabla + " LIMIT 1"; // limitar a 1 fila, más eficiente
         String[] columnas = null;
         try (Statement stmt = con.createStatement(); ResultSet rs = stmt.executeQuery(consulta)) {
             ResultSetMetaData metaData = (ResultSetMetaData) rs.getMetaData();
@@ -80,7 +80,7 @@ public class BaseDeDatos {
 
             columnas = new String[columnCount - 1];
             for (int i = 2; i <= columnCount; i++) {
-                columnas[i - 2] = metaData.getColumnLabel(i); // empieza desde 2 (Ã­ndice 1 es id)
+                columnas[i - 2] = metaData.getColumnLabel(i); // empieza desde 2 (índice 1 es id)
             }
         }
         String temp = String.join(", ", new String[valores.length]).replaceAll("[^,]+", "?");
@@ -91,13 +91,13 @@ public class BaseDeDatos {
                 pstmt.setObject(i + 1, valores[i]);
             }
             pstmt.executeUpdate();
-            if(flag==1){
+            if (flag == 1) {
                 JOptionPane.showMessageDialog(null, "Se inserto correctamente");
             }
         } catch (SQLIntegrityConstraintViolationException ex) {
             JOptionPane.showMessageDialog(null, "No se pudo insertar en la base de datos. Posibles causas:\n"
-                    + "1. Llave primaria estÃ¡ repetida\n"
-                    + "2. Una de las llaves forÃ¡neas referencia un dato inexistente\n"
+                    + "1. Llave primaria está repetida\n"
+                    + "2. Una de las llaves foráneas referencia un dato inexistente\n"
                     + "3. Uno de los campos nulos no es permitido");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Valor incorrecto en alguno de los campos: " + ex.getMessage());
@@ -162,9 +162,9 @@ public class BaseDeDatos {
             } catch (SQLIntegrityConstraintViolationException ex) {
                 JOptionPane.showMessageDialog(null, "No se puede eliminar porque referencia a un registro no existente");
             } catch (MysqlDataTruncation ex) {
-                JOptionPane.showMessageDialog(null, "Valor incorrecto en alguno de los campos");
+                JOptionPane.showMessageDialog(null, "Valor incorrecto en alguno de los campos+");
             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, "Valor incorrecto en alguno de los campos");
+                JOptionPane.showMessageDialog(null, "Valor incorrecto en alguno de los campos-");
             }
         } else {
             System.out.println("No existe el registros");
@@ -179,7 +179,7 @@ public class BaseDeDatos {
             if (pkRs.next()) {
                 columnaPK = pkRs.getString("COLUMN_NAME");
             } else {
-                System.out.println("No se encontrÃ³ clave primaria para la tabla: " + tabla);
+                System.out.println("No se encontró clave primaria para la tabla: " + tabla);
                 return false;  // No hay clave primaria
             }
         }
@@ -206,7 +206,7 @@ public class BaseDeDatos {
                     System.out.println(row.substring(0, row.length() - 2));
                 } while (rs.next());
             } else {
-                System.out.println("No se encontrÃ³ un registro con " + columnaPK + " = " + valorPK);
+                System.out.println("No se encontró un registro con " + columnaPK + " = " + valorPK);
             }
         }
 
@@ -242,23 +242,21 @@ public class BaseDeDatos {
         }
         return null;
     }
-    
-    
-    
+
     public Object[] conseguir_tupla_combobox(String tabla, String valorPK, String atributo) throws SQLException {
-        String consulta="";
+        String consulta = "";
         if (atributo.contains("id")) {
             consulta = "SELECT * FROM " + tabla + " WHERE " + atributo + " = ?";
-        }else{
-        if (tabla.equals("pedidos")) {
-            tabla="Pedidos_Con_Nombre_Cliente"; 
-        }else if(tabla.equals("inventario")){
-            tabla="Inventario_Con_Nombre_Producto";
-        }else if(tabla.equals("detalles_pedido")){
-            tabla="Detalles_Pedidos_Con_Nombre_Producto";
-        }else if(tabla.equals("pagos")){
-            tabla="Pago_Con_Nombre_Cliente";
-        }
+        } else {
+            if (tabla.equals("pedidos")) {
+                tabla = "Pedidos_Con_Nombre_Cliente";
+            } else if (tabla.equals("inventario")) {
+                tabla = "Inventario_Con_Nombre_Producto";
+            } else if (tabla.equals("detalles_pedido")) {
+                tabla = "Detalles_Pedidos_Con_Nombre_Producto";
+            } else if (tabla.equals("pagos")) {
+                tabla = "Pago_Con_Nombre_Cliente";
+            }
             consulta = "SELECT * FROM " + tabla + " WHERE " + atributo + " like ?";
         }
         try (PreparedStatement pstmt = con.prepareStatement(consulta)) {
@@ -319,21 +317,21 @@ public class BaseDeDatos {
             return rows.toArray(new Object[0][]);
         }
     }
-    
+
     public Object[][] tuplas_select_cincocombobox(String tabla, String valorPK, String atributo) throws SQLException {
         // Query to get first 5 rows (syntax may vary by database)
-        
+
         if (tabla.equals("pedidos")) {
-            tabla="Pedidos_Con_Nombre_Cliente"; 
-        }else if(tabla.equals("inventario")){
-            tabla="Inventario_Con_Nombre_Producto";
-        }else if(tabla.equals("detalles_pedido")){
-            tabla="Detalles_Pedidos_Con_Nombre_Producto";
-        }else if(tabla.equals("pagos")){
-            tabla="Pago_Con_Nombre_Cliente";
+            tabla = "Pedidos_Con_Nombre_Cliente";
+        } else if (tabla.equals("inventario")) {
+            tabla = "Inventario_Con_Nombre_Producto";
+        } else if (tabla.equals("detalles_pedido")) {
+            tabla = "Detalles_Pedidos_Con_Nombre_Producto";
+        } else if (tabla.equals("pagos")) {
+            tabla = "Pago_Con_Nombre_Cliente";
         }
-        
-        String consulta = "SELECT * FROM " + tabla +" where " +atributo+ " like " + "\'%" + valorPK + "%\'" +  "LIMIT 5";
+
+        String consulta = "SELECT * FROM " + tabla + " where " + atributo + " like " + "\'%" + valorPK + "%\'" + "LIMIT 5";
         ResultSetMetaData meta = null;
         try (PreparedStatement pstmt = con.prepareStatement(consulta); ResultSet rs = pstmt.executeQuery()) {
 
@@ -364,6 +362,8 @@ public class BaseDeDatos {
             }
 
             return rows.toArray(new Object[0][]);
+        } catch (Exception e) {
+            return null;
         }
     }
 
@@ -396,15 +396,15 @@ public class BaseDeDatos {
 
     public Object[][] obtenerComparativaPeriodos(String mes_1, String a_1, String mes_2, String a_2, String orden) {
         if (mes_1.isEmpty() || mes_2.isEmpty()) {
-            System.out.println("Uno o ambos meses ingresados no son vÃ¡lidos");
-            return new Object[][]{{"Error"}, {"Meses no vÃ¡lidos"}};
+            System.out.println("Uno o ambos meses ingresados no son válidos");
+            return new Object[][]{{"Error"}, {"Meses no válidos"}};
         }
         return MostrarReporteVista(
                 "select * from Comparativa_Periodos_Meses "
                 + "where Mes1=" + mes_1
                 + " and Mes2=" + mes_2
-                + " and AÃ±o1=" + a_1
-                + " and AÃ±o2=" + a_2
+                + " and Año1=" + a_1
+                + " and Año2=" + a_2
                 + " order by Diferencia " + orden);
     }
 
@@ -425,7 +425,7 @@ public class BaseDeDatos {
         }
     }
 
-    //VISTAS PARA Inventario y Stock CrÃ­tico
+    //VISTAS PARA Inventario y Stock Crítico
     public Object[][] obtenerProductosStockBajo(String umbral, String orden) {
         return MostrarReporteVista(
                 "select * "
@@ -449,7 +449,7 @@ public class BaseDeDatos {
         return MostrarReporteVista("select * from total_inventario");
     }
 
-    //VISTAS PARA AnÃ¡lisis de Rendimiento de Vendedores
+    //VISTAS PARA Análisis de Rendimiento de Vendedores
     public Object[][] obtenerVentasPorVendedor(String vendedor, String orden) {
         if (vendedor.isEmpty()) {
             return MostrarReporteVista("select * from ventas_vendedor order by ventas_vendedor " + orden);
@@ -503,7 +503,7 @@ public class BaseDeDatos {
         return MostrarReporteVista("select * from Pedidos_Retrasados order by Dias_Retraso " + orden);
     }
 
-    //VISTAS PARA Rentabilidad por Productos y CategorÃ­as
+    //VISTAS PARA Rentabilidad por Productos y Categorías
     public Object[][] obtenerGananciaPorProducto(String producto, String orden) {
         if (producto.isEmpty()) {
             return MostrarReporteVista("select * from Ganancia_Producto order by Ganancia " + orden);
@@ -512,7 +512,7 @@ public class BaseDeDatos {
         }
     }
 
-    public Object[][] obtenerCategoriasMasRentables(String categoria, String orden) {
+    public Object[][] obtenerCategoriasMasRentables(String orden) {
         return MostrarReporteVista("select * from Categorias_Rentables order by Ganancia_Total " + orden);
     }
 
@@ -549,8 +549,8 @@ public class BaseDeDatos {
             Set<String> columnasMonetarias = Set.of(
                     "total_ventas", "ventas_mes_1", "ventas_mes_2", "diferencia",
                     "ventas_categoria", "valor_total_inventario", "precio_compra", "precio_venta_sugerido",
-                    "ganancia", "ganancia_total", "ganancia_teÃ³rica", "ganancia_real",
-                    "margen_unitario", "ventas_promedio", "ventas_vendedor", "total_descuento","total_mes","total_semana"
+                    "ganancia", "ganancia_total", "ganancia_teórica", "ganancia_real",
+                    "margen_unitario", "ventas_promedio", "ventas_vendedor", "total_descuento", "total_mes", "total_semana"
             );
 
             while (rs.next()) {

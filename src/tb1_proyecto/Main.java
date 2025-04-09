@@ -340,8 +340,6 @@ public class Main extends javax.swing.JFrame {
         jScrollPane20 = new javax.swing.JScrollPane();
         jtGanancia = new javax.swing.JTable();
         jPanel39 = new javax.swing.JPanel();
-        jLabel43 = new javax.swing.JLabel();
-        tfNameCategoria = new javax.swing.JTextField();
         jLabel44 = new javax.swing.JLabel();
         jRadioButton_ana_ascnum2 = new javax.swing.JRadioButton();
         jRadioButton_ana_descnum2 = new javax.swing.JRadioButton();
@@ -460,6 +458,7 @@ public class Main extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        jlListaTablas.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jlListaTablas.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         jlListaTablas.setSelectionBackground(new java.awt.Color(0, 0, 0));
         jlListaTablas.setSelectionForeground(new java.awt.Color(255, 255, 255));
@@ -1034,7 +1033,7 @@ public class Main extends javax.swing.JFrame {
         jButton_CRUD_Update1.setBackground(new java.awt.Color(102, 102, 102));
         jButton_CRUD_Update1.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
         jButton_CRUD_Update1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_CRUD_Update1.setText("INVENTARIO Y STOCK CR√çTICO");
+        jButton_CRUD_Update1.setText("INVENTARIO Y STOCK CRÕTICO");
         jButton_CRUD_Update1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton_CRUD_Update1.setBorderPainted(false);
         jButton_CRUD_Update1.addActionListener(new java.awt.event.ActionListener() {
@@ -1046,7 +1045,7 @@ public class Main extends javax.swing.JFrame {
         jButton_CRUD_Delete1.setBackground(new java.awt.Color(102, 102, 102));
         jButton_CRUD_Delete1.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
         jButton_CRUD_Delete1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_CRUD_Delete1.setText("RENTABILIDAD POR PRODUCTOS Y CATEGOR√çAS");
+        jButton_CRUD_Delete1.setText("RENTABILIDAD POR PRODUCTOS Y CATEGORÕAS");
         jButton_CRUD_Delete1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton_CRUD_Delete1.setBorderPainted(false);
         jButton_CRUD_Delete1.addActionListener(new java.awt.event.ActionListener() {
@@ -1078,7 +1077,7 @@ public class Main extends javax.swing.JFrame {
         jButton_CRUD_Create2.setBackground(new java.awt.Color(102, 102, 102));
         jButton_CRUD_Create2.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
         jButton_CRUD_Create2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_CRUD_Create2.setText("AN√ÅLISIS DE RENDIMIENTO DE VENDEDORES");
+        jButton_CRUD_Create2.setText("AN¡LISIS DE RENDIMIENTO DE VENDEDORES");
         jButton_CRUD_Create2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton_CRUD_Create2.setBorderPainted(false);
         jButton_CRUD_Create2.addActionListener(new java.awt.event.ActionListener() {
@@ -1380,7 +1379,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
-        jTabbedPane_ventas.addTab("Productos m√°s vendidos", jPanel45);
+        jTabbedPane_ventas.addTab("Productos m·s vendidos", jPanel45);
 
         jSpinner_venta_1.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(1704149940000L), new java.util.Date(1704149940000L), new java.util.Date(), java.util.Calendar.MONTH));
         jSpinner_venta_1.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -1579,7 +1578,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
-        jTabbedPane_ventas.addTab("Ventas por categor√≠a", jPanel46);
+        jTabbedPane_ventas.addTab("Ventas por categorÌa", jPanel46);
 
         jPanel17.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -1757,7 +1756,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
-        jTabbedPane_stock.addTab("Rotaci√≥n de Inventario", jPanel21);
+        jTabbedPane_stock.addTab("RotaciÛn de Inventario", jPanel21);
 
         jLabel22.setText("Seleccione un orden:");
 
@@ -1971,7 +1970,7 @@ public class Main extends javax.swing.JFrame {
 
         jLabel26.setFont(new java.awt.Font("SansSerif", 1, 50)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel26.setText("Reporte An√°lisis de Rendimiento");
+        jLabel26.setText("Reporte An·lisis de Rendimiento");
 
         javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
         jPanel25.setLayout(jPanel25Layout);
@@ -2056,7 +2055,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(11, Short.MAX_VALUE))
         );
 
-        jTabbedPane_AnalisisRendimiento.addTab("Tasa de conversi√≥n de visitas a ventas", jPanel27);
+        jTabbedPane_AnalisisRendimiento.addTab("Tasa de conversiÛn de visitas a ventas", jPanel27);
 
         jLabel30.setText("Nombre del Vendedor:");
 
@@ -2125,7 +2124,7 @@ public class Main extends javax.swing.JFrame {
                 .addGap(14, 14, 14))
         );
 
-        jTabbedPane_AnalisisRendimiento.addTab("N√∫mero de pedidos procesados", jPanel28);
+        jTabbedPane_AnalisisRendimiento.addTab("N˙mero de pedidos procesados", jPanel28);
 
         jLabel28.setText("Nombre del Vendedor:");
 
@@ -2661,7 +2660,7 @@ public class Main extends javax.swing.JFrame {
         jLabel37.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
         jLabel37.setForeground(new java.awt.Color(255, 255, 255));
         jLabel37.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel37.setText("Rentabilidad por Productos y Categor√≠as");
+        jLabel37.setText("Rentabilidad por Productos y CategorÌas");
 
         javax.swing.GroupLayout jPanel37Layout = new javax.swing.GroupLayout(jPanel37);
         jPanel37.setLayout(jPanel37Layout);
@@ -2744,9 +2743,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane_RentabilidadProductos.addTab("M√°rgenes de ganancia X producto", jPanel38);
-
-        jLabel43.setText("Nombre de categor√≠a:");
+        jTabbedPane_RentabilidadProductos.addTab("M·rgenes de ganancia X producto", jPanel38);
 
         jLabel44.setText("Seleccione un orden:");
 
@@ -2775,10 +2772,6 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane21)
                     .addGroup(jPanel39Layout.createSequentialGroup()
-                        .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfNameCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30)
                         .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel39Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
@@ -2786,7 +2779,7 @@ public class Main extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jRadioButton_ana_descnum2))
                             .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(74, 74, 74)
+                        .addGap(341, 341, 341)
                         .addComponent(jButton_tabnum1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(7, Short.MAX_VALUE))
         );
@@ -2797,20 +2790,17 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton_tabnum1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel39Layout.createSequentialGroup()
-                        .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel43)
-                            .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE))
+                        .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tfNameCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jRadioButton_ana_ascnum2)
                             .addComponent(jRadioButton_ana_descnum2))))
                 .addGap(27, 27, 27)
                 .addComponent(jScrollPane21, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
-        jTabbedPane_RentabilidadProductos.addTab("Categor√≠as m√°s rentables", jPanel39);
+        jTabbedPane_RentabilidadProductos.addTab("CategorÌas m·s rentables", jPanel39);
 
         jLabel45.setText("Nombre del Producto:");
 
@@ -2876,7 +2866,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane_RentabilidadProductos.addTab("An√°lisis de descuentos aplicados", jPanel40);
+        jTabbedPane_RentabilidadProductos.addTab("An·lisis de descuentos aplicados", jPanel40);
 
         jLabel47.setText("Nombre del Producto:");
 
@@ -2942,7 +2932,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane_RentabilidadProductos.addTab("Productos con mejor relaci√≥n V/R", jPanel41);
+        jTabbedPane_RentabilidadProductos.addTab("Productos con mejor relaciÛn V/R", jPanel41);
 
         jButton_Analisis_Regresar2.setText("Regresar");
         jButton_Analisis_Regresar2.addActionListener(new java.awt.event.ActionListener() {
@@ -3438,96 +3428,113 @@ public class Main extends javax.swing.JFrame {
     private void jdGuardarUpdate1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jdGuardarUpdate1MouseClicked
         // TODO add your handling code here:
         try {
-            DefaultTableModel model = (DefaultTableModel) jdReadTable.getModel();
-            model.setRowCount(0);
-            int type = 0;
-            if (jTextField_read.getText().trim().equals("*")) {
-                Object[][] tuplas;
-                tuplas = BD.tuplas_select_cinco(jlListaTablas.getSelectedValue());
-                for (Object[] tupla : tuplas) {
-                    model.addRow(tupla);
+            try {
+                DefaultTableModel model = (DefaultTableModel) jdReadTable.getModel();
+                model.setRowCount(0);
+                int type = 0;
+                if (jTextField_read.getText().trim().equals("*")) {
+                    Object[][] tuplas;
+                    tuplas = BD.tuplas_select_cinco(jlListaTablas.getSelectedValue());
+                    for (Object[] tupla : tuplas) {
+                        model.addRow(tupla);
+                    }
                 }
-            }
-            if (jTextField_read.getText().trim().matches("^[+]?\\d+$") && cb_atributo.getSelectedIndex() == 0) {
-                String tabla = jlListaTablas.getSelectedValue();
-                model.setColumnIdentifiers(attributos(tabla));
-                Object[] tupla = BD.conseguir_tupla(jlListaTablas.getSelectedValue(), jTextField_read.getText().trim());
-                //Object[] tupla = BD.conseguir_tupla_combobox(jlListaTablas.getSelectedValue(), jTextField_read.getText().trim(), cb_atributo.getSelectedItem().toString());
-                if (tupla == null) {
-                    JOptionPane.showMessageDialog(jdRead, "Llave " + jTextField_read.getText().trim() + " no se encontro");
-                } else {
-                    model.addRow(tupla);
-                }
-                type = 1;
+                if (jTextField_read.getText().trim().matches("^[+]?\\d+$") && cb_atributo.getSelectedIndex() == 0) {
+                    String tabla = jlListaTablas.getSelectedValue();
+                    model.setColumnIdentifiers(attributos(tabla));
+                    Object[] tupla = BD.conseguir_tupla(jlListaTablas.getSelectedValue(), jTextField_read.getText().trim());
+                    //Object[] tupla = BD.conseguir_tupla_combobox(jlListaTablas.getSelectedValue(), jTextField_read.getText().trim(), cb_atributo.getSelectedItem().toString());
+                    if (tupla == null) {
+                        JOptionPane.showMessageDialog(jdRead, "Llave " + jTextField_read.getText().trim() + " no se encontro");
+                    } else {
+                        model.addRow(tupla);
+                    }
+                    type = 1;
 
+                }
+                if (cb_atributo.getSelectedIndex() > 0) {
+                    String cambio = jlListaTablas.getSelectedValue();
+                    if (cambio.equals("pedidos")) {
+                        cambio = "Pedidos_Con_Nombre_Cliente";
+                    } else if (cambio.equals("inventario")) {
+                        cambio = "Inventario_Con_Nombre_Producto";
+                    } else if (cambio.equals("detalles_pedido")) {
+                        cambio = "Detalles_Pedidos_Con_Nombre_Producto";
+                    } else if (cambio.equals("pagos")) {
+                        cambio = "Pago_Con_Nombre_Cliente";
+                    }
+                    System.out.println(cambio);
+                    model = new DefaultTableModel();
+                    model.setColumnIdentifiers(attributos(cambio));
+                    System.out.println(attributos(cambio).toString());
+                    Object[][] tuplas;
+                    tuplas = BD.tuplas_select_cincocombobox(jlListaTablas.getSelectedValue(), jTextField_read.getText().trim(), cb_atributo.getSelectedItem().toString());
+                    for (Object[] tupla : tuplas) {
+                        model.addRow(tupla);
+                    }
+                    if (tuplas.length == 0) {
+                        JOptionPane.showMessageDialog(jdRead, "Valor " + jTextField_read.getText().trim() + " no se encontro");
+                    }
+                    type = 1;
+                }
+                jdReadTable.setModel(model);
+                tableStyle(jdReadTable, type);
+            } catch (SQLException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             }
-            if (cb_atributo.getSelectedIndex() > 0) {
-                String cambio = jlListaTablas.getSelectedValue();
-                if (cambio.equals("pedidos")) {
-                    cambio = "Pedidos_Con_Nombre_Cliente";
-                } else if (cambio.equals("inventario")) {
-                    cambio = "Inventario_Con_Nombre_Producto";
-                } else if (cambio.equals("detalles_pedido")) {
-                    cambio = "Detalles_Pedidos_Con_Nombre_Producto";
-                } else if (cambio.equals("pagos")) {
-                    cambio = "Pago_Con_Nombre_Cliente";
-                }
-                System.out.println(cambio);
-                model = new DefaultTableModel();
-                model.setColumnIdentifiers(attributos(cambio));
-                System.out.println(attributos(cambio).toString());
-                Object[][] tuplas;
-                tuplas = BD.tuplas_select_cincocombobox(jlListaTablas.getSelectedValue(), jTextField_read.getText().trim(), cb_atributo.getSelectedItem().toString());
-                for (Object[] tupla : tuplas) {
-                    model.addRow(tupla);
-                }
-                if (tuplas.length == 0) {
-                    JOptionPane.showMessageDialog(jdRead, "Valor " + jTextField_read.getText().trim() + " no se encontro");
-                }
-                type = 1;
-            }
-            jdReadTable.setModel(model);
-            tableStyle(jdReadTable, type);
-        } catch (SQLException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            jTextField_read.setText("");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: pruebe selecionar la tabla nuevamente");
         }
-        jTextField_read.setText("");
     }//GEN-LAST:event_jdGuardarUpdate1MouseClicked
 
     private void jdGuardarUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jdGuardarUpdateActionPerformed
         //guardar cambios de las cosas a cambiar
-        if (!banderaEncontrar) {
-            JOptionPane.showMessageDialog(jdUpdate, "Debe buscar un registro antes de modificarlo");
-            return;
-        }
-
-        // Detener edici√≥n en la tabla
-        if (jtUpdateTable.isEditing()) {
-            jtUpdateTable.getCellEditor().stopCellEditing();
-        }
-
-        // Obtener datos editados
-        Object[] rowData = new Object[jtUpdateTable.getColumnCount()];
-        for (int col = 0; col < rowData.length; col++) {
-            if (jtUpdateTable.getValueAt(0, col).toString().isEmpty()) {
-                jtUpdateTable.setValueAt(null, 0, col);
-            }
-            rowData[col] = jtUpdateTable.getValueAt(0, col);
-        }
-
         try {
-            int pk = Integer.parseInt(jTextField_Update_BuscarPk.getText());
-            BD.updateTabla(jlListaTablas.getSelectedValue(), pk, rowData);
-            jdUpdate.setVisible(false);
-        } catch (SQLException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        JOptionPane.showMessageDialog(jdUpdate, "Registro actualizado correctamente en " + jlListaTablas.getSelectedValue());
+            if (!banderaEncontrar) {
+                JOptionPane.showMessageDialog(jdUpdate, "Debe buscar un registro antes de modificarlo");
+                return;
+            }
 
-        DefaultTableModel model = (DefaultTableModel) jtUpdateTable.getModel();
-        model.setRowCount(0);
-        jtUpdateTable.setModel(model);
-        jTextField_Update_BuscarPk.setText("");
+            // Detener ediciÛn en la tabla
+            if (jtUpdateTable.isEditing()) {
+                jtUpdateTable.getCellEditor().stopCellEditing();
+            }
+
+            // Obtener datos editados
+            int colCount = jtUpdateTable.getColumnCount();
+            Object[] rowData = new Object[jtUpdateTable.getColumnCount()];
+            for (int col = 0; col < rowData.length; col++) {
+                if (jtUpdateTable.getValueAt(0, col).toString().isEmpty()) {
+                    jtUpdateTable.setValueAt(null, 0, col);
+                }
+                rowData[col] = jtUpdateTable.getValueAt(0, col);
+            }
+            Object[] rowData1 = new Object[jtUpdateTable.getColumnCount() - 1];
+            for (int i = 1; i < rowData.length; i++) {
+                rowData1[i - 1] = rowData[i];
+            }
+            if (!validateDataTypes(jlListaTablas.getSelectedValue(), rowData1)) {
+                return;
+            }
+            try {
+                int pk = Integer.parseInt(jTextField_Update_BuscarPk.getText());
+                BD.updateTabla(jlListaTablas.getSelectedValue(), pk, rowData);
+                jdUpdate.setVisible(false);
+            } catch (SQLException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            JOptionPane.showMessageDialog(jdUpdate, "Registro actualizado correctamente en " + jlListaTablas.getSelectedValue());
+
+            DefaultTableModel model = (DefaultTableModel) jtUpdateTable.getModel();
+            model.setRowCount(0);
+            jtUpdateTable.setModel(model);
+            jTextField_Update_BuscarPk.setText("");
+            //GEN-LAST:event_jdGuardarUpdateActionPerformed
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error en update");
+        }
+
     }//GEN-LAST:event_jdGuardarUpdateActionPerformed
 
     private void jButton_Update_RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Update_RegresarActionPerformed
@@ -3655,8 +3662,8 @@ public class Main extends javax.swing.JFrame {
 
     private void jTabbedPane_stockStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane_stockStateChanged
         //valor total del inventario
-        int pesta√±a = jTabbedPane_stock.getSelectedIndex();
-        if (pesta√±a == 2) {
+        int pestaÒa = jTabbedPane_stock.getSelectedIndex();
+        if (pestaÒa == 2) {
             Object[][] tabla = BD.obtenerValorTotalInventario();
             mostrarDatosEnTabla(tabla, jTable_stock2);
         }
@@ -3730,7 +3737,7 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         String orden = jRadioButton_ana_asctasa1.isSelected() ? "asc" : "desc";
         String estado = tfEstadoPedido.getText();
-        if (estado.equalsIgnoreCase("Pendiente") || estado.equalsIgnoreCase("Entregado") || estado.equalsIgnoreCase("En preparacion") || estado.equalsIgnoreCase("")) {
+        if (estado.equalsIgnoreCase("Pendiente") || estado.equalsIgnoreCase("Entregado") || estado.equalsIgnoreCase("En preparacion") || estado.equalsIgnoreCase("Cancelado") || estado.equalsIgnoreCase("")) {
             Object[][] tabla = BD.obtenerPedidosPorEstado(estado, orden);
             mostrarDatosEnTabla(tabla, jtEP);
         } else {
@@ -3778,8 +3785,7 @@ public class Main extends javax.swing.JFrame {
     private void jButton_tabnum1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_tabnum1ActionPerformed
         // TODO add your handling code here:
         String orden = jRadioButton_ana_ascnum2.isSelected() ? "asc" : "desc";
-        String producto = tfNameCategoria.getText();
-        Object[][] tabla = BD.obtenerCategoriasMasRentables(producto, orden);
+        Object[][] tabla = BD.obtenerCategoriasMasRentables(orden);
         mostrarDatosEnTabla(tabla, jtCategoria);
     }//GEN-LAST:event_jButton_tabnum1ActionPerformed
 
@@ -3993,7 +3999,7 @@ public class Main extends javax.swing.JFrame {
         cal2.setTime(date2);
         int month2 = cal2.get(Calendar.MONTH) + 1;
         int year2 = cal2.get(Calendar.YEAR);
-
+        System.out.println(month1 + " " + year1 + " " + month2 + " " + year2 + " " + selected);
         Object[][] tabla = BD.obtenerComparativaPeriodos(month1 + "", year1 + "", month2 + "", year2 + "", selected);
         Object[] columnNames = tabla[0];
 
@@ -4039,26 +4045,36 @@ public class Main extends javax.swing.JFrame {
                 case 0:
                     if (jTable_venta_1.getRowCount() > 0) {
                         exportar(jTable_venta_1);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Esta Vacia la tabla");
                     }
                     break;
                 case 1:
                     if (jTable_venta_2.getRowCount() > 0) {
                         exportar(jTable_venta_2);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Esta Vacia la tabla");
                     }
                     break;
                 case 2:
                     if (jTable_venta_4.getRowCount() > 0) {
                         exportar(jTable_venta_4);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Esta Vacia la tabla");
                     }
                     break;
                 case 3:
                     if (jTable_venta_5.getRowCount() > 0) {
                         exportar(jTable_venta_5);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Esta Vacia la tabla");
                     }
                     break;
                 case 4:
                     if (jTable_venta_3.getRowCount() > 0) {
                         exportar(jTable_venta_3);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Esta Vacia la tabla");
                     }
                     break;
                 default:
@@ -4076,21 +4092,29 @@ public class Main extends javax.swing.JFrame {
                 case 0:
                     if (jTable_stock4.getRowCount() > 0) {
                         exportar(jTable_stock4);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Esta Vacia la tabla");
                     }
                     break;
                 case 1:
                     if (jTable_stock3.getRowCount() > 0) {
                         exportar(jTable_stock3);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Esta Vacia la tabla");
                     }
                     break;
                 case 2:
                     if (jTable_stock2.getRowCount() > 0) {
                         exportar(jTable_stock2);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Esta Vacia la tabla");
                     }
                     break;
                 case 3:
                     if (jTable_stock1.getRowCount() > 0) {
                         exportar(jTable_stock1);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Esta Vacia la tabla");
                     }
                     break;
                 default:
@@ -4108,21 +4132,29 @@ public class Main extends javax.swing.JFrame {
                 case 0:
                     if (jTable_ana_tasa.getRowCount() > 0) {
                         exportar(jTable_ana_tasa);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Esta Vacia la tabla");
                     }
                     break;
                 case 1:
                     if (Jtable_ana_num.getRowCount() > 0) {
                         exportar(Jtable_ana_num);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Esta Vacia la tabla");
                     }
                     break;
                 case 2:
                     if (jTable_ana_prom.getRowCount() > 0) {
                         exportar(jTable_ana_prom);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Esta Vacia la tabla");
                     }
                     break;
                 case 3:
                     if (jTable_ana_ventas.getRowCount() > 0) {
                         exportar(jTable_ana_ventas);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Esta Vacia la tabla");
                     }
                     break;
                 default:
@@ -4140,21 +4172,29 @@ public class Main extends javax.swing.JFrame {
                 case 0:
                     if (jtEP.getRowCount() > 0) {
                         exportar(jtEP);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Esta Vacia la tabla");
                     }
                     break;
                 case 1:
                     if (jtTiempo.getRowCount() > 0) {
                         exportar(jtTiempo);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Esta Vacia la tabla");
                     }
                     break;
                 case 2:
                     if (jtRutas.getRowCount() > 0) {
                         exportar(jtRutas);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Esta Vacia la tabla");
                     }
                     break;
                 case 3:
                     if (jtRetrasados.getRowCount() > 0) {
                         exportar(jtRetrasados);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Esta Vacia la tabla");
                     }
                     break;
                 default:
@@ -4172,21 +4212,29 @@ public class Main extends javax.swing.JFrame {
                 case 0:
                     if (jtGanancia.getRowCount() > 0) {
                         exportar(jtGanancia);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Esta Vacia la tabla");
                     }
                     break;
                 case 1:
                     if (jtCategoria.getRowCount() > 0) {
                         exportar(jtCategoria);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Esta Vacia la tabla");
                     }
                     break;
                 case 2:
                     if (jtAnalisis.getRowCount() > 0) {
                         exportar(jtAnalisis);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Esta Vacia la tabla");
                     }
                     break;
                 case 3:
                     if (jtProductosMejor.getRowCount() > 0) {
                         exportar(jtProductosMejor);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Esta Vacia la tabla");
                     }
                     break;
                 default:
@@ -4358,7 +4406,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
@@ -4558,7 +4605,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField tfAnalisis;
     private javax.swing.JTextField tfEstadoPedido;
     private javax.swing.JTextField tfName2Producto;
-    private javax.swing.JTextField tfNameCategoria;
     private javax.swing.JTextField tfNameProduct;
     private javax.swing.JTextField tfPKbusqueda;
     // End of variables declaration//GEN-END:variables
@@ -4626,7 +4672,7 @@ public class Main extends javax.swing.JFrame {
                             return true;
                         }
                     }
-                    JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido");
+                    JOptionPane.showMessageDialog(null, "Error en campo " + count + " validar valor introducido");
                     return false;
 
                 case "proveedores":
@@ -4654,7 +4700,7 @@ public class Main extends javax.swing.JFrame {
                             }
                         }
                     }
-                    JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido");
+                    JOptionPane.showMessageDialog(null, "Error en campo " + count + " validar valor introducido");
                     return false;
 
                 case "productos":
@@ -4686,16 +4732,16 @@ public class Main extends javax.swing.JFrame {
                                                             try {
                                                                 LocalDate inputDate = LocalDate.parse(dateStr, formatter);
                                                                 if (inputDate.isAfter(LocalDate.now())) {
-                                                                    JOptionPane.showMessageDialog(jdCreate, "Error en campo 10: La fecha no puede ser del futuro.");
+                                                                    JOptionPane.showMessageDialog(null, "Error en campo 10: La fecha no puede ser del futuro.");
                                                                     return false;
                                                                 }
                                                             } catch (Exception e) {
-                                                                JOptionPane.showMessageDialog(jdCreate, "Error en campo 10: La fecha es invalida.");
+                                                                JOptionPane.showMessageDialog(null, "Error en campo 10: La fecha es invalida.");
                                                                 return false;
                                                             }
 
                                                         } else {
-                                                            JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido\n Formato: YYYY-MM-DD");
+                                                            JOptionPane.showMessageDialog(null, "Error en campo " + count + " validar valor introducido\n Formato: YYYY-MM-DD");
                                                             return false;
                                                         }
                                                         return true;
@@ -4708,7 +4754,7 @@ public class Main extends javax.swing.JFrame {
                             }
                         }
                     }
-                    JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido");
+                    JOptionPane.showMessageDialog(null, "Error en campo " + count + " validar valor introducido");
                     return false;
 
                 case "inventario":
@@ -4723,35 +4769,36 @@ public class Main extends javax.swing.JFrame {
                                 count++;
                                 if (data[3] instanceof String && data[3].toString().length() < 16) {
                                     count++;
-                                    if (data[4].toString().matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$")) {
+                                    if (data[5].toString().matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$")) {
                                         count++;
-                                        if (data[5].toString().matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$")) {
+                                        if (data[4].toString().matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$")) {
                                             // Validar que la fecha no sea del futuro
-                                            String dateStr = data[5].toString();
+                                            String dateStr = data[4].toString();
                                             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                                             try {
                                                 LocalDate inputDate = LocalDate.parse(dateStr, formatter);
                                                 if (inputDate.isAfter(LocalDate.now())) {
-                                                    JOptionPane.showMessageDialog(jdCreate, "Error en campo 10: La fecha no puede ser del futuro.");
+                                                    JOptionPane.showMessageDialog(null, "Error en campo 5: La fecha no puede ser del futuro.");
                                                     return false;
                                                 }
+                                                return true;
                                             } catch (Exception e) {
-                                                JOptionPane.showMessageDialog(jdCreate, "Error en campo 10: La fecha es invalida.");
+                                                JOptionPane.showMessageDialog(null, "Error en campo 5: La fecha es invalida.");
                                                 return false;
                                             }
                                         } else {
-                                            JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido\n Formato: YYYY-MM-DD");
+                                            JOptionPane.showMessageDialog(null, "Error en campo " + count + " validar valor introducido\n Formato: YYYY-MM-DD");
                                             return false;
                                         }
                                     } else {
-                                        JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido\n Formato: YYYY-MM-DD");
+                                        JOptionPane.showMessageDialog(null, "Error en campo " + count + " validar valor introducido\n Formato: YYYY-MM-DD");
                                         return false;
                                     }
                                 }
                             }
                         }
                     }
-                    JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido");
+                    JOptionPane.showMessageDialog(null, "Error en campo " + count + " validar valor introducido");
                     return false;
 
                 case "clientes":
@@ -4780,11 +4827,11 @@ public class Main extends javax.swing.JFrame {
                                                         try {
                                                             LocalDate inputDate = LocalDate.parse(dateStr, formatter);
                                                             if (inputDate.isAfter(LocalDate.now())) {
-                                                                JOptionPane.showMessageDialog(jdCreate, "Error en campo 10: La fecha no puede ser del futuro.");
+                                                                JOptionPane.showMessageDialog(null, "Error en campo 10: La fecha no puede ser del futuro.");
                                                                 return false;
                                                             }
                                                         } catch (Exception e) {
-                                                            JOptionPane.showMessageDialog(jdCreate, "Error en campo 10: La fecha es invalida.");
+                                                            JOptionPane.showMessageDialog(null, "Error en campo 10: La fecha es invalida.");
                                                             return false;
                                                         }
                                                         count++;
@@ -4795,7 +4842,7 @@ public class Main extends javax.swing.JFrame {
                                                             }
                                                         }
                                                     } else {
-                                                        JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido\n Formato: YYYY-MM-DD");
+                                                        JOptionPane.showMessageDialog(null, "Error en campo " + count + " validar valor introducido\n Formato: YYYY-MM-DD");
                                                         return false;
                                                     }
                                                 }
@@ -4805,7 +4852,7 @@ public class Main extends javax.swing.JFrame {
                                 }
                             }
                         }
-                        JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido");
+                        JOptionPane.showMessageDialog(null, "Error en campo " + count + " validar valor introducido");
                         return false;
                     }
 
@@ -4830,11 +4877,12 @@ public class Main extends javax.swing.JFrame {
                                             try {
                                                 LocalDate inputDate = LocalDate.parse(dateStr, formatter);
                                                 if (inputDate.isAfter(LocalDate.now())) {
-                                                    JOptionPane.showMessageDialog(jdCreate, "Error en campo 6: La fecha no puede ser del futuro.");
+                                                    JOptionPane.showMessageDialog(null, "Error en campo 6: La fecha no puede ser del futuro.");
                                                     return false;
                                                 }
+                                                return true;
                                             } catch (Exception e) {
-                                                JOptionPane.showMessageDialog(jdCreate, "Error en campo 6: La fecha es invalida.");
+                                                JOptionPane.showMessageDialog(null, "Error en campo 6: La fecha es invalida.");
                                                 return false;
                                             }
                                         }
@@ -4843,7 +4891,7 @@ public class Main extends javax.swing.JFrame {
                             }
                         }
                     }
-                    JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido");
+                    JOptionPane.showMessageDialog(null, "Error en campo " + count + " validar valor introducido");
                     return false;
                 case "rutas":
                     if (data.length != 4) {
@@ -4861,7 +4909,7 @@ public class Main extends javax.swing.JFrame {
                             }
                         }
                     }
-                    JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido");
+                    JOptionPane.showMessageDialog(null, "Error en campo " + count + " validar valor introducido");
                     return false;
                 case "pedidos":
                     if (data.length != 9) {
@@ -4869,13 +4917,13 @@ public class Main extends javax.swing.JFrame {
                     }
 
                     if (!data[0].toString().matches("^[+-]?\\d+$")) {
-                        JOptionPane.showMessageDialog(jdCreate, "Error en campo 1: ID no v√°lido.");
+                        JOptionPane.showMessageDialog(null, "Error en campo 1: ID no v·lido.");
                         return false;
                     }
                     count++;
 
                     if (!data[1].toString().matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])\\s(0\\d|1\\d|2[0-3]):[0-5]\\d:[0-5]\\d$")) {
-                        JOptionPane.showMessageDialog(jdCreate, "Error en campo 2: Formato inv√°lido (esperado: YYYY-MM-DD HH:mm:ss)");
+                        JOptionPane.showMessageDialog(null, "Error en campo 2: Formato inv·lido (esperado: YYYY-MM-DD HH:mm:ss)");
                         return false;
                     }
 
@@ -4885,24 +4933,24 @@ public class Main extends javax.swing.JFrame {
                         DateTimeFormatter formatterT = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
                         LocalDateTime inputDateTime = LocalDateTime.parse(dateStrT, formatterT);
                         if (inputDateTime.isAfter(LocalDateTime.now())) {
-                            JOptionPane.showMessageDialog(jdCreate, "Error en campo 2: La fecha no puede ser del futuro.");
+                            JOptionPane.showMessageDialog(null, "Error en campo 2: La fecha no puede ser del futuro.");
                             return false;
                         }
                     } catch (DateTimeParseException e) {
-                        JOptionPane.showMessageDialog(jdCreate, "Error en campo 2: Formato de fecha y hora inv√°lido.");
+                        JOptionPane.showMessageDialog(null, "Error en campo 2: Formato de fecha y hora inv·lido.");
                         return false;
                     }
                     count++;
 
                     if (!data[2].toString().matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$")) {
-                        JOptionPane.showMessageDialog(jdCreate, "Error en campo 3: Formato inv√°lido (esperado: YYYY-MM-DD)");
+                        JOptionPane.showMessageDialog(null, "Error en campo 3: Formato inv·lido (esperado: YYYY-MM-DD)");
                         return false;
                     }
                     count++;
 
                     if (data[3] != null) {
                         if (!data[3].toString().matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$")) {
-                            JOptionPane.showMessageDialog(jdCreate, "Error en campo 4: Formato inv√°lido (esperado: YYYY-MM-DD)");
+                            JOptionPane.showMessageDialog(null, "Error en campo 4: Formato inv·lido (esperado: YYYY-MM-DD)");
                             return false;
                         }
 
@@ -4912,42 +4960,42 @@ public class Main extends javax.swing.JFrame {
                             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                             LocalDate inputDate = LocalDate.parse(dateStr, formatter);
                             if (inputDate.isAfter(LocalDate.now())) {
-                                JOptionPane.showMessageDialog(jdCreate, "Error en campo 4: La fecha no puede ser del futuro.");
+                                JOptionPane.showMessageDialog(null, "Error en campo 4: La fecha no puede ser del futuro.");
                                 return false;
                             }
                         } catch (DateTimeParseException e) {
-                            JOptionPane.showMessageDialog(jdCreate, "Error en campo 4: Formato de fecha inv√°lido.");
+                            JOptionPane.showMessageDialog(null, "Error en campo 4: Formato de fecha inv·lido.");
                             return false;
                         }
                     }
                     count++;
 
                     if (!data[4].toString().matches("^[+-]?\\d+$")) {
-                        JOptionPane.showMessageDialog(jdCreate, "Error en campo 5: Id no valido");
+                        JOptionPane.showMessageDialog(null, "Error en campo 5: Id no valido");
                         return false;
                     }
                     count++;
 
                     if (!data[5].toString().matches("^[+-]?\\d+$")) {
-                        JOptionPane.showMessageDialog(jdCreate, "Error en campo 6: Debe ser un n√∫mero entero.");
+                        JOptionPane.showMessageDialog(null, "Error en campo 6: Debe ser un n˙mero entero.");
                         return false;
                     }
                     count++;
 
                     if (!(data[6] instanceof String) || data[6].toString().length() >= 26) {
-                        JOptionPane.showMessageDialog(jdCreate, "Error en campo 7: Texto demasiado largo.");
+                        JOptionPane.showMessageDialog(null, "Error en campo 7: Texto demasiado largo.");
                         return false;
                     }
                     count++;
 
                     if (data[7] != null && (!(data[7] instanceof String) || data[7].toString().length() >= 26)) {
-                        JOptionPane.showMessageDialog(jdCreate, "Error en campo 8: Texto demasiado largo.");
+                        JOptionPane.showMessageDialog(null, "Error en campo 8: Texto demasiado largo.");
                         return false;
                     }
                     count++;
 
                     if (!data[8].toString().matches("^[+-]?\\d+(\\.\\d+)?$")) {
-                        JOptionPane.showMessageDialog(jdCreate, "Error en campo 9: Debe ser un n√∫mero decimal v√°lido.");
+                        JOptionPane.showMessageDialog(null, "Error en campo 9: Debe ser un n˙mero decimal v·lido.");
                         return false;
                     }
                     return true;
@@ -4974,7 +5022,7 @@ public class Main extends javax.swing.JFrame {
                             }
                         }
                     }
-                    JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido");
+                    JOptionPane.showMessageDialog(null, "Error en campo " + count + " validar valor introducido");
                     return false;
 
                 case "pagos":
@@ -4990,11 +5038,11 @@ public class Main extends javax.swing.JFrame {
                             try {
                                 LocalDate inputDate = LocalDate.parse(dateStr, formatter);
                                 if (inputDate.isAfter(LocalDate.now())) {
-                                    JOptionPane.showMessageDialog(jdCreate, "Error en campo 2: La fecha no puede ser del futuro.");
+                                    JOptionPane.showMessageDialog(null, "Error en campo 2: La fecha no puede ser del futuro.");
                                     return false;
                                 }
                             } catch (Exception e) {
-                                JOptionPane.showMessageDialog(jdCreate, "Error en campo 2: La fecha es invalida.");
+                                JOptionPane.showMessageDialog(null, "Error en campo 2: La fecha es invalida.");
                                 return false;
                             }
                         }
@@ -5010,11 +5058,11 @@ public class Main extends javax.swing.JFrame {
                                 }
                             }
                         } else {
-                            JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido\n Formato: YYYY-MM-DD");
+                            JOptionPane.showMessageDialog(null, "Error en campo " + count + " validar valor introducido\n Formato: YYYY-MM-DD");
                             return false;
                         }
                     }
-                    JOptionPane.showMessageDialog(jdCreate, "Error en campo " + count + " validar valor introducido");
+                    JOptionPane.showMessageDialog(null, "Error en campo " + count + " validar valor introducido");
                     return false;
 
                 default:
@@ -5044,6 +5092,7 @@ public class Main extends javax.swing.JFrame {
     }
 
     public void exportar(JTable t) throws IOException {
+
         JFileChooser chooser = new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos de Excel", "xls");
         chooser.setFileFilter(filter);

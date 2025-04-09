@@ -230,6 +230,7 @@
                         <StringItem index="9" value="rutas"/>
                       </StringArray>
                     </Property>
+                    <Property name="selectionMode" type="int" value="0"/>
                     <Property name="debugGraphicsOptions" type="int" value="-1"/>
                     <Property name="selectionBackground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="0" red="0" type="rgb"/>
@@ -4112,13 +4113,8 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jScrollPane21" alignment="0" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel43" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
-                                          <Component id="tfNameCategoria" alignment="0" min="-2" pref="237" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane21" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
@@ -4128,7 +4124,7 @@
                                           </Group>
                                           <Component id="jLabel44" alignment="0" min="-2" pref="243" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="341" max="-2" attributes="0"/>
                                       <Component id="jButton_tabnum1" min="-2" pref="153" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -4143,13 +4139,9 @@
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="jButton_tabnum1" alignment="1" min="-2" pref="39" max="-2" attributes="0"/>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jLabel43" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel44" alignment="0" pref="22" max="32767" attributes="0"/>
-                                      </Group>
+                                      <Component id="jLabel44" min="-2" pref="22" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="tfNameCategoria" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jRadioButton_ana_ascnum2" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jRadioButton_ana_descnum2" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
@@ -4157,19 +4149,12 @@
                               </Group>
                               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                               <Component id="jScrollPane21" min="-2" pref="207" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="9" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JLabel" name="jLabel43">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Nombre de categor&#xed;a:"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="tfNameCategoria">
-                    </Component>
                     <Component class="javax.swing.JLabel" name="jLabel44">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Seleccione un orden:"/>
