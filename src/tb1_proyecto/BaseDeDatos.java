@@ -25,9 +25,9 @@ import javax.swing.table.DefaultTableModel;
 public class BaseDeDatos {
 
     ///BASE DE DATOS
-    String url = "jdbc:mysql://localhost:3306/proyecto"; //[maquillaje = nombre de su base de datos]
+    String url = "jdbc:mysql://localhost:3306/maquillaje"; //[maquillaje = nombre de su base de datos]
     String usuario = "root";  // Usuario de MySQL [USUARIO PROPIO]
-    String contraseña = "Deltarune22";
+    String contraseña = "juanjonoob69";
     String driver = "com.mysql.cj.jdbc.Driver";
     Connection con;
 
@@ -242,10 +242,98 @@ public class BaseDeDatos {
         }
         return null;
     }
+    
+    
+    
+    public Object[] conseguir_tupla_combobox(String tabla, String valorPK, String atributo) throws SQLException {
+        String consulta="";
+        if (atributo.contains("id")) {
+            consulta = "SELECT * FROM " + tabla + " WHERE " + atributo + " = ?";
+        }else{
+        if (tabla.equals("pedidos")) {
+            tabla="Pedidos_Con_Nombre_Cliente"; 
+        }else if(tabla.equals("inventario")){
+            tabla="Inventario_Con_Nombre_Producto";
+        }else if(tabla.equals("detalles_pedido")){
+            tabla="Detalles_Pedidos_Con_Nombre_Producto";
+        }else if(tabla.equals("pagos")){
+            tabla="Pago_Con_Nombre_Cliente";
+        }
+            consulta = "SELECT * FROM " + tabla + " WHERE " + atributo + " like ?";
+        }
+        try (PreparedStatement pstmt = con.prepareStatement(consulta)) {
+            if (atributo.contains("id")) {
+                pstmt.setString(1, valorPK);
+            } else {
+                pstmt.setString(1, "%" + valorPK + "%");
+            }
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                ResultSetMetaData metaData = (ResultSetMetaData) rs.getMetaData();
+                int columnCount = metaData.getColumnCount();
+                Object[] values = new Object[columnCount];
+
+                for (int i = 1; i <= columnCount; i++) {
+                    values[i - 1] = rs.getObject(i);
+                }
+
+                return values;
+            }
+        }
+        return null;
+    }
 
     public Object[][] tuplas_select_cinco(String tabla) throws SQLException {
         // Query to get first 5 rows (syntax may vary by database)
         String consulta = "SELECT * FROM " + tabla + " LIMIT 5";
+        ResultSetMetaData meta = null;
+        try (PreparedStatement pstmt = con.prepareStatement(consulta); ResultSet rs = pstmt.executeQuery()) {
+
+            meta = (ResultSetMetaData) rs.getMetaData();
+            int columnCount = meta.getColumnCount();
+            System.out.println(columnCount);
+            List<Object[]> rows = new ArrayList<>();
+            Set<String> columnasMonetarias = Set.of(
+                    "limite_credito", "precio_unitario", "subtotal", "monto", "total", "precio_compra", "precio_venta_sugerido"
+            );
+
+            while (rs.next() && rows.size() < 5) {
+                Object[] values = new Object[columnCount];
+
+                for (int i = 1; i <= columnCount; i++) {
+                    Object valor = rs.getObject(i);
+                    String columnName = meta.getColumnLabel(i).toLowerCase();
+                    if (columnasMonetarias.contains(columnName) && valor != null) {
+                        values[i - 1] = valor.toString() + " LPS";
+                    } else {
+                        values[i - 1] = valor;
+                    }
+
+                    System.out.println("Column " + i + ": " + values[i - 1]); // Debug each value
+                }
+
+                rows.add(values);
+            }
+
+            return rows.toArray(new Object[0][]);
+        }
+    }
+    
+    public Object[][] tuplas_select_cincocombobox(String tabla, String valorPK, String atributo) throws SQLException {
+        // Query to get first 5 rows (syntax may vary by database)
+        
+        if (tabla.equals("pedidos")) {
+            tabla="Pedidos_Con_Nombre_Cliente"; 
+        }else if(tabla.equals("inventario")){
+            tabla="Inventario_Con_Nombre_Producto";
+        }else if(tabla.equals("detalles_pedido")){
+            tabla="Detalles_Pedidos_Con_Nombre_Producto";
+        }else if(tabla.equals("pagos")){
+            tabla="Pago_Con_Nombre_Cliente";
+        }
+        
+        String consulta = "SELECT * FROM " + tabla +" where " +atributo+ " like " + "\'%" + valorPK + "%\'" +  "LIMIT 5";
         ResultSetMetaData meta = null;
         try (PreparedStatement pstmt = con.prepareStatement(consulta); ResultSet rs = pstmt.executeQuery()) {
 
@@ -332,7 +420,7 @@ public class BaseDeDatos {
         } else {
             return MostrarReporteVista(
                     "select * from Ventas_Categoria "
-                    + "where nombre='" + categoria + "' "
+                    + "where nombre like \'%" + categoria + "%\' "
                     + "order by Ventas_Categoria " + orden);
         }
     }
@@ -349,7 +437,7 @@ public class BaseDeDatos {
         if (producto.isEmpty()) {
             return MostrarReporteVista("select * from rotacion_inventario order by rotacion " + orden);
         } else {
-            return MostrarReporteVista("select * from rotacion_inventario where nombre='" + producto + "' order by rotacion " + orden);
+            return MostrarReporteVista("select * from rotacion_inventario where nombre like \'%" + producto + "%\' order by rotacion " + orden);
         }
     }
 
@@ -366,7 +454,7 @@ public class BaseDeDatos {
         if (vendedor.isEmpty()) {
             return MostrarReporteVista("select * from ventas_vendedor order by ventas_vendedor " + orden);
         } else {
-            return MostrarReporteVista("select * from ventas_vendedor where nombre = '" + vendedor + "' order by ventas_vendedor " + orden);
+            return MostrarReporteVista("select * from ventas_vendedor where nombre like \'%" + vendedor + "%\' order by ventas_vendedor " + orden);
         }
     }
 
@@ -374,7 +462,7 @@ public class BaseDeDatos {
         if (vendedor.isEmpty()) {
             return MostrarReporteVista("select * from tasa_conversion order by radio_ventas " + orden);
         } else {
-            return MostrarReporteVista("select * from tasa_conversion where nombre = '" + vendedor + "'");
+            return MostrarReporteVista("select * from tasa_conversion where nombre like \'%" + vendedor + "%\' order by radio_ventas " + orden);
         }
     }
 
@@ -382,7 +470,7 @@ public class BaseDeDatos {
         if (vendedor.isEmpty()) {
             return MostrarReporteVista("select * from pedidos_procesados order by pedidos_procesados " + orden);
         } else {
-            return MostrarReporteVista("select * from pedidos_procesados where nombre = '" + vendedor + "'");
+            return MostrarReporteVista("select * from pedidos_procesados where nombre like \'%" + vendedor + "%\' order by pedidos_procesados " + orden);
         }
     }
 
@@ -390,7 +478,7 @@ public class BaseDeDatos {
         if (vendedor.isEmpty()) {
             return MostrarReporteVista("select * from ventas_promedio order by ventas_promedio " + orden);
         } else {
-            return MostrarReporteVista("select * from ventas_promedio where nombre = '" + vendedor + "'");
+            return MostrarReporteVista("select * from ventas_promedio where nombre like \'%" + vendedor + "%\' order by ventas_promedio " + orden);
         }
     }
 
@@ -399,7 +487,7 @@ public class BaseDeDatos {
         if (estado.isEmpty()) {
             return MostrarReporteVista("select * from Pedidos_Estado order by Pedidos " + orden);
         } else {
-            return MostrarReporteVista("select * from Pedidos_Estado where estado=\'" + estado + "\'");
+            return MostrarReporteVista("select * from Pedidos_Estado where estado like \'" + estado + "\'");
         }
     }
 
@@ -420,7 +508,7 @@ public class BaseDeDatos {
         if (producto.isEmpty()) {
             return MostrarReporteVista("select * from Ganancia_Producto order by Ganancia " + orden);
         } else {
-            return MostrarReporteVista("select * from Ganancia_Producto where nombre=\'" + producto + "\'");
+            return MostrarReporteVista("select * from Ganancia_Producto where nombre like \'%" + producto + "%\' order by Ganancia " + orden);
         }
     }
 
@@ -432,7 +520,7 @@ public class BaseDeDatos {
         if (producto.isEmpty()) {
             return MostrarReporteVista("select * from Analisis_Descuentos order by Ganancia_Teorica " + orden);
         } else {
-            return MostrarReporteVista("select * from Analisis_Descuentos where producto=\'" + producto + "\' order by Ganancia_Teorica " + orden);
+            return MostrarReporteVista("select * from Analisis_Descuentos where producto like \'%" + producto + "%\' order by Ganancia_Teorica " + orden);
         }
     }
 
@@ -440,7 +528,7 @@ public class BaseDeDatos {
         if (producto.isEmpty()) {
             return MostrarReporteVista("select * from Relacion_Ventas_Rentabilidad order by ganancia_total " + orden);
         } else {
-            return MostrarReporteVista("select * from Relacion_Ventas_Rentabilidad where producto=\'" + producto + "\'");
+            return MostrarReporteVista("select * from Relacion_Ventas_Rentabilidad where producto like \'%" + producto + "%\' order by ganancia_total " + orden);
         }
     }
 

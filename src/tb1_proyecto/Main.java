@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultCellEditor;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -122,6 +123,7 @@ public class Main extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         jdReadTable = new javax.swing.JTable();
         jLabel10 = new javax.swing.JLabel();
+        cb_atributo = new javax.swing.JComboBox<>();
         jdDelete = new javax.swing.JDialog();
         jPanel9 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
@@ -461,6 +463,11 @@ public class Main extends javax.swing.JFrame {
         jlListaTablas.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         jlListaTablas.setSelectionBackground(new java.awt.Color(0, 0, 0));
         jlListaTablas.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        jlListaTablas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jlListaTablasMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jlListaTablas);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -822,27 +829,34 @@ public class Main extends javax.swing.JFrame {
             .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cb_atributo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE))
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
-                        .addComponent(jTextField_read, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(92, 92, 92))
+                        .addComponent(jTextField_read, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addComponent(jdGuardarUpdate1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(205, 205, 205))))
+                        .addGap(92, 92, 92)
+                        .addComponent(jdGuardarUpdate1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(92, 92, 92))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField_read, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jdGuardarUpdate1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField_read, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jdGuardarUpdate1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(62, 62, 62))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                        .addComponent(cb_atributo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(96, 96, 96)))
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3434,13 +3448,42 @@ public class Main extends javax.swing.JFrame {
                     model.addRow(tupla);
                 }
             }
-            if (jTextField_read.getText().trim().matches("^[+]?\\d+$")) {
+            if (jTextField_read.getText().trim().matches("^[+]?\\d+$")&&cb_atributo.getSelectedIndex()==0) {
+                String tabla = jlListaTablas.getSelectedValue();
+                model.setColumnIdentifiers(attributos(tabla));
                 Object[] tupla = BD.conseguir_tupla(jlListaTablas.getSelectedValue(), jTextField_read.getText().trim());
+                //Object[] tupla = BD.conseguir_tupla_combobox(jlListaTablas.getSelectedValue(), jTextField_read.getText().trim(), cb_atributo.getSelectedItem().toString());
                 if (tupla == null) {
-                    JOptionPane.showMessageDialog(jdRead, "Llave" + jTextField_read.getText().trim() + " no se encontro");
+                    JOptionPane.showMessageDialog(jdRead, "Llave " + jTextField_read.getText().trim() + " no se encontro");
                 } else {
                     model.addRow(tupla);
                 }
+                type = 1;
+                
+            }
+            if(cb_atributo.getSelectedIndex()>0){
+                String cambio=jlListaTablas.getSelectedValue();
+                if (cambio.equals("pedidos")) {
+                    cambio="Pedidos_Con_Nombre_Cliente"; 
+                }else if(cambio.equals("inventario")){
+                    cambio="Inventario_Con_Nombre_Producto";
+                }else if(cambio.equals("detalles_pedido")){
+                    cambio="Detalles_Pedidos_Con_Nombre_Producto";
+                }else if(cambio.equals("pagos")){
+                    cambio="Pago_Con_Nombre_Cliente";
+                }
+                System.out.println(cambio);
+                model = new DefaultTableModel();
+                model.setColumnIdentifiers(attributos(cambio));
+                System.out.println(attributos(cambio).toString());
+                Object[][] tuplas;
+                tuplas = BD.tuplas_select_cincocombobox(jlListaTablas.getSelectedValue(), jTextField_read.getText().trim(), cb_atributo.getSelectedItem().toString());
+                for (Object[] tupla : tuplas) {
+                    model.addRow(tupla);
+                }
+                if (tuplas.length == 0) {
+                    JOptionPane.showMessageDialog(jdRead, "Valor " + jTextField_read.getText().trim() + " no se encontro");
+                } 
                 type = 1;
             }
             jdReadTable.setModel(model);
@@ -4154,6 +4197,33 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton_Excel_5MouseClicked
 
+    private void jlListaTablasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlListaTablasMouseClicked
+        // TODO add your handling code here:
+        if (!jlListaTablas.getSelectedValue().equals(null)) {
+            DefaultComboBoxModel modelo=new DefaultComboBoxModel();
+            cb_atributo.setModel(modelo);
+            String tabla=jlListaTablas.getSelectedValue();
+            Object[] atributos=attributos(tabla);
+            if (tabla.equals("clientes")||tabla.equals("pagos")||tabla.equals("pedidos")) {
+                cb_atributo.addItem(atributos[0].toString());
+                cb_atributo.addItem("nombre_tienda");
+            }else{
+                cb_atributo.addItem(atributos[0].toString());
+                cb_atributo.addItem("nombre");
+            }
+            if (tabla.equals("proveedores")) {
+                cb_atributo.addItem("pais_origen");
+            }
+            if (tabla.equals("clientes")) {
+                cb_atributo.addItem("tipo_tienda");
+            }
+            if (tabla.equals("empleados")) {
+                cb_atributo.addItem("apellido");
+                cb_atributo.addItem("puesto");
+            }
+        }
+    }//GEN-LAST:event_jlListaTablasMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -4203,6 +4273,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup7;
     private javax.swing.ButtonGroup buttonGroup8;
     private javax.swing.ButtonGroup buttonGroup9;
+    private javax.swing.JComboBox<String> cb_atributo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton_Analisis_Regresar;
     private javax.swing.JButton jButton_Analisis_Regresar1;
@@ -4523,6 +4594,14 @@ public class Main extends javax.swing.JFrame {
                 new Object[]{"id_proveedor", "nombre", "pais_origen", "contacto_nombre", "contacto_email", "contacto_telefono", "direccion", "tiempo_entrega_promedio"};
             case "rutas" ->
                 new Object[]{"id_ruta", "nombre", "zona_geografica", "id_empleado_responsable", "dia_semana"};
+            case "pedidos_con_nombre_cliente" ->
+                new Object[]{"id_pedido", "nombre_tienda", "fecha_pedido", "fecha_entrega_real", "estado","total"};
+            case "detalles_pedidos_con_nombre_producto" ->
+                new Object[]{"id_detalle", "id_pedido", "nombre", "cantidad", "precio_unitario", "descuento", "subtotal"};
+            case "inventario_con_nombre_producto" ->
+                new Object[]{"id_inventario", "nombre", "cantidad_disponible", "ubicacion_almacen", "lote","fecha_ingreso", "fecha_caducidad"};
+            case "pago_con_nombre_cliente" ->
+                new Object[]{"id_pago", "nombre_tienda", "fecha_pago", "monto", "metodo_pago", "referencia", "estado"};
             default ->
                 new Object[0];
         };
