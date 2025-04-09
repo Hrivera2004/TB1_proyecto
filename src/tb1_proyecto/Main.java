@@ -4717,7 +4717,7 @@ public class Main extends javax.swing.JFrame {
                     }
                     if (data[0].toString().matches("^[+]?\\d+$")) {
                         count++;
-                        if (data[1].toString().matches("^[+]?\\d+$")) {
+                        if (data[1].toString().trim().matches("^[+]?\\d+$")) {
                             count++;
                             if (data[2] instanceof String && data[2].toString().length() < 11) {
                                 count++;
@@ -4766,7 +4766,7 @@ public class Main extends javax.swing.JFrame {
                                 count++;
                                 if (data[3].toString().trim().matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$") && data[3].toString().length() < 71) {
                                     count++;
-                                    if (data[4] instanceof String && data[4].toString().length() < 26) {
+                                    if (data[4].toString().trim().matches("^[+]?\\d+$") && data[4].toString().length() < 26) {
                                         count++;
                                         if (data[5] instanceof String && data[5].toString().length() < 71) {
                                             count++;
@@ -4774,7 +4774,7 @@ public class Main extends javax.swing.JFrame {
                                                 count++;
                                                 if (data[7] instanceof String && data[7].toString().length() < 11) {
                                                     count++;
-                                                    if (data[8].toString().matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$")) {
+                                                    if (data[8].toString().trim().matches("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$")) {
                                                         String dateStr = data[8].toString();
                                                         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                                                         try {

@@ -27,7 +27,7 @@ public class BaseDeDatos {
     ///BASE DE DATOS
     String url = "jdbc:mysql://localhost:3306/maquillaje"; //[maquillaje = nombre de su base de datos]
     String usuario = "root";  // Usuario de MySQL [USUARIO PROPIO]
-    String contraseña = "juanjonoob69";
+    String contraseña = "Hect@R1213";
     String driver = "com.mysql.cj.jdbc.Driver";
     Connection con;
 
